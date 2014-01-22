@@ -29,7 +29,7 @@
 <p>There are several related pages that you might want to browse:</p>
 
 <ul>
-<li><span class="text-danger">Establishing a connection</span></li>
+<li><a href="/todo">Logging on to a server</a></li>
 </ul>
 
 
@@ -43,11 +43,13 @@
 
 <ul>
 <li><strong>string</strong>: A length prefixed UTF-8 string, with a VLQ specifying the length.</li>
-<li><strong>[u]int##</strong>: An integer, in big-endian order. "u" indicates unsiged and ## is the length, in bits. Examples: uint8, int32, etc.</li>
-<li><strong>[s]VLQ</strong>: <a href="https://en.wikipedia.org/wiki/Variable-length_quantity">Variable length quantity</a>. "s" indicates signed.</li>
-<li><strong>bytearray</strong>: Much the same as a string, but not treated as such. Prefixed with a VLQ, the data following is the number of bytes.</li>
-<li><strong>Variant</strong>: A <a href="">variant</a> class. Its structure is documented <a href="#">here</a>.</li>
-<li><strong>byte[n]</strong>: A sequence of n bytes.</li>
+<li><strong>(u)int##</strong>: An integer, in big-endian order. "u" indicates unsiged and ## is the length, in bits. Examples: uint8, int32, etc.</li>
+<li><strong>(s)VLQ</strong>: <a href="https://en.wikipedia.org/wiki/Variable-length_quantity">Variable length quantity</a>. "s" indicates signed.</li>
+<li><strong>(u)int##[]</strong>: An integer array. Arrays without a fixed length are prefixed with a VLQ indicating their length. Examples: uint8[], int32[10]</li>
+<li><strong>bool</strong>: A boolean value (true or false). Encoded as a uint8, 0 indicates false and 1 indicates true.</li>
+<li><strong>float</strong>: 32-bit IEEE 754 floating point number.</li>
+<li><strong>double</strong>: 64-bit IEEE 754 floating point number.</li>
+<li><strong>Variant</strong>: Data serialization format. See <a href="/todo">Variant</a> for more information.</li>
 </ul>
 
 
@@ -277,7 +279,7 @@
     <tbody>
         <tr><td rowspan="9">0x07</td></tr>
         <tr>
-            <td>bytearray</td>
+            <td>uint8[]</td>
             <td>Asset Digest</td>
             <td>The digest of the asset folder. Used to detect if any mods are active.</td>
         </tr>
@@ -292,7 +294,7 @@
             <td>If true, a UUID follows. If false, it does not.</td>
         </tr>
         <tr>
-            <td>byte[16]</td>
+            <td>uint8[16]</td>
             <td>UUID</td>
             <td>The UUID is read sequentially as the hex dump of the bytes read. This only exists if the UUID flag is true.</td>
         </tr>
@@ -307,7 +309,7 @@
             <td>The species of the player.</td>
         </tr>
         <tr>
-            <td>bytearray</td>
+            <td>uint8[]</td>
             <td>Shipworld</td>
             <td>The player's .shipworld file, without the file header information.</td>
         </tr>
@@ -447,7 +449,7 @@
     <tbody>
         <tr><td rowspan="2">0x0C</td></tr>
         <tr>
-            <td>bytearray</td>
+            <td>uint8[]</td>
             <td>Client Context Data</td>
             <td>Myriad formats.</td>
         </tr>
@@ -471,28 +473,33 @@
     <tbody>
         <tr><td rowspan="6">0x0D</td></tr>
         <tr>
-            <td>bytearray</td>
+            <td>uint8[]</td>
             <td>Planet</td>
             <td>The world data. WRLDB format with headers stripped.</td>
         </tr>
         <tr>
-            <td>bytearray</td>
+            <td>uint8[]</td>
             <td>World structure</td>
             <td>The world structure. TODO.</td>
         </tr>
         <tr>
-            <td>bytearray</td>
+            <td>uint8[]</td>
             <td>Sky</td>
             <td>Data relating to the sky. TODO.</td>
         </tr>
         <tr>
-            <td>bytearray</td>
+            <td>uint8[]</td>
             <td>Server Weather</td>
             <td>Data relating to the server weather. TODO.</td>
         </tr>
         <tr>
-            <td>float, float</td>
-            <td>Spawn X, Spawn Y</td>
+            <td>float</td>
+            <td>Spawn X</td>
+            <td>The spawn coordinates for the planet. Currently locked in server-side.</td>
+        </tr>
+        <tr>
+            <td>float</td>
+            <td>Spawn Y</td>
             <td>The spawn coordinates for the planet. Currently locked in server-side.</td>
         </tr>
     </tbody>

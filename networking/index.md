@@ -11,7 +11,7 @@ The Starbound networking protocol is based on TCP. The current protocol version 
 
 There are several related pages that you might want to browse:
 
-* <span class="text-danger">Establishing a connection</span>
+* [Logging on to a server](/todo)
 
 ## Data Types
 
@@ -61,7 +61,6 @@ Each packet is wrapped in this basic package:
 </table>
 
 ## Packets
-
 
 ### 0x01: Protocol Version {% include server-to-client.md %}
 

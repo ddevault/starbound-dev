@@ -14,3 +14,7 @@ h3 .glyphicon-resize-horizontal {
 table.packet tbody tr:first-child td {
   vertical-align: middle;
 }
+
+a[href="/todo"] {
+  color: rgb(169, 68, 66);
+}
