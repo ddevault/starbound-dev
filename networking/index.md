@@ -20,7 +20,7 @@ There are several related pages that you might want to browse:
     type is introduced, then document it here.
 -->
 
-* **pstr**: A length prefixed string, with a VLQ specifying the length.
+* **string**: A length prefixed UTF-8 string, with a VLQ specifying the length.
 * **[u]int##**: An integer, in big-endian order. "u" indicates unsiged and ## is the length, in bits. Examples: uint8, int32, etc.
 * **[s]VLQ**: [Variable length quantity](https://en.wikipedia.org/wiki/Variable-length_quantity). "s" indicates signed.
 
