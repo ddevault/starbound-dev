@@ -153,7 +153,7 @@ This packet provides a salt and round count for password verification. It is fol
         <tr>
             <td>string</td>
             <td>Claim Message</td>
-            <td>/td>
+            <td></td>
         </tr>
         <tr>
             <td>string</td>
