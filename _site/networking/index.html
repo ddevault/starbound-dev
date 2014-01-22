@@ -7,7 +7,7 @@
         <link href="/static/css/stylesheet.css" rel="stylesheet">
         <title>Starbound Networking</title>
     </head>
-    <body data-spy="scroll" data-target="#packet-nav">
+    <body >
         <div class="container">
             <nav class="navbar navbar-default navbar-fixed-top">
                 <div class="container">
@@ -41,12 +41,10 @@
 -->
 
 
-<p>Note that I don't actually know the data types, I'm filling this with bullshit for others to fix later.</p>
-
 <ul>
-<li><strong>string</strong>: UTF-8, prefixed with a uint8 indicating length.</li>
+<li><strong>pstr</strong>: A length prefixed string, with a VLQ specifying the length.</li>
 <li><strong>[u]int##</strong>: An integer, in big-endian order. "u" indicates unsiged and ## is the length, in bits. Examples: uint8, int32, etc.</li>
-<li><strong>[u]vlq</strong>: <a href="https://en.wikipedia.org/wiki/Variable-length_quantity">Variable length quantity</a>. "u" indicates unsigned.</li>
+<li><strong>[s]VLQ</strong>: <a href="https://en.wikipedia.org/wiki/Variable-length_quantity">Variable length quantity</a>. "s" indicates signed.</li>
 </ul>
 
 
@@ -69,9 +67,9 @@
             <td>The packet identifier. The payload format changes based on this value.</td>
         </tr>
         <tr>
-            <td>vrq</td>
+            <td>sVLQ</td>
             <td>Payload length</td>
-            <td>The length of the payload, in bytes.</td>
+            <td>The length of the payload, in bytes. If it is negative, this indicates the payload is compressed using zlib.</td>
         </tr>
         <tr>
             <td>Varies</td>
@@ -153,6 +151,1536 @@
 
 
 <h3>0x03: Server Disconnect <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-arrow-left"></span><strong>Server</strong></span></h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x04: Handshake Challenge</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x05:Chat Received</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x06: Universe Time Update</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x07: Client Connect</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x08: Client Disconnect</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x09: Handshake Response</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x0a: Warp Command</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x0b: Chat Sent</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x0c: Client Context Update</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x0d: World Start</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x0e: World Stop</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x0f: Tile Array Update</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x10: Tile Update</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x11: Tile Liquid Update</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x12: Tile Damage Update</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x13: Tile Modification Failure</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x14: Give Item</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x15: Unknown</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x16: Swap in Container Result</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x17: Environment Update</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x18: Entity Interact Result</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x19: Modify Tile List</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x1a: Damage Tile</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x1b: Damage Tile Group</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x1c: Request Drop</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x1d: Spawn Entity</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x1e: Entity Interact</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x1f: Connect Wire</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x20: Disconnect All Wires</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x21: Open Container</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x22: Close Container</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x23: Swap in Container</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x24: Item Apply in Container</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x25: Start Crafting in Container</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x26: Stop Crafting in Container</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x27: Burn Container</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x28: Clear Container</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x29: World Update</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x2a: Entity Create</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x2b: Entity Update</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x2c: Entity Destroy</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x2d: Damage Notification</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x2e: Status Effect Request</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x2f: Update World Properties</h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x30: Heartbeat</h3>
 
 <p>This packet does blah blah blah.</p>
 
