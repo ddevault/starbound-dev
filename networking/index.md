@@ -105,7 +105,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x02</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -138,7 +138,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x03</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -171,7 +171,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x04</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -204,7 +204,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x05</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -237,7 +237,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x06</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -270,7 +270,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x07</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -303,7 +303,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x08</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -336,7 +336,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x09</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -355,7 +355,7 @@ This packet does blah blah blah.
     </tbody>
 </table>
 
-### 0x0a: Warp Command
+### 0x0A: Warp Command
 
 This packet does blah blah blah.
 
@@ -369,7 +369,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x0A</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -388,7 +388,7 @@ This packet does blah blah blah.
     </tbody>
 </table>
 
-### 0x0b: Chat Sent
+### 0x0B: Chat Sent
 
 This packet does blah blah blah.
 
@@ -402,7 +402,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x0B</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -421,7 +421,7 @@ This packet does blah blah blah.
     </tbody>
 </table>
 
-### 0x0c: Client Context Update
+### 0x0C: Client Context Update
 
 This packet does blah blah blah.
 
@@ -435,7 +435,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x0C</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -454,7 +454,7 @@ This packet does blah blah blah.
     </tbody>
 </table>
 
-### 0x0d: World Start
+### 0x0D: World Start
 
 This packet does blah blah blah.
 
@@ -468,7 +468,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x0D</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -487,7 +487,7 @@ This packet does blah blah blah.
     </tbody>
 </table>
 
-### 0x0e: World Stop
+### 0x0E: World Stop
 
 This packet does blah blah blah.
 
@@ -501,7 +501,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x0E</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -520,7 +520,7 @@ This packet does blah blah blah.
     </tbody>
 </table>
 
-### 0x0f: Tile Array Update
+### 0x0F: Tile Array Update
 
 This packet does blah blah blah.
 
@@ -534,7 +534,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x0F</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -567,7 +567,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x10</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -600,7 +600,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x11</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -633,7 +633,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x12</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -666,7 +666,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x13</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -699,7 +699,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x14</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -732,7 +732,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x15</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -765,7 +765,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x16</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -798,7 +798,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x17</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -831,7 +831,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x18</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -864,7 +864,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x19</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -883,7 +883,7 @@ This packet does blah blah blah.
     </tbody>
 </table>
 
-### 0x1a: Damage Tile
+### 0x1A: Damage Tile
 
 This packet does blah blah blah.
 
@@ -897,7 +897,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x1A</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -916,7 +916,7 @@ This packet does blah blah blah.
     </tbody>
 </table>
 
-### 0x1b: Damage Tile Group
+### 0x1B: Damage Tile Group
 
 This packet does blah blah blah.
 
@@ -930,7 +930,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x1B</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -949,7 +949,7 @@ This packet does blah blah blah.
     </tbody>
 </table>
 
-### 0x1c: Request Drop
+### 0x1C: Request Drop
 
 This packet does blah blah blah.
 
@@ -963,7 +963,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x1C</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -982,7 +982,7 @@ This packet does blah blah blah.
     </tbody>
 </table>
 
-### 0x1d: Spawn Entity
+### 0x1D: Spawn Entity
 
 This packet does blah blah blah.
 
@@ -996,7 +996,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x1D</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -1015,7 +1015,7 @@ This packet does blah blah blah.
     </tbody>
 </table>
 
-### 0x1e: Entity Interact
+### 0x1E: Entity Interact
 
 This packet does blah blah blah.
 
@@ -1029,7 +1029,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x1E</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -1048,7 +1048,7 @@ This packet does blah blah blah.
     </tbody>
 </table>
 
-### 0x1f: Connect Wire
+### 0x1F: Connect Wire
 
 This packet does blah blah blah.
 
@@ -1062,7 +1062,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x1F</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -1095,7 +1095,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x20</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -1128,7 +1128,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x21</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -1161,7 +1161,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x22</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -1194,7 +1194,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x23</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -1227,7 +1227,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x24</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -1260,7 +1260,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x25</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -1293,7 +1293,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x26</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -1326,7 +1326,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x27</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -1359,7 +1359,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x28</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -1392,7 +1392,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x29</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -1411,7 +1411,7 @@ This packet does blah blah blah.
     </tbody>
 </table>
 
-### 0x2a: Entity Create
+### 0x2A: Entity Create
 
 This packet does blah blah blah.
 
@@ -1425,7 +1425,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x2A</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -1444,7 +1444,7 @@ This packet does blah blah blah.
     </tbody>
 </table>
 
-### 0x2b: Entity Update
+### 0x2B: Entity Update
 
 This packet does blah blah blah.
 
@@ -1458,7 +1458,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x2B</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -1477,7 +1477,7 @@ This packet does blah blah blah.
     </tbody>
 </table>
 
-### 0x2c: Entity Destroy
+### 0x2C: Entity Destroy
 
 This packet does blah blah blah.
 
@@ -1491,7 +1491,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x2C</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -1510,7 +1510,7 @@ This packet does blah blah blah.
     </tbody>
 </table>
 
-### 0x2d: Damage Notification
+### 0x2D: Damage Notification
 
 This packet does blah blah blah.
 
@@ -1524,7 +1524,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x2D</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -1543,7 +1543,7 @@ This packet does blah blah blah.
     </tbody>
 </table>
 
-### 0x2e: Status Effect Request
+### 0x2E: Status Effect Request
 
 This packet does blah blah blah.
 
@@ -1557,7 +1557,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x2E</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -1576,7 +1576,7 @@ This packet does blah blah blah.
     </tbody>
 </table>
 
-### 0x2f: Update World Properties
+### 0x2F: Update World Properties
 
 This packet does blah blah blah.
 
@@ -1590,7 +1590,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x2F</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
@@ -1623,7 +1623,7 @@ This packet does blah blah blah.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x30</td></tr>
         <tr>
             <td>uint8</td>
             <td>Example</td>
