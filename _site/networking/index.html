@@ -42,9 +42,12 @@
 
 
 <ul>
-<li><strong>pstr</strong>: A length prefixed string, with a VLQ specifying the length.</li>
+<li><strong>string</strong>: A length prefixed UTF-8 string, with a VLQ specifying the length.</li>
 <li><strong>[u]int##</strong>: An integer, in big-endian order. "u" indicates unsiged and ## is the length, in bits. Examples: uint8, int32, etc.</li>
 <li><strong>[s]VLQ</strong>: <a href="https://en.wikipedia.org/wiki/Variable-length_quantity">Variable length quantity</a>. "s" indicates signed.</li>
+<li><strong>bytearray</strong>: Much the same as a string, but not treated as such. Prefixed with a VLQ, the data following is the number of bytes.</li>
+<li><strong>Variant</strong>: A <a href="">variant</a> class. Its structure is documented <a href="#">here</a>.</li>
+<li><strong>byte[n]</strong>: A sequence of n bytes.</li>
 </ul>
 
 
@@ -82,9 +85,9 @@
 
 <h2>Packets</h2>
 
-<h3>0x01: Protocol Version <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-resize-horizontal"></span><strong>Server</strong></span></h3>
+<h3>0x01: Protocol Version <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-arrow-left"></span><strong>Server</strong></span></h3>
 
-<p>This packet does blah blah blah.</p>
+<p>This packet is the first packet sent. It contains the server version.</p>
 
 <table class="table packet">
     <thead>
@@ -96,29 +99,19 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="2">0x01</td></tr>
         <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+            <td>VLQ</td>
+            <td>Protocol version number</td>
+            <td>A number that provides the protocol version. Changes with each release.</td>
         </tr>
     </tbody>
 </table>
 
 
-<h3>0x02: Connection Response <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-arrow-right"></span><strong>Server</strong></span></h3>
+<h3>0x02: Connection Response <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-arrow-left"></span><strong>Server</strong></span></h3>
 
-<p>This packet does blah blah blah.</p>
+<p>This packet tells the client whether their connection attempt is successful or if they have been rejected. It is the final packet sent in the handshake process.</p>
 
 <table class="table packet">
     <thead>
@@ -130,21 +123,21 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x02</td></tr>
         <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+            <td>bool</td>
+            <td>Success</td>
+            <td>Whether or not the connection was successful.</td>
         </tr>
         <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+            <td>VLQ</td>
+            <td>Client ID</td>
+            <td>The identifier for the connecting client.</td>
         </tr>
         <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+            <td>string</td>
+            <td>Rejection reason</td>
+            <td>A string signifying why the user was rejected. This will be present even if the connection was successful, but will simply have a length prefix of 0.</td>
         </tr>
     </tbody>
 </table>
@@ -152,7 +145,7 @@
 
 <h3>0x03: Server Disconnect <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-arrow-left"></span><strong>Server</strong></span></h3>
 
-<p>This packet does blah blah blah.</p>
+<p>This packet is used to notify the client of a disconnect.</p>
 
 <table class="table packet">
     <thead>
@@ -164,29 +157,48 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="1">0x06</td><td colspan=3 align='center'>TODO</td></tr>
+    </tbody>
+</table>
+
+
+<h3>0x04: Handshake Challenge <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-arrow-left"></span><strong>Server</strong></span></h3>
+
+<p>This packet provides a salt and round count for password verification. It is followed by Handshake Response.</p>
+
+<table class="table packet">
+    <thead>
         <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x04</td></tr>
+        <tr>
+            <td>string</td>
+            <td>Claim Message</td>
+            <td>/td>
         </tr>
         <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+            <td>string</td>
+            <td>Salt</td>
+            <td>The salt to use when hashing the password.</td>
         </tr>
         <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+            <td>int32</td>
+            <td>Round count</td>
+            <td>The number of hashing rounds to perform on the password. Default: 5000</td>
         </tr>
     </tbody>
 </table>
 
 
-<h3>0x04: Handshake Challenge</h3>
+<h3>0x05:Chat Received <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-arrow-left"></span><strong>Server</strong></span></h3>
 
-<p>This packet does blah blah blah.</p>
+<p>This packet is sent to a client with a chat message.</p>
 
 <table class="table packet">
     <thead>
@@ -198,29 +210,39 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="6">0x05</td></tr>
         <tr>
             <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+            <td>Channel</td>
+            <td>The chat channel.</td>
         </tr>
         <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+            <td>string</td>
+            <td>World</td>
+            <td>The world the sender is on.</td>
         </tr>
         <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+            <td>uint32</td>
+            <td>Client ID</td>
+            <td>The sender's client ID.</td>
+        </tr>
+        <tr>
+            <td>string</td>
+            <td>Name</td>
+            <td>The sender's name in game.</td>
+        </tr>
+        <tr>
+            <td>string</td>
+            <td>Name</td>
+            <td>The chat message.</td>
         </tr>
     </tbody>
 </table>
 
 
-<h3>0x05:Chat Received</h3>
+<h3>0x06: Universe Time Update <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-arrow-left"></span><strong>Server</strong></span></h3>
 
-<p>This packet does blah blah blah.</p>
+<p>This packet is sent from the server to update the current time.</p>
 
 <table class="table packet">
     <thead>
@@ -232,29 +254,75 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="1">0x06</td><td colspan=3 align='center'>TODO</td></tr>
+    </tbody>
+</table>
+
+
+<h3>0x07: Client Connect <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-arrow-right"></span><strong>Server</strong></span></h3>
+
+<p><strong>Compressed</strong></p>
+
+<p>This packet is sent in the handshake process immediately after 0x01, Protocol Version. It contains all relevant data about the connecting player.</p>
+
+<table class="table packet">
+    <thead>
         <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="9">0x07</td></tr>
+        <tr>
+            <td>bytearray</td>
+            <td>Asset Digest</td>
+            <td>The digest of the asset folder. Used to detect if any mods are active.</td>
         </tr>
         <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+            <td>Variant</td>
+            <td>Claim</td>
+            <td>Unknown, presumably relates to key exchange. Seems to be unused in the current version.</td>
         </tr>
         <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+            <td>bool</td>
+            <td>UUID flag</td>
+            <td>If true, a UUID follows. If false, it does not.</td>
+        </tr>
+        <tr>
+            <td>byte[16]</td>
+            <td>UUID</td>
+            <td>The UUID is read sequentially as the hex dump of the bytes read. This only exists if the UUID flag is true.</td>
+        </tr>
+        <tr>
+            <td>string</td>
+            <td>Player name</td>
+            <td>The name of the player.</td>
+        </tr>
+        <tr>
+            <td>string</td>
+            <td>Species</td>
+            <td>The species of the player.</td>
+        </tr>
+        <tr>
+            <td>bytearray</td>
+            <td>Shipworld</td>
+            <td>The player's .shipworld file, without the file header information.</td>
+        </tr>
+        <tr>
+            <td>string</td>
+            <td>Account</td>
+            <td>The player's account name. Currently unused.</td>
         </tr>
     </tbody>
 </table>
 
 
-<h3>0x06: Universe Time Update</h3>
+<h3>0x08: Client Disconnect <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-arrow-right"></span><strong>Server</strong></span></h3>
 
-<p>This packet does blah blah blah.</p>
+<p>This packet is sent when the client disconnects.</p>
 
 <table class="table packet">
     <thead>
@@ -266,29 +334,43 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="1">0x08</td><td colspan=3 align='center'>TODO</td></tr>
+    </tbody>
+</table>
+
+
+<h3>0x09: Handshake Response <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-arrow-right"></span><strong>Server</strong></span></h3>
+
+<p>This packet is the response to 0x04: Handshake Challenge,</p>
+
+<table class="table packet">
+    <thead>
         <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="3">0x09</td></tr>
+        <tr>
+            <td>string</td>
+            <td>Claim Response</td>
+            <td>A response to the claim message. Currently unused.</td>
         </tr>
         <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+            <td>string</td>
+            <td>Password hash</td>
+            <td>The hash of the entered password, salted with the information in 0x04.</td>
         </tr>
     </tbody>
 </table>
 
 
-<h3>0x07: Client Connect</h3>
+<h3>0x0A: Warp Command <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-resize-horizontal"></span><strong>Server</strong></span></h3>
 
-<p>This packet does blah blah blah.</p>
+<p>This packet is sent when the player warps/is warped to a planet or ship.</p>
 
 <table class="table packet">
     <thead>
@@ -300,29 +382,29 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x0A</td></tr>
         <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+            <td>uint32</td>
+            <td>Warp type</td>
+            <td>The type of warp being done. TODO: The enum of the four types.</td>
         </tr>
         <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+            <td>world_coordinate</td>
+            <td>World coordinates</td>
+            <td>The world coordinates being warped to. Currently only used in Warp to Spawn.</td>
         </tr>
         <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+            <td>string</td>
+            <td>Player name</td>
+            <td>The name of the player being warped to. Currently only used to beam to other ships.</td>
         </tr>
     </tbody>
 </table>
 
 
-<h3>0x08: Client Disconnect</h3>
+<h3>0x0B: Chat Sent <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-arrow-right"></span><strong>Server</strong></span></h3>
 
-<p>This packet does blah blah blah.</p>
+<p>This packet is sent from the client whenever a message is sent in the chat window.</p>
 
 <table class="table packet">
     <thead>
@@ -334,29 +416,24 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="3">0x0B</td></tr>
         <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+            <td>string</td>
+            <td>Message</td>
+            <td>The chat message being sent.</td>
         </tr>
         <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+            <td>unit8</td>
+            <td>Channel</td>
+            <td>The current chat channel.</td>
         </tr>
     </tbody>
 </table>
 
 
-<h3>0x09: Handshake Response</h3>
+<h3>0x0C: Client Context Update</h3>
 
-<p>This packet does blah blah blah.</p>
+<p>This packet has yet to be fully understood.</p>
 
 <table class="table packet">
     <thead>
@@ -368,29 +445,19 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="2">0x0C</td></tr>
         <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+            <td>bytearray</td>
+            <td>Client Context Data</td>
+            <td>Myriad formats.</td>
         </tr>
     </tbody>
 </table>
 
 
-<h3>0x0a: Warp Command</h3>
+<h3>0x0D: World Start <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-arrow-left"></span><strong>Server</strong></span></h3>
 
-<p>This packet does blah blah blah.</p>
+<p>This packet is sent to the client when a world thread has been started on the server.</p>
 
 <table class="table packet">
     <thead>
@@ -402,29 +469,39 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="6">0x0D</td></tr>
         <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+            <td>bytearray</td>
+            <td>Planet</td>
+            <td>The world data. WRLDB format with headers stripped.</td>
         </tr>
         <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+            <td>bytearray</td>
+            <td>World structure</td>
+            <td>The world structure. TODO.</td>
         </tr>
         <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+            <td>bytearray</td>
+            <td>Sky</td>
+            <td>Data relating to the sky. TODO.</td>
+        </tr>
+        <tr>
+            <td>bytearray</td>
+            <td>Server Weather</td>
+            <td>Data relating to the server weather. TODO.</td>
+        </tr>
+        <tr>
+            <td>float, float</td>
+            <td>Spawn X, Spawn Y</td>
+            <td>The spawn coordinates for the planet. Currently locked in server-side.</td>
         </tr>
     </tbody>
 </table>
 
 
-<h3>0x0b: Chat Sent</h3>
+<h3>0x0E: World Stop <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-arrow-left"></span><strong>Server</strong></span></h3>
 
-<p>This packet does blah blah blah.</p>
+<p>Called when a world thread is stopped.</p>
 
 <table class="table packet">
     <thead>
@@ -436,63 +513,19 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="2">0x0E</td></tr>
         <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+            <td>string</td>
+            <td>Status</td>
+            <td>The status of the world.</td>
         </tr>
     </tbody>
 </table>
 
 
-<h3>0x0c: Client Context Update</h3>
+<h3>0x0F: Tile Array Update</h3>
 
-<p>This packet does blah blah blah.</p>
-
-<table class="table packet">
-    <thead>
-        <tr>
-            <th>Packet ID</th>
-            <th>Type</th>
-            <th>Name</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-    </tbody>
-</table>
-
-
-<h3>0x0d: World Start</h3>
-
-<p>This packet does blah blah blah.</p>
+<p>Called when an array of tiles has its properties updated.</p>
 
 <table class="table packet">
     <thead>
@@ -504,97 +537,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-    </tbody>
-</table>
-
-
-<h3>0x0e: World Stop</h3>
-
-<p>This packet does blah blah blah.</p>
-
-<table class="table packet">
-    <thead>
-        <tr>
-            <th>Packet ID</th>
-            <th>Type</th>
-            <th>Name</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-    </tbody>
-</table>
-
-
-<h3>0x0f: Tile Array Update</h3>
-
-<p>This packet does blah blah blah.</p>
-
-<table class="table packet">
-    <thead>
-        <tr>
-            <th>Packet ID</th>
-            <th>Type</th>
-            <th>Name</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
+        <tr><td rowspan="1">0x0F</td><td colspan=3 align='center'>TODO</td></tr>
     </tbody>
 </table>
 
 
 <h3>0x10: Tile Update</h3>
 
-<p>This packet does blah blah blah.</p>
+<p>This packet is called when a tile is updated.</p>
 
 <table class="table packet">
     <thead>
@@ -606,29 +556,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
+        <tr><td rowspan="1">0x10</td><td colspan=3 align='center'>TODO</td></tr>
     </tbody>
 </table>
 
 
 <h3>0x11: Tile Liquid Update</h3>
 
-<p>This packet does blah blah blah.</p>
+<p>This packet is sent when the liquid on a tile has changed position.</p>
 
 <table class="table packet">
     <thead>
@@ -640,29 +575,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
+        <tr><td rowspan="1">0x11</td><td colspan=3 align='center'>TODO</td></tr>
     </tbody>
 </table>
 
 
 <h3>0x12: Tile Damage Update</h3>
 
-<p>This packet does blah blah blah.</p>
+<p>This packet is sent when a tile is damaged.</p>
 
 <table class="table packet">
     <thead>
@@ -674,29 +594,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
+        <tr><td rowspan="1">0x12</td><td colspan=3 align='center'>TODO</td></tr>
     </tbody>
 </table>
 
 
-<h3>0x13: Tile Modification Failure</h3>
+<h3>0x13: Tile Modification Failure <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-arrow-left"></span><strong>Server</strong></span></h3>
 
-<p>This packet does blah blah blah.</p>
+<p>This packet is sent when a packet cannot successfully be modified.</p>
 
 <table class="table packet">
     <thead>
@@ -708,29 +613,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
+        <tr><td rowspan="1">0x13</td><td colspan=3 align='center'>TODO</td></tr>
     </tbody>
 </table>
 
 
-<h3>0x14: Give Item</h3>
+<h3>0x14: Give Item <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-arrow-left"></span><strong>Server</strong></span></h3>
 
-<p>This packet does blah blah blah.</p>
+<p>This packet attempts to give an item to a player. If the player's inventory is full, it will drop on the ground next to them.</p>
 
 <table class="table packet">
     <thead>
@@ -742,21 +632,21 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="4">0x14</td></tr>
         <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+            <td>string</td>
+            <td>Item name</td>
+            <td>The name of the item, from the ingame assets. Case sensitive.</td>
         </tr>
         <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+            <td>VLQ</td>
+            <td>Count</td>
+            <td>The number of items to give to the player. If greater than stackSize, it will give up to that amount.</td>
         </tr>
         <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+            <td>Variant</td>
+            <td>Item properties</td>
+            <td>A variant giving the item properties; for non-randomly generated/non-modified items it is just the String variant type.</td>
         </tr>
     </tbody>
 </table>
@@ -764,41 +654,11 @@
 
 <h3>0x15: Unknown</h3>
 
-<p>This packet does blah blah blah.</p>
-
-<table class="table packet">
-    <thead>
-        <tr>
-            <th>Packet ID</th>
-            <th>Type</th>
-            <th>Name</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-    </tbody>
-</table>
-
+<p>The purpose of this packet is totally unknown. It shows up infrequently/never.</p>
 
 <h3>0x16: Swap in Container Result</h3>
 
-<p>This packet does blah blah blah.</p>
+<p>This packet is sent whenever two items are swapped in an open container.</p>
 
 <table class="table packet">
     <thead>
@@ -810,29 +670,67 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="1">0x16</td><td colspan=3 align='center'>TODO</td></tr>
+    </tbody>
+</table>
+
+
+<h3>0x17: Environment Update <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-arrow-left"></span><strong>Server</strong></span></h3>
+
+<p>This packet is sent on an environment update.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="1">0x17</td><td colspan=3 align='center'>TODO</td></tr>
+    </tbody>
+</table>
+
+
+<h3>0x18: Entity Interact Result <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-arrow-left"></span><strong>Server</strong></span></h3>
+
+<p>This packet contains the results of an entity interaction.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x18</td></tr>
         <tr>
             <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+            <td>Client ID</td>
+            <td>The client attempting to interact.</td>
         </tr>
         <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+            <td>int8</td>
+            <td>Enitity ID</td>
+            <td>The ID of the entity that client is trying to interact with.</td>
         </tr>
         <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+            <td>Variant</td>
+            <td>Results</td>
+            <td>A variant describing the results of the interaction.</td>
         </tr>
     </tbody>
 </table>
 
 
-<h3>0x17: Environment Update</h3>
+<h3>0x19: Modify Tile List <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-arrow-right"></span><strong>Server</strong></span></h3>
 
-<p>This packet does blah blah blah.</p>
+<p>This packet contains a list of tiles and modifications to them.</p>
 
 <table class="table packet">
     <thead>
@@ -844,29 +742,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
+        <tr><td rowspan="1">0x19</td><td colspan=3 align='center'>TODO</td></tr>
     </tbody>
 </table>
 
 
-<h3>0x18: Entity Interact Result</h3>
+<h3>0x1A: Damage Tile <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-arrow-right"></span><strong>Server</strong></span></h3>
 
-<p>This packet does blah blah blah.</p>
+<p>This packet updates a tile's damage</p>
 
 <table class="table packet">
     <thead>
@@ -878,29 +761,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
+        <tr><td rowspan="1">0x1A</td><td colspan=3 align='center'>TODO</td></tr>
     </tbody>
 </table>
 
 
-<h3>0x19: Modify Tile List</h3>
+<h3>0x1B: Damage Tile Group <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-arrow-right"></span><strong>Server</strong></span></h3>
 
-<p>This packet does blah blah blah.</p>
+<p>This packet updates an entire tile group's damage.</p>
 
 <table class="table packet">
     <thead>
@@ -912,29 +780,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
+        <tr><td rowspan="1">0x1B</td><td colspan=3 align='center'>TODO</td></tr>
     </tbody>
 </table>
 
 
-<h3>0x1a: Damage Tile</h3>
+<h3>0x1C: Request Drop <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-arrow-left"></span><strong>Server</strong></span></h3>
 
-<p>This packet does blah blah blah.</p>
+<p>This packet requests an item drop (from a player's inventory?)</p>
 
 <table class="table packet">
     <thead>
@@ -946,29 +799,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
+        <tr><td rowspan="1">0x1C</td><td colspan=3 align='center'>TODO</td></tr>
     </tbody>
 </table>
 
 
-<h3>0x1b: Damage Tile Group</h3>
+<h3>0x1D: Spawn Entity <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-arrow-right"></span><strong>Server</strong></span></h3>
 
-<p>This packet does blah blah blah.</p>
+<p>This packet requests that the server spawn an entity.</p>
 
 <table class="table packet">
     <thead>
@@ -980,63 +818,32 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
+        <tr><td rowspan="1">0x1D</td><td colspan=3 align='center'>TODO</td></tr>
+</table>
+
+
+<h3>0x1E: Entity Interact <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-arrow-right"></span><strong>Server</strong></span></h3>
+
+<p>This packet is sent when a client attempts to interact with an entity.</p>
+
+<table class="table packet">
+    <thead>
         <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
         </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="1">0x1E</td><td colspan=3 align='center'>TODO</td></tr>
     </tbody>
 </table>
 
 
-<h3>0x1c: Request Drop</h3>
+<h3>0x1F: Connect Wire</h3>
 
-<p>This packet does blah blah blah.</p>
-
-<table class="table packet">
-    <thead>
-        <tr>
-            <th>Packet ID</th>
-            <th>Type</th>
-            <th>Name</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-    </tbody>
-</table>
-
-
-<h3>0x1d: Spawn Entity</h3>
-
-<p>This packet does blah blah blah.</p>
+<p>This packet connects a wire.</p>
 
 <table class="table packet">
     <thead>
@@ -1048,97 +855,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-    </tbody>
-</table>
-
-
-<h3>0x1e: Entity Interact</h3>
-
-<p>This packet does blah blah blah.</p>
-
-<table class="table packet">
-    <thead>
-        <tr>
-            <th>Packet ID</th>
-            <th>Type</th>
-            <th>Name</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-    </tbody>
-</table>
-
-
-<h3>0x1f: Connect Wire</h3>
-
-<p>This packet does blah blah blah.</p>
-
-<table class="table packet">
-    <thead>
-        <tr>
-            <th>Packet ID</th>
-            <th>Type</th>
-            <th>Name</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
+        <tr><td rowspan="1">0x1F</td><td colspan=3 align='center'>TODO</td></tr>
     </tbody>
 </table>
 
 
 <h3>0x20: Disconnect All Wires</h3>
 
-<p>This packet does blah blah blah.</p>
+<p>This packet disconnects all wires.</p>
 
 <table class="table packet">
     <thead>
@@ -1150,29 +874,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
+        <tr><td rowspan="1">0x20</td><td colspan=3 align='center'>TODO</td></tr>
     </tbody>
 </table>
 
 
-<h3>0x21: Open Container</h3>
+<h3>0x21: Open Container <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-arrow-right"></span><strong>Server</strong></span></h3>
 
-<p>This packet does blah blah blah.</p>
+<p>This packet opens a container.</p>
 
 <table class="table packet">
     <thead>
@@ -1184,29 +893,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
+        <tr><td rowspan="1">0x21</td><td colspan=3 align='center'>TODO</td></tr>
     </tbody>
 </table>
 
 
-<h3>0x22: Close Container</h3>
+<h3>0x22: Close Container <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-arrow-right"></span><strong>Server</strong></span></h3>
 
-<p>This packet does blah blah blah.</p>
+<p>This packet closes a container.</p>
 
 <table class="table packet">
     <thead>
@@ -1218,29 +912,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
+        <tr><td rowspan="1">0x22</td><td colspan=3 align='center'>TODO</td></tr>
     </tbody>
 </table>
 
 
-<h3>0x23: Swap in Container</h3>
+<h3>0x23: Swap in Container <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-arrow-right"></span><strong>Server</strong></span></h3>
 
-<p>This packet does blah blah blah.</p>
+<p>This packet swaps an item in a container.</p>
 
 <table class="table packet">
     <thead>
@@ -1252,29 +931,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
+        <tr><td rowspan="1">0x23</td><td colspan=3 align='center'>TODO</td></tr>
     </tbody>
 </table>
 
 
-<h3>0x24: Item Apply in Container</h3>
+<h3>0x24: Item Apply in Container <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-arrow-right"></span><strong>Server</strong></span></h3>
 
-<p>This packet does blah blah blah.</p>
+<p>This packet applies an item to another item in a container.</p>
 
 <table class="table packet">
     <thead>
@@ -1286,29 +950,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
+        <tr><td rowspan="1">0x24</td><td colspan=3 align='center'>TODO</td></tr>
     </tbody>
 </table>
 
 
-<h3>0x25: Start Crafting in Container</h3>
+<h3>0x25: Start Crafting in Container <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-arrow-right"></span><strong>Server</strong></span></h3>
 
-<p>This packet does blah blah blah.</p>
+<p>This packet initiates crafting on an item in a container (Used in pixel compressors and the like?)</p>
 
 <table class="table packet">
     <thead>
@@ -1320,29 +969,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
+        <tr><td rowspan="1">0x25</td><td colspan=3 align='center'>TODO</td></tr>
     </tbody>
 </table>
 
 
-<h3>0x26: Stop Crafting in Container</h3>
+<h3>0x26: Stop Crafting in Container <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-arrow-right"></span><strong>Server</strong></span></h3>
 
-<p>This packet does blah blah blah.</p>
+<p>This packet stops crafting on an item in a container</p>
 
 <table class="table packet">
     <thead>
@@ -1354,29 +988,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
+        <tr><td rowspan="1">0x26</td><td colspan=3 align='center'>TODO</td></tr>
     </tbody>
 </table>
 
 
-<h3>0x27: Burn Container</h3>
+<h3>0x27: Burn Container <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-arrow-right"></span><strong>Server</strong></span></h3>
 
-<p>This packet does blah blah blah.</p>
+<p>This packet burns a container.</p>
 
 <table class="table packet">
     <thead>
@@ -1388,29 +1007,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
+        <tr><td rowspan="1">0x27</td><td colspan=3 align='center'>TODO</td></tr>
     </tbody>
 </table>
 
 
-<h3>0x28: Clear Container</h3>
+<h3>0x28: Clear Container <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-arrow-right"></span><strong>Server</strong></span></h3>
 
-<p>This packet does blah blah blah.</p>
+<p>This packet clears a container.</p>
 
 <table class="table packet">
     <thead>
@@ -1422,29 +1026,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
+        <tr><td rowspan="1">0x28</td><td colspan=3 align='center'>TODO</td></tr>
     </tbody>
 </table>
 
 
-<h3>0x29: World Update</h3>
+<h3>0x29: World Update <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-arrow-left"></span><strong>Server</strong></span></h3>
 
-<p>This packet does blah blah blah.</p>
+<p>This packet contains a world update</p>
 
 <table class="table packet">
     <thead>
@@ -1456,29 +1045,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
+        <tr><td rowspan="1">0x29</td><td colspan=3 align='center'>TODO</td></tr>
     </tbody>
 </table>
 
 
-<h3>0x2a: Entity Create</h3>
+<h3>0x2A: Entity Create <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-arrow-left"></span><strong>Server</strong></span></h3>
 
-<p>This packet does blah blah blah.</p>
+<p>This packet creates an entity.</p>
 
 <table class="table packet">
     <thead>
@@ -1490,29 +1064,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
+        <tr><td rowspan="1">0x2A</td><td colspan=3 align='center'>TODO</td></tr>
     </tbody>
 </table>
 
 
-<h3>0x2b: Entity Update</h3>
+<h3>0x2B: Entity Update <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-arrow-left"></span><strong>Server</strong></span></h3>
 
-<p>This packet does blah blah blah.</p>
+<p>This packet updates an entity's properties.</p>
 
 <table class="table packet">
     <thead>
@@ -1524,29 +1083,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
+        <tr><td rowspan="1">0x2B</td><td colspan=3 align='center'>TODO</td></tr>
     </tbody>
 </table>
 
 
-<h3>0x2c: Entity Destroy</h3>
+<h3>0x2C: Entity Destroy <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-resize-horizontal"></span><strong>Server</strong></span></h3>
 
-<p>This packet does blah blah blah.</p>
+<p>This packet destroys an entity.</p>
 
 <table class="table packet">
     <thead>
@@ -1558,29 +1102,15 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
+        <tr><td rowspan="1">0x2C</td><td colspan=3 align='center'>TODO</td></tr>
+        
     </tbody>
 </table>
 
 
-<h3>0x2d: Damage Notification</h3>
+<h3>0x2D: Damage Notification <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-resize-horizontal"></span><strong>Server</strong></span></h3>
 
-<p>This packet does blah blah blah.</p>
+<p>This packet notifies the receiver of damage received.</p>
 
 <table class="table packet">
     <thead>
@@ -1592,29 +1122,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
+        <tr><td rowspan="1">0x2D</td><td colspan=3 align='center'>TODO</td></tr>
     </tbody>
 </table>
 
 
-<h3>0x2e: Status Effect Request</h3>
+<h3>0x2E: Status Effect Request <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-arrow-right"></span><strong>Server</strong></span></h3>
 
-<p>This packet does blah blah blah.</p>
+<p>This packet requests a status effect from the server.</p>
 
 <table class="table packet">
     <thead>
@@ -1626,29 +1141,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
+        <tr><td rowspan="1">0x2E</td><td colspan=3 align='center'>TODO</td></tr>
     </tbody>
 </table>
 
 
-<h3>0x2f: Update World Properties</h3>
+<h3>0x2F: Update World Properties <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-arrow-left"></span><strong>Server</strong></span></h3>
 
-<p>This packet does blah blah blah.</p>
+<p>This packet updates world properties.</p>
 
 <table class="table packet">
     <thead>
@@ -1660,29 +1160,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
+        <tr><td rowspan="1">0x2F</td><td colspan=3 align='center'>TODO</td></tr>
     </tbody>
 </table>
 
 
-<h3>0x30: Heartbeat</h3>
+<h3>0x30: Heartbeat <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-resize-horizontal"></span><strong>Server</strong></span></h3>
 
-<p>This packet does blah blah blah.</p>
+<p>This packet is periodically sent to inform the other party that the other end is still connected.</p>
 
 <table class="table packet">
     <thead>
@@ -1694,22 +1179,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">0x01</td></tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
-        <tr>
-            <td>uint8</td>
-            <td>Example</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-        </tr>
+        <tr><td rowspan="1">0x30</td><td colspan=3 align='center'>TODO</td></tr>
     </tbody>
 </table>
 
