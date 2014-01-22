@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/static/css/stylesheet.css" rel="stylesheet">
+        <title></title>
+    </head>
+    <body>
+        <div class="container">
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="/">Starbound-Dev</a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="/">Home</a></li>
+                        <li><a href="/networking.html">Networking</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <h1 id="starbound_networking">Starbound Networking</h1>
+
+<p>The Starbound networking protocol is based on TCP.</p>
+
+<h2 id="data_types">Data Types</h2>
+<!--
+    This section describes terminology that will see use for all packets below. If a new data
+    type is introduced, then document it here.
+-->
+<p>Note that I don’t actually know the data types, I’m filling this with bullshit for others to fix later.</p>
+
+<ul>
+<li><strong>string</strong>: UTF-8, prefixed with a uint8 indicating length.</li>
+
+<li><strong>[u]int##</strong>: An integer, in big-endian order. “u” indicates unsiged and ## is the length, in bits. Examples: uint8, int32, etc.</li>
+
+<li><strong>[u]vlq</strong>: <a href="https://en.wikipedia.org/wiki/Variable-length_quantity">Variable length quantity</a>. “u” indicates unsigned.</li>
+</ul>
+
+<h2 id="base_packet">Base Packet</h2>
+
+<p>Each packet is wrapped in this basic package:</p>
+<table class='table'>
+    <thead>
+        <tr>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>uint8</td>
+            <td>Packet ID</td>
+            <td>The packet identifier. The payload format changes based on this value.</td>
+        </tr>
+        <tr>
+            <td>vrq</td>
+            <td>Payload length</td>
+            <td>The length of the payload, in bytes.</td>
+        </tr>
+        <tr>
+            <td>Varies</td>
+            <td>Payload</td>
+            <td>Varies</td>
+        </tr>
+    </tbody>
+</table>
+        </div>
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <script src="/static/js/bootstrap.min.js"></script>
+    </body>
+</html>
