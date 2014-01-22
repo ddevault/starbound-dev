@@ -16,7 +16,15 @@
                     </div>
                     <ul class="nav navbar-nav">
                         <li><a href="/">Home</a></li>
-                        <li><a href="/networking">Networking</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Networking <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/networking">Network Protocol</a></li>
+                                <li><a href="/networking/data-types.html">Data Types</a></li>
+                                <li><a href="/todo">Logging into a server</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/todo">File Formats</a></li>
                     </ul>
                 </div>
             </nav>
@@ -30,37 +38,21 @@ the game and offer your discoveries by submitting a pull request to <a href="htt
 <p>This is <strong>not</strong> a hub for modding. If you're interested in modding, <a href="http://starbounder.org/Modding">start here</a>. This is for
 reverse engineering and creating entirely new software in the Starbound ecosystem.</p>
 
-<h2>Help wanted</h2>
-
-<ul>
-<li><a href="/networking">Networking</a>: A work-in-progress. Help decoding and documenting the protocol would be great.
-
-<ul>
-<li>More pages documeting the connection procedure and other info would be great.</li>
-</ul>
-</li>
-<li><a href="/todo">File Formats</a>: These pages need to be written</li>
-</ul>
-
-
 <h2>Projects</h2>
+
+<p>Want your project listed? Submit a pull request! Projects here should have some degree of usability, though they may not
+yet be complete.</p>
 
 <!-- 
     These lists are for open-source projects only.
     Maintain these lists first by supported Starbound version, and second alphabetically. Don't compete for room here.
     External links should have target="_blank"
+    Add categories when appropriate. I expect there to be a "server" and "client" section eventually, and probably a
+    "libraries" section. Make an "other" section if your stuff doesn't fit into the existing categories.
 -->
 
 
-<h3>Servers</h3>
-
-<p>None yet.</p>
-
-<h3>Clients</h3>
-
-<p>None yet.</p>
-
-<h3>Other</h3>
+<h3>Proxies</h3>
 
 <table class="table">
     <thead>

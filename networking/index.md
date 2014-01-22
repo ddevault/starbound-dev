@@ -5,29 +5,14 @@ title: Starbound Networking
 
 # Starbound Networking
 
-The Starbound networking protocol is based on TCP. The current protocol version is 1234.
+The Starbound networking protocol is based on TCP, and uses port 21025 by default. The current protocol version (Angry Koala) is 1234.
 
 ## Resources
 
 There are several related pages that you might want to browse:
 
+* [Data types](/networking/data-types.html)
 * [Logging on to a server](/todo)
-
-## Data Types
-
-<!--
-    This section describes terminology that will see use for all packets below. If a new data
-    type is introduced, then document it here.
--->
-
-* **string**: A length prefixed UTF-8 string, with a VLQ specifying the length.
-* **(u)int##**: An integer, in big-endian order. "u" indicates unsiged and ## is the length, in bits. Examples: uint8, int32, etc.
-* **(s)VLQ**: [Variable length quantity](https://en.wikipedia.org/wiki/Variable-length_quantity). "s" indicates signed.
-* **(u)int##[]**: An integer array. Arrays without a fixed length are prefixed with a VLQ indicating their length. Examples: uint8[], int32[10]
-* **bool**: A boolean value (true or false). Encoded as a uint8, 0 indicates false and 1 indicates true.
-* **float**: 32-bit IEEE 754 floating point number.
-* **double**: 64-bit IEEE 754 floating point number.
-* **Variant**: Data serialization format. See [Variant](/todo) for more information.
 
 ## Base Packet
 
@@ -922,7 +907,7 @@ This packet initiates crafting on an item in a container (Used in pixel compress
 
 ### 0x26: Stop Crafting in Container {% include client-to-server.md %}
 
-This packet stops crafting on an item in a container 
+This packet stops crafting on an item in a container
 
 <table class="table packet">
     <thead>
@@ -1043,7 +1028,7 @@ This packet destroys an entity.
     </thead>
     <tbody>
         <tr><td rowspan="1">0x2C</td><td colspan=3 align='center'>TODO</td></tr>
-        
+
     </tbody>
 </table>
 

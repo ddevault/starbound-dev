@@ -13,29 +13,20 @@ Have you got questions, or do you want to get help with Starbound dev? Join our 
 This is **not** a hub for modding. If you're interested in modding, [start here](http://starbounder.org/Modding). This is for
 reverse engineering and creating entirely new software in the Starbound ecosystem.
 
-## Help wanted
-
-* [Networking](/networking): A work-in-progress. Help decoding and documenting the protocol would be great.
-  * More pages documeting the connection procedure and other info would be great.
-* [File Formats](/todo): These pages need to be written
-
 ## Projects
+
+Want your project listed? Submit a pull request! Projects here should have some degree of usability, though they may not
+yet be complete.
 
 <!-- 
     These lists are for open-source projects only.
     Maintain these lists first by supported Starbound version, and second alphabetically. Don't compete for room here.
     External links should have target="_blank"
+    Add categories when appropriate. I expect there to be a "server" and "client" section eventually, and probably a
+    "libraries" section. Make an "other" section if your stuff doesn't fit into the existing categories.
 -->
 
-### Servers
-
-None yet.
-
-### Clients
-
-None yet.
-
-### Other
+### Proxies
 
 <table class="table">
     <thead>

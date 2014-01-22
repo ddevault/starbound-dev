@@ -16,40 +16,29 @@
                     </div>
                     <ul class="nav navbar-nav">
                         <li><a href="/">Home</a></li>
-                        <li><a href="/networking">Networking</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Networking <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/networking">Network Protocol</a></li>
+                                <li><a href="/networking/data-types.html">Data Types</a></li>
+                                <li><a href="/todo">Logging into a server</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/todo">File Formats</a></li>
                     </ul>
                 </div>
             </nav>
             <h1>Starbound Networking</h1>
 
-<p>The Starbound networking protocol is based on TCP. The current protocol version is 1234.</p>
+<p>The Starbound networking protocol is based on TCP, and uses port 21025 by default. The current protocol version (Angry Koala) is 1234.</p>
 
 <h2>Resources</h2>
 
 <p>There are several related pages that you might want to browse:</p>
 
 <ul>
+<li><a href="/networking/data-types.html">Data types</a></li>
 <li><a href="/todo">Logging on to a server</a></li>
-</ul>
-
-
-<h2>Data Types</h2>
-
-<!--
-    This section describes terminology that will see use for all packets below. If a new data
-    type is introduced, then document it here.
--->
-
-
-<ul>
-<li><strong>string</strong>: A length prefixed UTF-8 string, with a VLQ specifying the length.</li>
-<li><strong>(u)int##</strong>: An integer, in big-endian order. "u" indicates unsiged and ## is the length, in bits. Examples: uint8, int32, etc.</li>
-<li><strong>(s)VLQ</strong>: <a href="https://en.wikipedia.org/wiki/Variable-length_quantity">Variable length quantity</a>. "s" indicates signed.</li>
-<li><strong>(u)int##[]</strong>: An integer array. Arrays without a fixed length are prefixed with a VLQ indicating their length. Examples: uint8[], int32[10]</li>
-<li><strong>bool</strong>: A boolean value (true or false). Encoded as a uint8, 0 indicates false and 1 indicates true.</li>
-<li><strong>float</strong>: 32-bit IEEE 754 floating point number.</li>
-<li><strong>double</strong>: 64-bit IEEE 754 floating point number.</li>
-<li><strong>Variant</strong>: Data serialization format. See <a href="/todo">Variant</a> for more information.</li>
 </ul>
 
 
@@ -1110,7 +1099,7 @@
     </thead>
     <tbody>
         <tr><td rowspan="1">0x2C</td><td colspan=3 align='center'>TODO</td></tr>
-        
+
     </tbody>
 </table>
 
