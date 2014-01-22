@@ -21,11 +21,13 @@ There are several related pages that you might want to browse:
 -->
 
 * **string**: A length prefixed UTF-8 string, with a VLQ specifying the length.
-* **[u]int##**: An integer, in big-endian order. "u" indicates unsiged and ## is the length, in bits. Examples: uint8, int32, etc.
-* **[s]VLQ**: [Variable length quantity](https://en.wikipedia.org/wiki/Variable-length_quantity). "s" indicates signed.
-* **bytearray**: Much the same as a string, but not treated as such. Prefixed with a VLQ, the data following is the number of bytes.
-* **Variant**: A [variant]() class. Its structure is documented [here](#).
-* **byte[n]**: A sequence of n bytes.
+* **(u)int##**: An integer, in big-endian order. "u" indicates unsiged and ## is the length, in bits. Examples: uint8, int32, etc.
+* **(s)VLQ**: [Variable length quantity](https://en.wikipedia.org/wiki/Variable-length_quantity). "s" indicates signed.
+* **(u)int##[]**: An integer array. Arrays without a fixed length are prefixed with a VLQ indicating their length. Examples: uint8[], int32[10]
+* **bool**: A boolean value (true or false). Encoded as a uint8, 0 indicates false and 1 indicates true.
+* **float**: 32-bit IEEE 754 floating point number.
+* **double**: 64-bit IEEE 754 floating point number.
+* **Variant**: Data serialization format. See [Variant](/todo) for more information.
 
 ## Base Packet
 
@@ -247,7 +249,7 @@ This packet is sent in the handshake process immediately after 0x01, Protocol Ve
     <tbody>
         <tr><td rowspan="9">0x07</td></tr>
         <tr>
-            <td>bytearray</td>
+            <td>uint8[]</td>
             <td>Asset Digest</td>
             <td>The digest of the asset folder. Used to detect if any mods are active.</td>
         </tr>
@@ -262,7 +264,7 @@ This packet is sent in the handshake process immediately after 0x01, Protocol Ve
             <td>If true, a UUID follows. If false, it does not.</td>
         </tr>
         <tr>
-            <td>byte[16]</td>
+            <td>uint8[16]</td>
             <td>UUID</td>
             <td>The UUID is read sequentially as the hex dump of the bytes read. This only exists if the UUID flag is true.</td>
         </tr>
@@ -277,7 +279,7 @@ This packet is sent in the handshake process immediately after 0x01, Protocol Ve
             <td>The species of the player.</td>
         </tr>
         <tr>
-            <td>bytearray</td>
+            <td>uint8[]</td>
             <td>Shipworld</td>
             <td>The player's .shipworld file, without the file header information.</td>
         </tr>
@@ -412,7 +414,7 @@ This packet has yet to be fully understood.
     <tbody>
         <tr><td rowspan="2">0x0C</td></tr>
         <tr>
-            <td>bytearray</td>
+            <td>uint8[]</td>
             <td>Client Context Data</td>
             <td>Myriad formats.</td>
         </tr>
@@ -435,28 +437,33 @@ This packet is sent to the client when a world thread has been started on the se
     <tbody>
         <tr><td rowspan="6">0x0D</td></tr>
         <tr>
-            <td>bytearray</td>
+            <td>uint8[]</td>
             <td>Planet</td>
             <td>The world data. WRLDB format with headers stripped.</td>
         </tr>
         <tr>
-            <td>bytearray</td>
+            <td>uint8[]</td>
             <td>World structure</td>
             <td>The world structure. TODO.</td>
         </tr>
         <tr>
-            <td>bytearray</td>
+            <td>uint8[]</td>
             <td>Sky</td>
             <td>Data relating to the sky. TODO.</td>
         </tr>
         <tr>
-            <td>bytearray</td>
+            <td>uint8[]</td>
             <td>Server Weather</td>
             <td>Data relating to the server weather. TODO.</td>
         </tr>
         <tr>
-            <td>float, float</td>
-            <td>Spawn X, Spawn Y</td>
+            <td>float</td>
+            <td>Spawn X</td>
+            <td>The spawn coordinates for the planet. Currently locked in server-side.</td>
+        </tr>
+        <tr>
+            <td>float</td>
+            <td>Spawn Y</td>
             <td>The spawn coordinates for the planet. Currently locked in server-side.</td>
         </tr>
     </tbody>
