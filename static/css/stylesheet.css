@@ -9,6 +9,7 @@ h3 .glyphicon {
 h3 .glyphicon-resize-horizontal {
   position: relative;
   top: 3px;
+  color: red;
 }
 
 table.packet tbody tr:first-child td {
