@@ -7,7 +7,7 @@
         <link href="/static/css/stylesheet.css" rel="stylesheet">
         <title>{{ page.title }}</title>
     </head>
-    <body>
+    <body {% if page.scrollspy %}data-spy="scroll" data-target="#{{ page.scrollspy }}"{% endif %}>
         <div class="container">
             <nav class="navbar navbar-default navbar-fixed-top">
                 <div class="container">

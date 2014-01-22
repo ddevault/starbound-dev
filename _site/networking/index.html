@@ -7,7 +7,7 @@
         <link href="/static/css/stylesheet.css" rel="stylesheet">
         <title>Starbound Networking</title>
     </head>
-    <body>
+    <body data-spy="scroll" data-target="#packet-nav">
         <div class="container">
             <nav class="navbar navbar-default navbar-fixed-top">
                 <div class="container">
@@ -20,37 +20,41 @@
                     </ul>
                 </div>
             </nav>
-            <h1 id="starbound_networking">Starbound Networking</h1>
+            <h1>Starbound Networking</h1>
 
 <p>The Starbound networking protocol is based on TCP. The current protocol version is 1234.</p>
 
-<h2 id="resources">Resources</h2>
+<h2>Resources</h2>
 
 <p>There are several related pages that you might want to browse:</p>
 
 <ul>
-<li><span class='text-danger'>Establishing a connection</span></li>
+<li><span class="text-danger">Establishing a connection</span></li>
 </ul>
 
-<h2 id="data_types">Data Types</h2>
+
+<h2>Data Types</h2>
+
 <!--
     This section describes terminology that will see use for all packets below. If a new data
     type is introduced, then document it here.
 -->
-<p>Note that I don’t actually know the data types, I’m filling this with bullshit for others to fix later.</p>
+
+
+<p>Note that I don't actually know the data types, I'm filling this with bullshit for others to fix later.</p>
 
 <ul>
 <li><strong>string</strong>: UTF-8, prefixed with a uint8 indicating length.</li>
-
-<li><strong>[u]int##</strong>: An integer, in big-endian order. “u” indicates unsiged and ## is the length, in bits. Examples: uint8, int32, etc.</li>
-
-<li><strong>[u]vlq</strong>: <a href="https://en.wikipedia.org/wiki/Variable-length_quantity">Variable length quantity</a>. “u” indicates unsigned.</li>
+<li><strong>[u]int##</strong>: An integer, in big-endian order. "u" indicates unsiged and ## is the length, in bits. Examples: uint8, int32, etc.</li>
+<li><strong>[u]vlq</strong>: <a href="https://en.wikipedia.org/wiki/Variable-length_quantity">Variable length quantity</a>. "u" indicates unsigned.</li>
 </ul>
 
-<h2 id="base_packet">Base Packet</h2>
+
+<h2>Base Packet</h2>
 
 <p>Each packet is wrapped in this basic package:</p>
-<table class='table'>
+
+<table class="table">
     <thead>
         <tr>
             <th>Type</th>
@@ -76,9 +80,112 @@
         </tr>
     </tbody>
 </table>
-<h2 id="packets">Packets</h2>
 
-<p>TODO</p>
+
+<h2>Packets</h2>
+
+<h3>0x01: Protocol Version <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-resize-horizontal"></span><strong>Server</strong></span></h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x02: Connection Response <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-arrow-right"></span><strong>Server</strong></span></h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>0x03: Server Disconnect <span class="small"><strong>Client</strong><span class="glyphicon glyphicon-arrow-left"></span><strong>Server</strong></span></h3>
+
+<p>This packet does blah blah blah.</p>
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+
         </div>
         <script src="https://code.jquery.com/jquery.js"></script>
         <script src="/static/js/bootstrap.min.js"></script>

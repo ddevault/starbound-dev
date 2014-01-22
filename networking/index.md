@@ -1,6 +1,7 @@
 ---
 layout: base
 title: Starbound Networking
+scrollspy: packet-nav
 ---
 
 # Starbound Networking
@@ -59,4 +60,101 @@ Each packet is wrapped in this basic package:
 
 ## Packets
 
-TODO
+### 0x01: Protocol Version {% include bidirectional.md %}
+
+This packet does blah blah blah.
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+### 0x02: Connection Response {% include client-to-server.md %}
+
+This packet does blah blah blah.
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
+
+### 0x03: Server Disconnect {% include server-to-client.md %}
+
+This packet does blah blah blah.
+
+<table class="table packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="4">0x01</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Example</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+        </tr>
+    </tbody>
+</table>
