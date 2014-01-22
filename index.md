@@ -10,6 +10,12 @@ the game and offer your discoveries by submitting a pull request to [SirCmpwn/st
 This is **not** a hub for modding. If you're interested in modding, [start here](http://starbounder.org/Modding). This is for
 reverse engineering and creating entirely new software in the Starbound ecosystem.
 
+## Help wanted
+
+* [Networking](/networking): A work-in-progress. Help decoding and documenting the protocol would be great.
+  * More pages documeting the connection procedure and other info would be great.
+* <span class="text-danger">Level Format</span>: This page needs to be written
+
 ## Projects
 
 Only open-source projects will be listed here.

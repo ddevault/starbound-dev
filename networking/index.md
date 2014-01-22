@@ -1,11 +1,17 @@
 ---
 layout: base
-title: Networking in Starbound
+title: Starbound Networking
 ---
 
 # Starbound Networking
 
-The Starbound networking protocol is based on TCP.
+The Starbound networking protocol is based on TCP. The current protocol version is 1234.
+
+## Resources
+
+There are several related pages that you might want to browse:
+
+* <span class="text-danger">Establishing a connection</span>
 
 ## Data Types
 
@@ -50,3 +56,7 @@ Each packet is wrapped in this basic package:
         </tr>
     </tbody>
 </table>
+
+## Packets
+
+TODO
