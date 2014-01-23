@@ -18,7 +18,7 @@ There are several related pages that you might want to browse:
 
 Each packet is wrapped in this basic package:
 
-<table class="table">
+<table class="table table-bordered">
     <thead>
         <tr>
             <th>Type</th>
@@ -51,7 +51,7 @@ Each packet is wrapped in this basic package:
 
 This packet is the first packet sent. It contains the server version.
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -74,7 +74,7 @@ This packet is the first packet sent. It contains the server version.
 
 This packet tells the client whether their connection attempt is successful or if they have been rejected. It is the final packet sent in the handshake process.
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -107,7 +107,7 @@ This packet tells the client whether their connection attempt is successful or i
 
 This packet is used to notify the client of a disconnect.
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -125,7 +125,7 @@ This packet is used to notify the client of a disconnect.
 
 This packet provides a salt and round count for password verification. It is followed by Handshake Response.
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -158,7 +158,7 @@ This packet provides a salt and round count for password verification. It is fol
 
 This packet is sent to a client with a chat message.
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -201,7 +201,7 @@ This packet is sent to a client with a chat message.
 
 This packet is sent from the server to update the current time.
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -221,7 +221,7 @@ This packet is sent from the server to update the current time.
 
 This packet is sent in the handshake process immediately after 0x01, Protocol Version. It contains all relevant data about the connecting player.
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -279,7 +279,7 @@ This packet is sent in the handshake process immediately after 0x01, Protocol Ve
 
 This packet is sent when the client disconnects.
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -297,7 +297,7 @@ This packet is sent when the client disconnects.
 
 This packet is the response to 0x04: Handshake Challenge,
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -325,7 +325,7 @@ This packet is the response to 0x04: Handshake Challenge,
 
 This packet is sent when the player warps/is warped to a planet or ship.
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -358,7 +358,7 @@ This packet is sent when the player warps/is warped to a planet or ship.
 
 This packet is sent from the client whenever a message is sent in the chat window.
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -386,7 +386,7 @@ This packet is sent from the client whenever a message is sent in the chat windo
 
 This packet has yet to be fully understood.
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -409,7 +409,7 @@ This packet has yet to be fully understood.
 
 This packet is sent to the client when a world thread has been started on the server.
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -457,7 +457,7 @@ This packet is sent to the client when a world thread has been started on the se
 
 Called when a world thread is stopped.
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -480,7 +480,7 @@ Called when a world thread is stopped.
 
 Called when an array of tiles has its properties updated.
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -498,7 +498,7 @@ Called when an array of tiles has its properties updated.
 
 This packet is called when a tile is updated.
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -516,7 +516,7 @@ This packet is called when a tile is updated.
 
 This packet is sent when the liquid on a tile has changed position.
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -534,7 +534,7 @@ This packet is sent when the liquid on a tile has changed position.
 
 This packet is sent when a tile is damaged.
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -552,7 +552,7 @@ This packet is sent when a tile is damaged.
 
 This packet is sent when a packet cannot successfully be modified.
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -570,7 +570,7 @@ This packet is sent when a packet cannot successfully be modified.
 
 This packet attempts to give an item to a player. If the player's inventory is full, it will drop on the ground next to them.
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -607,7 +607,7 @@ The purpose of this packet is totally unknown. It shows up infrequently/never.
 
 This packet is sent whenever two items are swapped in an open container.
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -625,7 +625,7 @@ This packet is sent whenever two items are swapped in an open container.
 
 This packet is sent on an environment update.
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -643,7 +643,7 @@ This packet is sent on an environment update.
 
 This packet contains the results of an entity interaction.
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -676,7 +676,7 @@ This packet contains the results of an entity interaction.
 
 This packet contains a list of tiles and modifications to them.
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -694,7 +694,7 @@ This packet contains a list of tiles and modifications to them.
 
 This packet updates a tile's damage
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -712,7 +712,7 @@ This packet updates a tile's damage
 
 This packet updates an entire tile group's damage.
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -730,7 +730,7 @@ This packet updates an entire tile group's damage.
 
 This packet requests an item drop (from a player's inventory?)
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -748,7 +748,7 @@ This packet requests an item drop (from a player's inventory?)
 
 This packet requests that the server spawn an entity.
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -765,7 +765,7 @@ This packet requests that the server spawn an entity.
 
 This packet is sent when a client attempts to interact with an entity.
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -783,7 +783,7 @@ This packet is sent when a client attempts to interact with an entity.
 
 This packet connects a wire.
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -801,7 +801,7 @@ This packet connects a wire.
 
 This packet disconnects all wires.
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -819,7 +819,7 @@ This packet disconnects all wires.
 
 This packet opens a container.
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -837,7 +837,7 @@ This packet opens a container.
 
 This packet closes a container.
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -855,7 +855,7 @@ This packet closes a container.
 
 This packet swaps an item in a container.
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -873,7 +873,7 @@ This packet swaps an item in a container.
 
 This packet applies an item to another item in a container.
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -891,7 +891,7 @@ This packet applies an item to another item in a container.
 
 This packet initiates crafting on an item in a container (Used in pixel compressors and the like?)
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -909,7 +909,7 @@ This packet initiates crafting on an item in a container (Used in pixel compress
 
 This packet stops crafting on an item in a container
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -927,7 +927,7 @@ This packet stops crafting on an item in a container
 
 This packet burns a container.
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -945,7 +945,7 @@ This packet burns a container.
 
 This packet clears a container.
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -963,7 +963,7 @@ This packet clears a container.
 
 This packet contains a world update
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -981,7 +981,7 @@ This packet contains a world update
 
 This packet creates an entity.
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -999,7 +999,7 @@ This packet creates an entity.
 
 This packet updates an entity's properties.
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -1017,7 +1017,7 @@ This packet updates an entity's properties.
 
 This packet destroys an entity.
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -1036,7 +1036,7 @@ This packet destroys an entity.
 
 This packet notifies the receiver of damage received.
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -1054,7 +1054,7 @@ This packet notifies the receiver of damage received.
 
 This packet requests a status effect from the server.
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -1072,7 +1072,7 @@ This packet requests a status effect from the server.
 
 This packet updates world properties.
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
@@ -1090,7 +1090,7 @@ This packet updates world properties.
 
 This packet is periodically sent to inform the other party that the other end is still connected.
 
-<table class="table packet">
+<table class="table table-bordered packet">
     <thead>
         <tr>
             <th>Packet ID</th>
