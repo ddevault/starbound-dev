@@ -1,8 +1,3 @@
----
-layout: base
-title: Starbound Networking
----
-{% capture content %}
 # Starbound Networking
 
 The Starbound networking protocol is based on TCP, and uses port 21025 by default. The current protocol version (Angry Koala) is 0x274.
@@ -1103,16 +1098,5 @@ This packet is periodically sent to inform the other party that the other end is
         <tr><td rowspan="1">0x30</td><td colspan=3 align='center'>TODO</td></tr>
     </tbody>
 </table>
-{% endcapture %}
 
-<div class="row">
-    <div class="col-md-3">
-        <ul class="side-nav nav">
-            <h4>Packets</h4>
-            {{ packets }}
-        </ul>
-    </div>
-    <div class="col-md-9">
-        {{ content | markdownify }}
-    </div>
-</div>
+{% assign page.packets = packets %}

@@ -15,3 +15,29 @@ table.packet tbody tr:first-child td {
 a[href="/todo"] {
   color: rgb(169, 68, 66);
 }
+
+.side-nav {
+  list-style: none;
+  padding: 10px 0;
+  margin: 30px 0;
+  background-color: rgb(247, 245, 250);
+  border-radius: 5px;
+  text-shadow: 0px 1px 0px rgb(255, 255, 255);
+}
+
+.side-nav a {
+  color: rgb(113, 107, 122);
+  display: block;
+  padding: 5px 20px;
+  font-size: 90%;
+}
+
+.side-nav h4 {
+  margin: 0;
+  padding-left: 5px;
+}
+
+.side-nav li a:hover {
+  background-color: rgb(229, 227, 233);
+  border-right: 1px solid rgb(219, 216, 224);
+}
