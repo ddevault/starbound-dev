@@ -340,7 +340,7 @@ This packet is sent when the player warps/is warped to a planet or ship.
         <tr>
             <td>uint32</td>
             <td>Warp type</td>
-            <td>The type of warp being done. TODO: The enum of the four types.</td>
+            <td>The type of warp being done.</td>
         </tr>
         <tr>
             <td>world_coordinate</td>
@@ -351,6 +351,39 @@ This packet is sent when the player warps/is warped to a planet or ship.
             <td>string</td>
             <td>Player name</td>
             <td>The name of the player being warped to. Currently only used to beam to other ships.</td>
+        </tr>
+    </tbody>
+</table>
+
+#### Warp Types
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Value</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>Move ship</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Warp to own ship</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Warp to player ship</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Warp to orbited planet</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Warp to home planet</td>
         </tr>
     </tbody>
 </table>
@@ -1106,6 +1139,10 @@ This packet is periodically sent to inform the other party that the other end is
 </table>
 {% endcapture %}
 
+<!--
+    This stuff just defines the layout for the rest. We have to put it down here because
+    jekyll can be a bit of a pain sometimes.
+-->
 <div class="row">
     <div class="col-md-3">
         <ul class="side-nav nav">
