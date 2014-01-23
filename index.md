@@ -10,8 +10,8 @@ the game and offer your discoveries by submitting a pull request to [SirCmpwn/st
 Have you got questions, or do you want to get help with Starbound dev? Join our IRC channel,
 <a target="_blank" href="http://webchat.freenode.net/?channels=##starbound-dev">##starbound-dev on irc.freenode.net</a>.
 
-This is **not** a hub for modding. If you're interested in modding, [start here](http://starbounder.org/Modding). This is for
-reverse engineering and creating entirely new software in the Starbound ecosystem.
+Though some of the information here may be valuable to modders, this website is **not** meant to document information for modding
+the game. It is instead meant for reverse engineering the game and creating entirely new software based on that research.
 
 ## Projects
 
