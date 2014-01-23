@@ -47,7 +47,7 @@ Each packet is wrapped in this basic package:
 
 ## Packets
 
-### 0x01: Protocol Version {% include server-to-client.md %}
+{% include packet-header.html name="Protocol Version" id="01" direction="server-to-client" %}
 
 This packet is the first packet sent. It contains the server version.
 
@@ -70,7 +70,7 @@ This packet is the first packet sent. It contains the server version.
     </tbody>
 </table>
 
-### 0x02: Connection Response {% include server-to-client.md %}
+{% include packet-header.html name="Connection Response" id="02" direction="server-to-client" %}
 
 This packet tells the client whether their connection attempt is successful or if they have been rejected. It is the final packet sent in the handshake process.
 
@@ -103,7 +103,7 @@ This packet tells the client whether their connection attempt is successful or i
     </tbody>
 </table>
 
-### 0x03: Server Disconnect {% include server-to-client.md %}
+{% include packet-header.html name="Server Disconnect" id="03" direction="server-to-client" %}
 
 This packet is used to notify the client of a disconnect.
 
@@ -121,7 +121,7 @@ This packet is used to notify the client of a disconnect.
     </tbody>
 </table>
 
-### 0x04: Handshake Challenge {% include server-to-client.md %}
+{% include packet-header.html name="Handshake Challenge" id="04" direction="server-to-client" %}
 
 This packet provides a salt and round count for password verification. It is followed by Handshake Response.
 
@@ -154,7 +154,7 @@ This packet provides a salt and round count for password verification. It is fol
     </tbody>
 </table>
 
-### 0x05:Chat Received {% include server-to-client.md %}
+{% include packet-header.html name="Chat Recieved" id="05" direction="server-to-client" %}
 
 This packet is sent to a client with a chat message.
 
@@ -197,7 +197,7 @@ This packet is sent to a client with a chat message.
     </tbody>
 </table>
 
-### 0x06: Universe Time Update {% include server-to-client.md %}
+{% include packet-header.html name="Universe Time Update" id="06" direction="server-to-client" %}
 
 This packet is sent from the server to update the current time.
 
@@ -215,7 +215,7 @@ This packet is sent from the server to update the current time.
     </tbody>
 </table>
 
-### 0x07: Client Connect {% include client-to-server.md %}
+{% include packet-header.html name="Client Connect" id="07" direction="client-to-server" %}
 
 **Compressed**
 
@@ -275,7 +275,7 @@ This packet is sent in the handshake process immediately after 0x01, Protocol Ve
     </tbody>
 </table>
 
-### 0x08: Client Disconnect {% include client-to-server.md %}
+{% include packet-header.html name="Client Disconnect" id="08" direction="client-to-server" %}
 
 This packet is sent when the client disconnects.
 
@@ -293,7 +293,7 @@ This packet is sent when the client disconnects.
     </tbody>
 </table>
 
-### 0x09: Handshake Response {% include client-to-server.md %}
+{% include packet-header.html name="Handshake Response" id="09" direction="client-to-server" %}
 
 This packet is the response to 0x04: Handshake Challenge,
 
@@ -321,7 +321,7 @@ This packet is the response to 0x04: Handshake Challenge,
     </tbody>
 </table>
 
-### 0x0A: Warp Command {% include bidirectional.md %}
+{% include packet-header.html name="Warp Command" id="0A" direction="bidirectional" %}
 
 This packet is sent when the player warps/is warped to a planet or ship.
 
@@ -354,7 +354,7 @@ This packet is sent when the player warps/is warped to a planet or ship.
     </tbody>
 </table>
 
-### 0x0B: Chat Sent {% include client-to-server.md %}
+{% include packet-header.html name="Chat Sent" id="0B" direction="client-to-server" %}
 
 This packet is sent from the client whenever a message is sent in the chat window.
 
@@ -382,7 +382,7 @@ This packet is sent from the client whenever a message is sent in the chat windo
     </tbody>
 </table>
 
-### 0x0C: Client Context Update
+{% include packet-header.html name="Client Context Update" id="0C" %}
 
 This packet has yet to be fully understood.
 
@@ -405,7 +405,7 @@ This packet has yet to be fully understood.
     </tbody>
 </table>
 
-### 0x0D: World Start {% include server-to-client.md %}
+{% include packet-header.html name="World Start" id="0D" direction="server-to-client" %}
 
 This packet is sent to the client when a world thread has been started on the server.
 
@@ -453,7 +453,7 @@ This packet is sent to the client when a world thread has been started on the se
     </tbody>
 </table>
 
-### 0x0E: World Stop {% include server-to-client.md %}
+{% include packet-header.html name="World Stop" id="0E" direction="server-to-client" %}
 
 Called when a world thread is stopped.
 
@@ -476,7 +476,7 @@ Called when a world thread is stopped.
     </tbody>
 </table>
 
-### 0x0F: Tile Array Update
+{% include packet-header.html name="Tile Array Update" id="0F" %}
 
 Called when an array of tiles has its properties updated.
 
@@ -494,7 +494,7 @@ Called when an array of tiles has its properties updated.
     </tbody>
 </table>
 
-### 0x10: Tile Update
+{% include packet-header.html name="Tile Update" id="10" %}
 
 This packet is called when a tile is updated.
 
@@ -512,7 +512,7 @@ This packet is called when a tile is updated.
     </tbody>
 </table>
 
-### 0x11: Tile Liquid Update
+{% include packet-header.html name="Tile Liquid Update" id="11" %}
 
 This packet is sent when the liquid on a tile has changed position.
 
@@ -530,7 +530,7 @@ This packet is sent when the liquid on a tile has changed position.
     </tbody>
 </table>
 
-### 0x12: Tile Damage Update
+{% include packet-header.html name="Tile Damage Update" id="12" %}
 
 This packet is sent when a tile is damaged.
 
@@ -548,7 +548,7 @@ This packet is sent when a tile is damaged.
     </tbody>
 </table>
 
-### 0x13: Tile Modification Failure {%include server-to-client.md %}
+{% include packet-header.html name="Tile Modification Failure" id="13" direction="server-to-client" %}
 
 This packet is sent when a packet cannot successfully be modified.
 
@@ -566,7 +566,7 @@ This packet is sent when a packet cannot successfully be modified.
     </tbody>
 </table>
 
-### 0x14: Give Item {% include server-to-client.md %}
+{% include packet-header.html name="Give Item" id="14" direction="server-to-client" %}
 
 This packet attempts to give an item to a player. If the player's inventory is full, it will drop on the ground next to them.
 
@@ -599,11 +599,11 @@ This packet attempts to give an item to a player. If the player's inventory is f
     </tbody>
 </table>
 
-### 0x15: Unknown
+{% include packet-header.html name="Unknown" id="15" %}
 
 The purpose of this packet is totally unknown. It shows up infrequently/never.
 
-### 0x16: Swap in Container Result
+{% include packet-header.html name="Swap in Container Result" id="16" %}
 
 This packet is sent whenever two items are swapped in an open container.
 
@@ -621,7 +621,7 @@ This packet is sent whenever two items are swapped in an open container.
     </tbody>
 </table>
 
-### 0x17: Environment Update {% include server-to-client.md %}
+{% include packet-header.html name="Enviornment Update" id="17" direction="server-to-client" %}
 
 This packet is sent on an environment update.
 
@@ -639,7 +639,7 @@ This packet is sent on an environment update.
     </tbody>
 </table>
 
-### 0x18: Entity Interact Result {% include server-to-client.md %}
+{% include packet-header.html name="Entity Interact Result" id="18" direction="server-to-client" %}
 
 This packet contains the results of an entity interaction.
 
@@ -672,7 +672,7 @@ This packet contains the results of an entity interaction.
     </tbody>
 </table>
 
-### 0x19: Modify Tile List {% include client-to-server.md %}
+{% include packet-header.html name="Modify Tile List" id="19" direction="client-to-server" %}
 
 This packet contains a list of tiles and modifications to them.
 
@@ -690,7 +690,7 @@ This packet contains a list of tiles and modifications to them.
     </tbody>
 </table>
 
-### 0x1A: Damage Tile {% include client-to-server.md %}
+{% include packet-header.html name="Damage Tile" id="1A" direction="client-to-server" %}
 
 This packet updates a tile's damage
 
@@ -708,7 +708,7 @@ This packet updates a tile's damage
     </tbody>
 </table>
 
-### 0x1B: Damage Tile Group {% include client-to-server.md %}
+{% include packet-header.html name="Damage Tile Group" id="1B" direction="client-to-server" %}
 
 This packet updates an entire tile group's damage.
 
@@ -726,7 +726,7 @@ This packet updates an entire tile group's damage.
     </tbody>
 </table>
 
-### 0x1C: Request Drop {% include server-to-client.md %}
+{% include packet-header.html name="Request Drop" id="1C" direction="server-to-client" %}
 
 This packet requests an item drop (from a player's inventory?)
 
@@ -744,7 +744,7 @@ This packet requests an item drop (from a player's inventory?)
     </tbody>
 </table>
 
-### 0x1D: Spawn Entity {% include client-to-server.md %}
+{% include packet-header.html name="Spawn Entity" id="1D" direction="client-to-server" %}
 
 This packet requests that the server spawn an entity.
 
@@ -761,7 +761,7 @@ This packet requests that the server spawn an entity.
         <tr><td rowspan="1">0x1D</td><td colspan=3 align='center'>TODO</td></tr>
 </table>
 
-### 0x1E: Entity Interact {% include client-to-server.md %}
+{% include packet-header.html name="Entity Interact" id="1E" direction="client-to-server" %}
 
 This packet is sent when a client attempts to interact with an entity.
 
@@ -779,7 +779,7 @@ This packet is sent when a client attempts to interact with an entity.
     </tbody>
 </table>
 
-### 0x1F: Connect Wire
+{% include packet-header.html name="Connect Wire" id="1F" %}
 
 This packet connects a wire.
 
@@ -797,7 +797,7 @@ This packet connects a wire.
     </tbody>
 </table>
 
-### 0x20: Disconnect All Wires
+{% include packet-header.html name="Disconnect All Wires" id="20" %}
 
 This packet disconnects all wires.
 
@@ -815,7 +815,7 @@ This packet disconnects all wires.
     </tbody>
 </table>
 
-### 0x21: Open Container {% include client-to-server.md %}
+{% include packet-header.html name="Open Container" id="21" direction="client-to-server" %}
 
 This packet opens a container.
 
@@ -833,7 +833,7 @@ This packet opens a container.
     </tbody>
 </table>
 
-### 0x22: Close Container {% include client-to-server.md %}
+{% include packet-header.html name="Close Container" id="22" direction="client-to-server" %}
 
 This packet closes a container.
 
@@ -851,7 +851,7 @@ This packet closes a container.
     </tbody>
 </table>
 
-### 0x23: Swap in Container {% include client-to-server.md %}
+{% include packet-header.html name="Swap in Container" id="23" direction="client-to-server" %}
 
 This packet swaps an item in a container.
 
@@ -869,7 +869,7 @@ This packet swaps an item in a container.
     </tbody>
 </table>
 
-### 0x24: Item Apply in Container {% include client-to-server.md %}
+{% include packet-header.html name="Item Apply in Container" id="24" direction="client-to-server" %}
 
 This packet applies an item to another item in a container.
 
@@ -887,7 +887,7 @@ This packet applies an item to another item in a container.
     </tbody>
 </table>
 
-### 0x25: Start Crafting in Container {% include client-to-server.md %}
+{% include packet-header.html name="Start Crafting in Container" id="25" direction="client-to-server" %}
 
 This packet initiates crafting on an item in a container (Used in pixel compressors and the like?)
 
@@ -905,7 +905,7 @@ This packet initiates crafting on an item in a container (Used in pixel compress
     </tbody>
 </table>
 
-### 0x26: Stop Crafting in Container {% include client-to-server.md %}
+{% include packet-header.html name="Stop Crafting in Container" id="26" direction="client-to-server" %}
 
 This packet stops crafting on an item in a container
 
@@ -923,7 +923,7 @@ This packet stops crafting on an item in a container
     </tbody>
 </table>
 
-### 0x27: Burn Container {% include client-to-server.md %}
+{% include packet-header.html name="Burn Container" id="27" direction="client-to-server" %}
 
 This packet burns a container.
 
@@ -941,7 +941,7 @@ This packet burns a container.
     </tbody>
 </table>
 
-### 0x28: Clear Container {% include client-to-server.md %}
+{% include packet-header.html name="Clear Container" id="28" direction="client-to-server" %}
 
 This packet clears a container.
 
@@ -959,7 +959,7 @@ This packet clears a container.
     </tbody>
 </table>
 
-### 0x29: World Update {% include server-to-client.md %}
+{% include packet-header.html name="World Update" id="29" direction="server-to-client" %}
 
 This packet contains a world update
 
@@ -977,7 +977,7 @@ This packet contains a world update
     </tbody>
 </table>
 
-### 0x2A: Entity Create {% include server-to-client.md %}
+{% include packet-header.html name="Entity Create" id="2A" direction="server-to-client" %}
 
 This packet creates an entity.
 
@@ -995,7 +995,7 @@ This packet creates an entity.
     </tbody>
 </table>
 
-### 0x2B: Entity Update {% include server-to-client.md %}
+{% include packet-header.html name="Entity Update" id="2B" direction="server-to-client" %}
 
 This packet updates an entity's properties.
 
@@ -1013,7 +1013,7 @@ This packet updates an entity's properties.
     </tbody>
 </table>
 
-### 0x2C: Entity Destroy {% include bidirectional.md %}
+{% include packet-header.html name="Entity Destroy" id="2C" direction="bidirectional" %}
 
 This packet destroys an entity.
 
@@ -1032,7 +1032,7 @@ This packet destroys an entity.
     </tbody>
 </table>
 
-### 0x2D: Damage Notification {% include bidirectional.md %}
+{% include packet-header.html name="Damage Notification" id="2D" direction="bidirectional" %}
 
 This packet notifies the receiver of damage received.
 
@@ -1050,7 +1050,7 @@ This packet notifies the receiver of damage received.
     </tbody>
 </table>
 
-### 0x2E: Status Effect Request {% include client-to-server.md %}
+{% include packet-header.html name="Status Effect Request" id="2E" direction="client-to-server" %}
 
 This packet requests a status effect from the server.
 
@@ -1068,7 +1068,7 @@ This packet requests a status effect from the server.
     </tbody>
 </table>
 
-### 0x2F: Update World Properties {% include server-to-client.md %}
+{% include packet-header.html name="Update World Properties" id="2F" direction="server-to-client" %}
 
 This packet updates world properties.
 
@@ -1086,7 +1086,7 @@ This packet updates world properties.
     </tbody>
 </table>
 
-### 0x30: Heartbeat {% include bidirectional.md %}
+{% include packet-header.html name="Heartbeat" id="30" direction="bidirectional" %}
 
 This packet is periodically sent to inform the other party that the other end is still connected.
 

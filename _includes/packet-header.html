@@ -1,0 +1,14 @@
+<h3>
+    <span id="{{include.id}}"></span>
+    <span id="0x{{include.id}}"></span>
+    0x{{include.id}}: {{include.name}}
+    {% if include.direction %}
+        {% if include.direction == "client-to-server" %}
+            {% include client-to-server.html %}
+        {% else if include.direction == "server-to-client" %}
+            {% include server-to-client.html %}
+        {% else if include.direction == "bidirectional" %}
+            {% include bidirectional.html %}
+        {% endif %}
+    {% endif %}
+</h3>

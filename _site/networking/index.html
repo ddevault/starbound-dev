@@ -76,7 +76,22 @@
 
 <h2>Packets</h2>
 
-<h3>0x01: Protocol Version <span class="small"><span class="text text-primary"><strong>Server</strong></span><span class="glyphicon glyphicon-arrow-right"></span><span class="text text-success"><strong>Client</strong></span></span></h3>
+<h3>
+    <span id="01"></span>
+    <span id="0x01"></span>
+    0x01: Protocol Version
+    
+        
+            <span class="small">
+    <span class="text text-primary"><strong>Server</strong></span>
+    <span class="glyphicon glyphicon-arrow-right"></span>
+    <span class="text text-success"><strong>Client</strong></span>
+</span>
+
+        
+    
+</h3>
+
 
 <p>This packet is the first packet sent. It contains the server version.</p>
 
@@ -100,7 +115,24 @@
 </table>
 
 
-<h3>0x02: Connection Response <span class="small"><span class="text text-primary"><strong>Server</strong></span><span class="glyphicon glyphicon-arrow-right"></span><span class="text text-success"><strong>Client</strong></span></span></h3>
+
+
+<h3>
+    <span id="02"></span>
+    <span id="0x02"></span>
+    0x02: Connection Response
+    
+        
+            <span class="small">
+    <span class="text text-primary"><strong>Server</strong></span>
+    <span class="glyphicon glyphicon-arrow-right"></span>
+    <span class="text text-success"><strong>Client</strong></span>
+</span>
+
+        
+    
+</h3>
+
 
 <p>This packet tells the client whether their connection attempt is successful or if they have been rejected. It is the final packet sent in the handshake process.</p>
 
@@ -134,7 +166,24 @@
 </table>
 
 
-<h3>0x03: Server Disconnect <span class="small"><span class="text text-primary"><strong>Server</strong></span><span class="glyphicon glyphicon-arrow-right"></span><span class="text text-success"><strong>Client</strong></span></span></h3>
+
+
+<h3>
+    <span id="03"></span>
+    <span id="0x03"></span>
+    0x03: Server Disconnect
+    
+        
+            <span class="small">
+    <span class="text text-primary"><strong>Server</strong></span>
+    <span class="glyphicon glyphicon-arrow-right"></span>
+    <span class="text text-success"><strong>Client</strong></span>
+</span>
+
+        
+    
+</h3>
+
 
 <p>This packet is used to notify the client of a disconnect.</p>
 
@@ -153,7 +202,24 @@
 </table>
 
 
-<h3>0x04: Handshake Challenge <span class="small"><span class="text text-primary"><strong>Server</strong></span><span class="glyphicon glyphicon-arrow-right"></span><span class="text text-success"><strong>Client</strong></span></span></h3>
+
+
+<h3>
+    <span id="04"></span>
+    <span id="0x04"></span>
+    0x04: Handshake Challenge
+    
+        
+            <span class="small">
+    <span class="text text-primary"><strong>Server</strong></span>
+    <span class="glyphicon glyphicon-arrow-right"></span>
+    <span class="text text-success"><strong>Client</strong></span>
+</span>
+
+        
+    
+</h3>
+
 
 <p>This packet provides a salt and round count for password verification. It is followed by Handshake Response.</p>
 
@@ -187,7 +253,24 @@
 </table>
 
 
-<h3>0x05:Chat Received <span class="small"><span class="text text-primary"><strong>Server</strong></span><span class="glyphicon glyphicon-arrow-right"></span><span class="text text-success"><strong>Client</strong></span></span></h3>
+
+
+<h3>
+    <span id="05"></span>
+    <span id="0x05"></span>
+    0x05: Chat Recieved
+    
+        
+            <span class="small">
+    <span class="text text-primary"><strong>Server</strong></span>
+    <span class="glyphicon glyphicon-arrow-right"></span>
+    <span class="text text-success"><strong>Client</strong></span>
+</span>
+
+        
+    
+</h3>
+
 
 <p>This packet is sent to a client with a chat message.</p>
 
@@ -231,7 +314,24 @@
 </table>
 
 
-<h3>0x06: Universe Time Update <span class="small"><span class="text text-primary"><strong>Server</strong></span><span class="glyphicon glyphicon-arrow-right"></span><span class="text text-success"><strong>Client</strong></span></span></h3>
+
+
+<h3>
+    <span id="06"></span>
+    <span id="0x06"></span>
+    0x06: Universe Time Update
+    
+        
+            <span class="small">
+    <span class="text text-primary"><strong>Server</strong></span>
+    <span class="glyphicon glyphicon-arrow-right"></span>
+    <span class="text text-success"><strong>Client</strong></span>
+</span>
+
+        
+    
+</h3>
+
 
 <p>This packet is sent from the server to update the current time.</p>
 
@@ -250,7 +350,24 @@
 </table>
 
 
-<h3>0x07: Client Connect <span class="small"><span class="text text-success"><strong>Client</strong></span><span class="glyphicon glyphicon-arrow-right"></span><span class="text text-primary"><strong>Server</strong></span></span></h3>
+
+
+<h3>
+    <span id="07"></span>
+    <span id="0x07"></span>
+    0x07: Client Connect
+    
+        
+            <span class="small">
+    <span class="text text-success"><strong>Client</strong></span>
+    <span class="glyphicon glyphicon-arrow-right"></span>
+    <span class="text text-primary"><strong>Server</strong></span>
+</span>
+
+        
+    
+</h3>
+
 
 <p><strong>Compressed</strong></p>
 
@@ -311,7 +428,24 @@
 </table>
 
 
-<h3>0x08: Client Disconnect <span class="small"><span class="text text-success"><strong>Client</strong></span><span class="glyphicon glyphicon-arrow-right"></span><span class="text text-primary"><strong>Server</strong></span></span></h3>
+
+
+<h3>
+    <span id="08"></span>
+    <span id="0x08"></span>
+    0x08: Client Disconnect
+    
+        
+            <span class="small">
+    <span class="text text-success"><strong>Client</strong></span>
+    <span class="glyphicon glyphicon-arrow-right"></span>
+    <span class="text text-primary"><strong>Server</strong></span>
+</span>
+
+        
+    
+</h3>
+
 
 <p>This packet is sent when the client disconnects.</p>
 
@@ -330,7 +464,24 @@
 </table>
 
 
-<h3>0x09: Handshake Response <span class="small"><span class="text text-success"><strong>Client</strong></span><span class="glyphicon glyphicon-arrow-right"></span><span class="text text-primary"><strong>Server</strong></span></span></h3>
+
+
+<h3>
+    <span id="09"></span>
+    <span id="0x09"></span>
+    0x09: Handshake Response
+    
+        
+            <span class="small">
+    <span class="text text-success"><strong>Client</strong></span>
+    <span class="glyphicon glyphicon-arrow-right"></span>
+    <span class="text text-primary"><strong>Server</strong></span>
+</span>
+
+        
+    
+</h3>
+
 
 <p>This packet is the response to 0x04: Handshake Challenge,</p>
 
@@ -359,7 +510,24 @@
 </table>
 
 
-<h3>0x0A: Warp Command <span class="small"><strong>Bidirectional</strong></span></h3>
+
+
+<h3>
+    <span id="0A"></span>
+    <span id="0x0A"></span>
+    0x0A: Warp Command
+    
+        
+            <span class="small">
+    <span class="text text-primary"><strong>Server</strong></span>
+    <span class="glyphicon glyphicon-arrow-right"></span>
+    <span class="text text-success"><strong>Client</strong></span>
+</span>
+
+        
+    
+</h3>
+
 
 <p>This packet is sent when the player warps/is warped to a planet or ship.</p>
 
@@ -393,7 +561,24 @@
 </table>
 
 
-<h3>0x0B: Chat Sent <span class="small"><span class="text text-success"><strong>Client</strong></span><span class="glyphicon glyphicon-arrow-right"></span><span class="text text-primary"><strong>Server</strong></span></span></h3>
+
+
+<h3>
+    <span id="0B"></span>
+    <span id="0x0B"></span>
+    0x0B: Chat Sent
+    
+        
+            <span class="small">
+    <span class="text text-success"><strong>Client</strong></span>
+    <span class="glyphicon glyphicon-arrow-right"></span>
+    <span class="text text-primary"><strong>Server</strong></span>
+</span>
+
+        
+    
+</h3>
+
 
 <p>This packet is sent from the client whenever a message is sent in the chat window.</p>
 
@@ -422,7 +607,15 @@
 </table>
 
 
-<h3>0x0C: Client Context Update</h3>
+
+
+<h3>
+    <span id="0C"></span>
+    <span id="0x0C"></span>
+    0x0C: Client Context Update
+    
+</h3>
+
 
 <p>This packet has yet to be fully understood.</p>
 
@@ -446,7 +639,24 @@
 </table>
 
 
-<h3>0x0D: World Start <span class="small"><span class="text text-primary"><strong>Server</strong></span><span class="glyphicon glyphicon-arrow-right"></span><span class="text text-success"><strong>Client</strong></span></span></h3>
+
+
+<h3>
+    <span id="0D"></span>
+    <span id="0x0D"></span>
+    0x0D: World Start
+    
+        
+            <span class="small">
+    <span class="text text-primary"><strong>Server</strong></span>
+    <span class="glyphicon glyphicon-arrow-right"></span>
+    <span class="text text-success"><strong>Client</strong></span>
+</span>
+
+        
+    
+</h3>
+
 
 <p>This packet is sent to the client when a world thread has been started on the server.</p>
 
@@ -495,7 +705,24 @@
 </table>
 
 
-<h3>0x0E: World Stop <span class="small"><span class="text text-primary"><strong>Server</strong></span><span class="glyphicon glyphicon-arrow-right"></span><span class="text text-success"><strong>Client</strong></span></span></h3>
+
+
+<h3>
+    <span id="0E"></span>
+    <span id="0x0E"></span>
+    0x0E: World Stop
+    
+        
+            <span class="small">
+    <span class="text text-primary"><strong>Server</strong></span>
+    <span class="glyphicon glyphicon-arrow-right"></span>
+    <span class="text text-success"><strong>Client</strong></span>
+</span>
+
+        
+    
+</h3>
+
 
 <p>Called when a world thread is stopped.</p>
 
@@ -519,7 +746,15 @@
 </table>
 
 
-<h3>0x0F: Tile Array Update</h3>
+
+
+<h3>
+    <span id="0F"></span>
+    <span id="0x0F"></span>
+    0x0F: Tile Array Update
+    
+</h3>
+
 
 <p>Called when an array of tiles has its properties updated.</p>
 
@@ -538,7 +773,15 @@
 </table>
 
 
-<h3>0x10: Tile Update</h3>
+
+
+<h3>
+    <span id="10"></span>
+    <span id="0x10"></span>
+    0x10: Tile Update
+    
+</h3>
+
 
 <p>This packet is called when a tile is updated.</p>
 
@@ -557,7 +800,15 @@
 </table>
 
 
-<h3>0x11: Tile Liquid Update</h3>
+
+
+<h3>
+    <span id="11"></span>
+    <span id="0x11"></span>
+    0x11: Tile Liquid Update
+    
+</h3>
+
 
 <p>This packet is sent when the liquid on a tile has changed position.</p>
 
@@ -576,7 +827,15 @@
 </table>
 
 
-<h3>0x12: Tile Damage Update</h3>
+
+
+<h3>
+    <span id="12"></span>
+    <span id="0x12"></span>
+    0x12: Tile Damage Update
+    
+</h3>
+
 
 <p>This packet is sent when a tile is damaged.</p>
 
@@ -595,7 +854,24 @@
 </table>
 
 
-<h3>0x13: Tile Modification Failure <span class="small"><span class="text text-primary"><strong>Server</strong></span><span class="glyphicon glyphicon-arrow-right"></span><span class="text text-success"><strong>Client</strong></span></span></h3>
+
+
+<h3>
+    <span id="13"></span>
+    <span id="0x13"></span>
+    0x13: Tile Modification Failure
+    
+        
+            <span class="small">
+    <span class="text text-primary"><strong>Server</strong></span>
+    <span class="glyphicon glyphicon-arrow-right"></span>
+    <span class="text text-success"><strong>Client</strong></span>
+</span>
+
+        
+    
+</h3>
+
 
 <p>This packet is sent when a packet cannot successfully be modified.</p>
 
@@ -614,7 +890,24 @@
 </table>
 
 
-<h3>0x14: Give Item <span class="small"><span class="text text-primary"><strong>Server</strong></span><span class="glyphicon glyphicon-arrow-right"></span><span class="text text-success"><strong>Client</strong></span></span></h3>
+
+
+<h3>
+    <span id="14"></span>
+    <span id="0x14"></span>
+    0x14: Give Item
+    
+        
+            <span class="small">
+    <span class="text text-primary"><strong>Server</strong></span>
+    <span class="glyphicon glyphicon-arrow-right"></span>
+    <span class="text text-success"><strong>Client</strong></span>
+</span>
+
+        
+    
+</h3>
+
 
 <p>This packet attempts to give an item to a player. If the player's inventory is full, it will drop on the ground next to them.</p>
 
@@ -648,11 +941,25 @@
 </table>
 
 
-<h3>0x15: Unknown</h3>
+
+
+<h3>
+    <span id="15"></span>
+    <span id="0x15"></span>
+    0x15: Unknown
+    
+</h3>
+
 
 <p>The purpose of this packet is totally unknown. It shows up infrequently/never.</p>
 
-<h3>0x16: Swap in Container Result</h3>
+<h3>
+    <span id="16"></span>
+    <span id="0x16"></span>
+    0x16: Swap in Container Result
+    
+</h3>
+
 
 <p>This packet is sent whenever two items are swapped in an open container.</p>
 
@@ -671,7 +978,24 @@
 </table>
 
 
-<h3>0x17: Environment Update <span class="small"><span class="text text-primary"><strong>Server</strong></span><span class="glyphicon glyphicon-arrow-right"></span><span class="text text-success"><strong>Client</strong></span></span></h3>
+
+
+<h3>
+    <span id="17"></span>
+    <span id="0x17"></span>
+    0x17: Enviornment Update
+    
+        
+            <span class="small">
+    <span class="text text-primary"><strong>Server</strong></span>
+    <span class="glyphicon glyphicon-arrow-right"></span>
+    <span class="text text-success"><strong>Client</strong></span>
+</span>
+
+        
+    
+</h3>
+
 
 <p>This packet is sent on an environment update.</p>
 
@@ -690,7 +1014,24 @@
 </table>
 
 
-<h3>0x18: Entity Interact Result <span class="small"><span class="text text-primary"><strong>Server</strong></span><span class="glyphicon glyphicon-arrow-right"></span><span class="text text-success"><strong>Client</strong></span></span></h3>
+
+
+<h3>
+    <span id="18"></span>
+    <span id="0x18"></span>
+    0x18: Entity Interact Result
+    
+        
+            <span class="small">
+    <span class="text text-primary"><strong>Server</strong></span>
+    <span class="glyphicon glyphicon-arrow-right"></span>
+    <span class="text text-success"><strong>Client</strong></span>
+</span>
+
+        
+    
+</h3>
+
 
 <p>This packet contains the results of an entity interaction.</p>
 
@@ -724,7 +1065,24 @@
 </table>
 
 
-<h3>0x19: Modify Tile List <span class="small"><span class="text text-success"><strong>Client</strong></span><span class="glyphicon glyphicon-arrow-right"></span><span class="text text-primary"><strong>Server</strong></span></span></h3>
+
+
+<h3>
+    <span id="19"></span>
+    <span id="0x19"></span>
+    0x19: Modify Tile List
+    
+        
+            <span class="small">
+    <span class="text text-success"><strong>Client</strong></span>
+    <span class="glyphicon glyphicon-arrow-right"></span>
+    <span class="text text-primary"><strong>Server</strong></span>
+</span>
+
+        
+    
+</h3>
+
 
 <p>This packet contains a list of tiles and modifications to them.</p>
 
@@ -743,7 +1101,24 @@
 </table>
 
 
-<h3>0x1A: Damage Tile <span class="small"><span class="text text-success"><strong>Client</strong></span><span class="glyphicon glyphicon-arrow-right"></span><span class="text text-primary"><strong>Server</strong></span></span></h3>
+
+
+<h3>
+    <span id="1A"></span>
+    <span id="0x1A"></span>
+    0x1A: Damage Tile
+    
+        
+            <span class="small">
+    <span class="text text-success"><strong>Client</strong></span>
+    <span class="glyphicon glyphicon-arrow-right"></span>
+    <span class="text text-primary"><strong>Server</strong></span>
+</span>
+
+        
+    
+</h3>
+
 
 <p>This packet updates a tile's damage</p>
 
@@ -762,7 +1137,24 @@
 </table>
 
 
-<h3>0x1B: Damage Tile Group <span class="small"><span class="text text-success"><strong>Client</strong></span><span class="glyphicon glyphicon-arrow-right"></span><span class="text text-primary"><strong>Server</strong></span></span></h3>
+
+
+<h3>
+    <span id="1B"></span>
+    <span id="0x1B"></span>
+    0x1B: Damage Tile Group
+    
+        
+            <span class="small">
+    <span class="text text-success"><strong>Client</strong></span>
+    <span class="glyphicon glyphicon-arrow-right"></span>
+    <span class="text text-primary"><strong>Server</strong></span>
+</span>
+
+        
+    
+</h3>
+
 
 <p>This packet updates an entire tile group's damage.</p>
 
@@ -781,7 +1173,24 @@
 </table>
 
 
-<h3>0x1C: Request Drop <span class="small"><span class="text text-primary"><strong>Server</strong></span><span class="glyphicon glyphicon-arrow-right"></span><span class="text text-success"><strong>Client</strong></span></span></h3>
+
+
+<h3>
+    <span id="1C"></span>
+    <span id="0x1C"></span>
+    0x1C: Request Drop
+    
+        
+            <span class="small">
+    <span class="text text-primary"><strong>Server</strong></span>
+    <span class="glyphicon glyphicon-arrow-right"></span>
+    <span class="text text-success"><strong>Client</strong></span>
+</span>
+
+        
+    
+</h3>
+
 
 <p>This packet requests an item drop (from a player's inventory?)</p>
 
@@ -800,7 +1209,24 @@
 </table>
 
 
-<h3>0x1D: Spawn Entity <span class="small"><span class="text text-success"><strong>Client</strong></span><span class="glyphicon glyphicon-arrow-right"></span><span class="text text-primary"><strong>Server</strong></span></span></h3>
+
+
+<h3>
+    <span id="1D"></span>
+    <span id="0x1D"></span>
+    0x1D: Spawn Entity
+    
+        
+            <span class="small">
+    <span class="text text-success"><strong>Client</strong></span>
+    <span class="glyphicon glyphicon-arrow-right"></span>
+    <span class="text text-primary"><strong>Server</strong></span>
+</span>
+
+        
+    
+</h3>
+
 
 <p>This packet requests that the server spawn an entity.</p>
 
@@ -818,7 +1244,24 @@
 </table>
 
 
-<h3>0x1E: Entity Interact <span class="small"><span class="text text-success"><strong>Client</strong></span><span class="glyphicon glyphicon-arrow-right"></span><span class="text text-primary"><strong>Server</strong></span></span></h3>
+
+
+<h3>
+    <span id="1E"></span>
+    <span id="0x1E"></span>
+    0x1E: Entity Interact
+    
+        
+            <span class="small">
+    <span class="text text-success"><strong>Client</strong></span>
+    <span class="glyphicon glyphicon-arrow-right"></span>
+    <span class="text text-primary"><strong>Server</strong></span>
+</span>
+
+        
+    
+</h3>
+
 
 <p>This packet is sent when a client attempts to interact with an entity.</p>
 
@@ -837,7 +1280,15 @@
 </table>
 
 
-<h3>0x1F: Connect Wire</h3>
+
+
+<h3>
+    <span id="1F"></span>
+    <span id="0x1F"></span>
+    0x1F: Connect Wire
+    
+</h3>
+
 
 <p>This packet connects a wire.</p>
 
@@ -856,7 +1307,15 @@
 </table>
 
 
-<h3>0x20: Disconnect All Wires</h3>
+
+
+<h3>
+    <span id="20"></span>
+    <span id="0x20"></span>
+    0x20: Disconnect All Wires
+    
+</h3>
+
 
 <p>This packet disconnects all wires.</p>
 
@@ -875,7 +1334,24 @@
 </table>
 
 
-<h3>0x21: Open Container <span class="small"><span class="text text-success"><strong>Client</strong></span><span class="glyphicon glyphicon-arrow-right"></span><span class="text text-primary"><strong>Server</strong></span></span></h3>
+
+
+<h3>
+    <span id="21"></span>
+    <span id="0x21"></span>
+    0x21: Open Container
+    
+        
+            <span class="small">
+    <span class="text text-success"><strong>Client</strong></span>
+    <span class="glyphicon glyphicon-arrow-right"></span>
+    <span class="text text-primary"><strong>Server</strong></span>
+</span>
+
+        
+    
+</h3>
+
 
 <p>This packet opens a container.</p>
 
@@ -894,7 +1370,24 @@
 </table>
 
 
-<h3>0x22: Close Container <span class="small"><span class="text text-success"><strong>Client</strong></span><span class="glyphicon glyphicon-arrow-right"></span><span class="text text-primary"><strong>Server</strong></span></span></h3>
+
+
+<h3>
+    <span id="22"></span>
+    <span id="0x22"></span>
+    0x22: Close Container
+    
+        
+            <span class="small">
+    <span class="text text-success"><strong>Client</strong></span>
+    <span class="glyphicon glyphicon-arrow-right"></span>
+    <span class="text text-primary"><strong>Server</strong></span>
+</span>
+
+        
+    
+</h3>
+
 
 <p>This packet closes a container.</p>
 
@@ -913,7 +1406,24 @@
 </table>
 
 
-<h3>0x23: Swap in Container <span class="small"><span class="text text-success"><strong>Client</strong></span><span class="glyphicon glyphicon-arrow-right"></span><span class="text text-primary"><strong>Server</strong></span></span></h3>
+
+
+<h3>
+    <span id="23"></span>
+    <span id="0x23"></span>
+    0x23: Swap in Container
+    
+        
+            <span class="small">
+    <span class="text text-success"><strong>Client</strong></span>
+    <span class="glyphicon glyphicon-arrow-right"></span>
+    <span class="text text-primary"><strong>Server</strong></span>
+</span>
+
+        
+    
+</h3>
+
 
 <p>This packet swaps an item in a container.</p>
 
@@ -932,7 +1442,24 @@
 </table>
 
 
-<h3>0x24: Item Apply in Container <span class="small"><span class="text text-success"><strong>Client</strong></span><span class="glyphicon glyphicon-arrow-right"></span><span class="text text-primary"><strong>Server</strong></span></span></h3>
+
+
+<h3>
+    <span id="24"></span>
+    <span id="0x24"></span>
+    0x24: Item Apply in Container
+    
+        
+            <span class="small">
+    <span class="text text-success"><strong>Client</strong></span>
+    <span class="glyphicon glyphicon-arrow-right"></span>
+    <span class="text text-primary"><strong>Server</strong></span>
+</span>
+
+        
+    
+</h3>
+
 
 <p>This packet applies an item to another item in a container.</p>
 
@@ -951,7 +1478,24 @@
 </table>
 
 
-<h3>0x25: Start Crafting in Container <span class="small"><span class="text text-success"><strong>Client</strong></span><span class="glyphicon glyphicon-arrow-right"></span><span class="text text-primary"><strong>Server</strong></span></span></h3>
+
+
+<h3>
+    <span id="25"></span>
+    <span id="0x25"></span>
+    0x25: Start Crafting in Container
+    
+        
+            <span class="small">
+    <span class="text text-success"><strong>Client</strong></span>
+    <span class="glyphicon glyphicon-arrow-right"></span>
+    <span class="text text-primary"><strong>Server</strong></span>
+</span>
+
+        
+    
+</h3>
+
 
 <p>This packet initiates crafting on an item in a container (Used in pixel compressors and the like?)</p>
 
@@ -970,7 +1514,24 @@
 </table>
 
 
-<h3>0x26: Stop Crafting in Container <span class="small"><span class="text text-success"><strong>Client</strong></span><span class="glyphicon glyphicon-arrow-right"></span><span class="text text-primary"><strong>Server</strong></span></span></h3>
+
+
+<h3>
+    <span id="26"></span>
+    <span id="0x26"></span>
+    0x26: Stop Crafting in Container
+    
+        
+            <span class="small">
+    <span class="text text-success"><strong>Client</strong></span>
+    <span class="glyphicon glyphicon-arrow-right"></span>
+    <span class="text text-primary"><strong>Server</strong></span>
+</span>
+
+        
+    
+</h3>
+
 
 <p>This packet stops crafting on an item in a container</p>
 
@@ -989,7 +1550,24 @@
 </table>
 
 
-<h3>0x27: Burn Container <span class="small"><span class="text text-success"><strong>Client</strong></span><span class="glyphicon glyphicon-arrow-right"></span><span class="text text-primary"><strong>Server</strong></span></span></h3>
+
+
+<h3>
+    <span id="27"></span>
+    <span id="0x27"></span>
+    0x27: Burn Container
+    
+        
+            <span class="small">
+    <span class="text text-success"><strong>Client</strong></span>
+    <span class="glyphicon glyphicon-arrow-right"></span>
+    <span class="text text-primary"><strong>Server</strong></span>
+</span>
+
+        
+    
+</h3>
+
 
 <p>This packet burns a container.</p>
 
@@ -1008,7 +1586,24 @@
 </table>
 
 
-<h3>0x28: Clear Container <span class="small"><span class="text text-success"><strong>Client</strong></span><span class="glyphicon glyphicon-arrow-right"></span><span class="text text-primary"><strong>Server</strong></span></span></h3>
+
+
+<h3>
+    <span id="28"></span>
+    <span id="0x28"></span>
+    0x28: Clear Container
+    
+        
+            <span class="small">
+    <span class="text text-success"><strong>Client</strong></span>
+    <span class="glyphicon glyphicon-arrow-right"></span>
+    <span class="text text-primary"><strong>Server</strong></span>
+</span>
+
+        
+    
+</h3>
+
 
 <p>This packet clears a container.</p>
 
@@ -1027,7 +1622,24 @@
 </table>
 
 
-<h3>0x29: World Update <span class="small"><span class="text text-primary"><strong>Server</strong></span><span class="glyphicon glyphicon-arrow-right"></span><span class="text text-success"><strong>Client</strong></span></span></h3>
+
+
+<h3>
+    <span id="29"></span>
+    <span id="0x29"></span>
+    0x29: World Update
+    
+        
+            <span class="small">
+    <span class="text text-primary"><strong>Server</strong></span>
+    <span class="glyphicon glyphicon-arrow-right"></span>
+    <span class="text text-success"><strong>Client</strong></span>
+</span>
+
+        
+    
+</h3>
+
 
 <p>This packet contains a world update</p>
 
@@ -1046,7 +1658,24 @@
 </table>
 
 
-<h3>0x2A: Entity Create <span class="small"><span class="text text-primary"><strong>Server</strong></span><span class="glyphicon glyphicon-arrow-right"></span><span class="text text-success"><strong>Client</strong></span></span></h3>
+
+
+<h3>
+    <span id="2A"></span>
+    <span id="0x2A"></span>
+    0x2A: Entity Create
+    
+        
+            <span class="small">
+    <span class="text text-primary"><strong>Server</strong></span>
+    <span class="glyphicon glyphicon-arrow-right"></span>
+    <span class="text text-success"><strong>Client</strong></span>
+</span>
+
+        
+    
+</h3>
+
 
 <p>This packet creates an entity.</p>
 
@@ -1065,7 +1694,24 @@
 </table>
 
 
-<h3>0x2B: Entity Update <span class="small"><span class="text text-primary"><strong>Server</strong></span><span class="glyphicon glyphicon-arrow-right"></span><span class="text text-success"><strong>Client</strong></span></span></h3>
+
+
+<h3>
+    <span id="2B"></span>
+    <span id="0x2B"></span>
+    0x2B: Entity Update
+    
+        
+            <span class="small">
+    <span class="text text-primary"><strong>Server</strong></span>
+    <span class="glyphicon glyphicon-arrow-right"></span>
+    <span class="text text-success"><strong>Client</strong></span>
+</span>
+
+        
+    
+</h3>
+
 
 <p>This packet updates an entity's properties.</p>
 
@@ -1084,7 +1730,24 @@
 </table>
 
 
-<h3>0x2C: Entity Destroy <span class="small"><strong>Bidirectional</strong></span></h3>
+
+
+<h3>
+    <span id="2C"></span>
+    <span id="0x2C"></span>
+    0x2C: Entity Destroy
+    
+        
+            <span class="small">
+    <span class="text text-primary"><strong>Server</strong></span>
+    <span class="glyphicon glyphicon-arrow-right"></span>
+    <span class="text text-success"><strong>Client</strong></span>
+</span>
+
+        
+    
+</h3>
+
 
 <p>This packet destroys an entity.</p>
 
@@ -1104,7 +1767,24 @@
 </table>
 
 
-<h3>0x2D: Damage Notification <span class="small"><strong>Bidirectional</strong></span></h3>
+
+
+<h3>
+    <span id="2D"></span>
+    <span id="0x2D"></span>
+    0x2D: Damage Notification
+    
+        
+            <span class="small">
+    <span class="text text-primary"><strong>Server</strong></span>
+    <span class="glyphicon glyphicon-arrow-right"></span>
+    <span class="text text-success"><strong>Client</strong></span>
+</span>
+
+        
+    
+</h3>
+
 
 <p>This packet notifies the receiver of damage received.</p>
 
@@ -1123,7 +1803,24 @@
 </table>
 
 
-<h3>0x2E: Status Effect Request <span class="small"><span class="text text-success"><strong>Client</strong></span><span class="glyphicon glyphicon-arrow-right"></span><span class="text text-primary"><strong>Server</strong></span></span></h3>
+
+
+<h3>
+    <span id="2E"></span>
+    <span id="0x2E"></span>
+    0x2E: Status Effect Request
+    
+        
+            <span class="small">
+    <span class="text text-success"><strong>Client</strong></span>
+    <span class="glyphicon glyphicon-arrow-right"></span>
+    <span class="text text-primary"><strong>Server</strong></span>
+</span>
+
+        
+    
+</h3>
+
 
 <p>This packet requests a status effect from the server.</p>
 
@@ -1142,7 +1839,24 @@
 </table>
 
 
-<h3>0x2F: Update World Properties <span class="small"><span class="text text-primary"><strong>Server</strong></span><span class="glyphicon glyphicon-arrow-right"></span><span class="text text-success"><strong>Client</strong></span></span></h3>
+
+
+<h3>
+    <span id="2F"></span>
+    <span id="0x2F"></span>
+    0x2F: Update World Properties
+    
+        
+            <span class="small">
+    <span class="text text-primary"><strong>Server</strong></span>
+    <span class="glyphicon glyphicon-arrow-right"></span>
+    <span class="text text-success"><strong>Client</strong></span>
+</span>
+
+        
+    
+</h3>
+
 
 <p>This packet updates world properties.</p>
 
@@ -1161,7 +1875,24 @@
 </table>
 
 
-<h3>0x30: Heartbeat <span class="small"><strong>Bidirectional</strong></span></h3>
+
+
+<h3>
+    <span id="30"></span>
+    <span id="0x30"></span>
+    0x30: Heartbeat
+    
+        
+            <span class="small">
+    <span class="text text-primary"><strong>Server</strong></span>
+    <span class="glyphicon glyphicon-arrow-right"></span>
+    <span class="text text-success"><strong>Client</strong></span>
+</span>
+
+        
+    
+</h3>
+
 
 <p>This packet is periodically sent to inform the other party that the other end is still connected.</p>
 
