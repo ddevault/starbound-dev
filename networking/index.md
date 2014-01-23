@@ -123,7 +123,7 @@ This packet is used to notify the client of a disconnect.
 
 {% include packet-header.html name="Handshake Challenge" id="04" direction="server-to-client" %}
 
-This packet provides a salt and round count for password verification. It is followed by Handshake Response.
+This packet provides a salt and round count for password verification. It is followed by [Handshake Response](#handshake-response).
 
 <table class="table table-bordered packet">
     <thead>
@@ -219,7 +219,7 @@ This packet is sent from the server to update the current time.
 
 **Compressed**
 
-This packet is sent in the handshake process immediately after 0x01, Protocol Version. It contains all relevant data about the connecting player.
+This packet is sent in the handshake process immediately after the [Protocol Version](#protocol-version). It contains all relevant data about the connecting player.
 
 <table class="table table-bordered packet">
     <thead>
@@ -295,7 +295,7 @@ This packet is sent when the client disconnects.
 
 {% include packet-header.html name="Handshake Response" id="09" direction="client-to-server" %}
 
-This packet is the response to 0x04: Handshake Challenge,
+This packet is the response to the [Handshake Challenge](#handshake-challenge).
 
 <table class="table table-bordered packet">
     <thead>
