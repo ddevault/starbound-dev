@@ -26,7 +26,7 @@ The next step is to split the binary into groups of 7, starting from the LSB. Th
 
 The result from this operation is `10100100 11010111 00101000`, which is the unsigned VLQ. The conversion backwards is much the same.
 
-A signed VLQ is very similar, but with a simple flag to demonstrate endianess. For -601000, we simply pad the end with an extra bit. From `10010010101110101000` we pad a 1 for the negative, giving us `100100101011101010001`, broken into 7-bit groups, `1001001 0101110 1010001`. Finally, with continuation bits, `11001001 10101110 11010001`.
+A signed VLQ is very similar, but with a simple flag to demonstrate parity. For -601000, we simply pad the end with an extra bit. From `10010010101110101000` we pad a 1 for the negative, giving us `100100101011101010001`, broken into 7-bit groups, `1001001 0101110 1010001`. Finally, with continuation bits, `11001001 10101110 11010001`.
 
 ## Variant
 
