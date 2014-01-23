@@ -215,9 +215,7 @@ This packet is sent from the server to update the current time.
     </tbody>
 </table>
 
-{% include packet-header.html name="Client Connect" id="07" direction="client-to-server" %}
-
-**Compressed**
+{% include packet-header.html name="Client Connect" id="07" direction="client-to-server" compressed="true" %}
 
 This packet is sent in the handshake process immediately after the [Protocol Version](#protocol-version). It contains all relevant data about the connecting player.
 

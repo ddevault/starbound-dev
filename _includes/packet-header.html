@@ -16,4 +16,7 @@
             {% include bidirectional.html %}
         {% endif %}
     {% endif %}
+    {% if include.compressed %}
+    <span class="small"><span class="glyphicon glyphicon-compressed"></span><strong>Compressed</strong></span>
+    {% endif %}
 </h3>
