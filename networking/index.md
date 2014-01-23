@@ -420,7 +420,7 @@ This packet is sent to the client when a world thread has been started on the se
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="6">0x0D</td></tr>
+        <tr><td rowspan="7">0x0D</td></tr>
         <tr>
             <td>uint8[]</td>
             <td>Planet</td>
