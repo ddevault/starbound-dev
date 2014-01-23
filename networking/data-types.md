@@ -34,23 +34,49 @@ The Variant type is a relatively complex structure that incorporates many other 
 
 The first byte of a variant indicates its type. Depending on that byte, one of 8 different formats may follow.
 
-### Type 1
-`null`
-
-### Type 2
-A `double`
-
-### Type 3
-A `bool`
-
-### Type 4
-A `VLQ`
-
-### Type 5
-A `string`
-
-### Type 6
-A `VLQ` indicating the number of items, and then followed by that number of `Variant`s.
-
-### Type 7
-A `VLQ` indicating the number of items, and then a sequence of key-value pairs made up of a `string` and a `Variant`.
+<table class="table">
+    <thead>
+        <tr>
+            <th>Type</th>
+            <th>Value</th>
+            <th>Comments</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>null</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>double</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>bool</td>
+            <td>1: true; 0: false</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>VLQ</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>string</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>Variant[]</td>
+            <td>Prefixed with VLQ with item count</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>Dictionary</td>
+            <td>Prefixed with VLQ indicating number of string/Variant key-value pairs</td>
+        </tr>
+    </tbody>
+</table>
