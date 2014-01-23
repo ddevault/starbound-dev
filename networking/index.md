@@ -45,6 +45,9 @@ Each packet is wrapped in this basic package:
     </tbody>
 </table>
 
+Though the server and client must be able to handle compressed packets, no packet *must* be compressed. Where this documentation
+makes a note that a packet is compressed, it refers to the behavior of the official software.
+
 ## Packets
 
 {% include packet-header.html name="Protocol Version" id="01" direction="server-to-client" %}
