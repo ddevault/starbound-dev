@@ -1119,17 +1119,17 @@ This packet updates world properties.
         <tr><td rowspan="4">0x2F</td></tr>
         <tr>
             <td>uint8</td>
-            <td>number of pairs</td>
+            <td>Number of pairs</td>
             <td>(might be) The number of names/value pairs in this packet.</td>
         </tr>
         <tr>
             <td>string</td>
-            <td>property name</td>
+            <td>Property name</td>
             <td>The name of the property that is about to be set. Example: fuel.level</td>
         </tr>
         <tr>
             <td>Variant Type 4 (sVLQ)</td>
-            <td>property value</td>
+            <td>Property value</td>
             <td>The new value of the before mentioned property. Example: 800 </td>
         </tr>
     </tbody>
