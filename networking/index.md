@@ -12,7 +12,7 @@ The Starbound networking protocol is based on TCP, and uses port 21025 by defaul
 There are several related pages that you might want to browse:
 
 * [Data types](/networking/data-types.html)
-* [Logging on to a server](/todo)
+* [Logging on to a server](/networking/connecting.html)
 
 ## Base Packet
 
