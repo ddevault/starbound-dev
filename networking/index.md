@@ -453,7 +453,7 @@ This packet is sent to the client when a world thread has been started on the se
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="7">0x0D</td></tr>
+        <tr><td rowspan="10">0x0D</td></tr>
         <tr>
             <td>uint8[]</td>
             <td>Planet</td>
@@ -483,6 +483,21 @@ This packet is sent to the client when a world thread has been started on the se
             <td>float</td>
             <td>Spawn Y</td>
             <td>The spawn coordinates for the planet. Currently locked in server-side.</td>
+        </tr>
+        <tr>
+            <td>An Update World Properties packet.<br>(A variant dictionary but without the leading variant type)</td>
+            <td>World Properties</td>
+            <td>A dictionary with multiple key value pairs about world properties. See 0x2F: Update World Properties.</td>
+        </tr>
+        <tr>
+            <td>int32</td>
+            <td>unknown</td>
+            <td>This field serves an unknown purpose. Only value of 1 has been observed.</td>
+        </tr>
+        <tr>
+            <td>bool</td>
+            <td>unknown</td>
+            <td>This field serves an unknown purpose. Only value of false has been observed.</td>
         </tr>
     </tbody>
 </table>
