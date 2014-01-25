@@ -487,16 +487,16 @@ This packet is sent to the client when a world thread has been started on the se
         <tr>
             <td>An Update World Properties packet.<br>(A variant dictionary but without the leading variant type)</td>
             <td>World Properties</td>
-            <td>A dictionary with multiple key value pairs about world properties. See 0x2F: Update World Properties.</td>
+            <td>A dictionary with multiple key value pairs about world properties. See <a href="#0x2F">Update World Properties</a>.</td>
         </tr>
         <tr>
             <td>int32</td>
-            <td>unknown</td>
+            <td>Unknown</td>
             <td>This field serves an unknown purpose. Only value of 1 has been observed.</td>
         </tr>
         <tr>
             <td>bool</td>
-            <td>unknown</td>
+            <td>Unknown</td>
             <td>This field serves an unknown purpose. Only value of false has been observed.</td>
         </tr>
     </tbody>
