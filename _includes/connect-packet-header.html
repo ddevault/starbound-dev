@@ -1,0 +1,18 @@
+<h3>
+    <span id="{{include.id}}"></span>
+    <span id="0x{{include.id}}"></span>
+    <span id="{{include.name | downcase | replace: ' ', '-' }}"></span>
+    0x{{include.id}}: {{include.name}}
+    {% if include.direction %}
+        {% if include.direction == "client-to-server" %}
+            {% include client-to-server.html %}
+        {% else if include.direction == "server-to-client" %}
+            {% include server-to-client.html %}
+        {% else if include.direction == "bidirectional" %}
+            {% include bidirectional.html %}
+        {% endif %}
+    {% endif %}
+    {% if include.compressed %}
+    <span class="small" title="This packet is compressed when sent by the official software."><span class="glyphicon glyphicon-compressed"></span><strong>Compressed</strong></span>
+    {% endif %}
+</h3>
