@@ -43,7 +43,7 @@ yet be complete.
         <tr> <!-- StarryboundServer -->
             <td><a target="_blank" href="https://github.com/AvilanceLtd/StarryboundServer/">AvilanceLtd/StarryboundServer</a></td>
             <td>Starrybound Proxy Wrapper for Starbound Servers.</td>
-            <td><span class="label label-success">Angry Koala</span></td>
+            <td><span class="label label-danger">Angry Koala</span></td>
             <td><span class="label label-danger">Unstable</span></td>
             <td>C#</td>
             <td><a target="_blank" href="https://github.com/AvilanceLtd/StarryboundServer/blob/master/LICENSE">GPLv3</a></td>
@@ -51,7 +51,7 @@ yet be complete.
         <tr> <!-- StarryPy -->
             <td><a target="_blank" href="https://github.com/CarrotsAreMediocre/StarryPy">CarrotsAreMediocre/StarryPy</a></td>
             <td>Plugin-driven Starbound proxy server built using Twisted.</td>
-            <td><span class="label label-success">Angry Koala</span></td>
+            <td><span class="label label-danger">Angry Koala</span></td>
             <td><span class="label label-danger">Unstable</span></td>
             <td>Python</td>
             <td><a target="_blank" href="https://github.com/CarrotsAreMediocre/StarryPy/blob/master/LICENSE">WTFPL</a></td>

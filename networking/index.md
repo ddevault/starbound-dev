@@ -5,7 +5,7 @@ title: Starbound Networking
 {% capture content %}
 # Starbound Networking
 
-The Starbound networking protocol is based on TCP, and uses port 21025 by default. The current protocol version (Angry Koala) is 0x274.
+The Starbound networking protocol is based on TCP, and uses port 21025 by default. The current protocol version (Furious Koala) is 635.
 
 ## Resources
 
