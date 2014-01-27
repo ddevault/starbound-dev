@@ -416,7 +416,7 @@ This packet is sent from the client whenever a message is sent in the chat windo
     </tbody>
 </table>
 
-{% include packet-header.html name="Client Context Update" id="11" %}
+{% include packet-header.html name="Client Context Update" id="11" direction="bidirectional" %}
 
 This packet has yet to be fully understood.
 
@@ -525,7 +525,7 @@ Called when a world thread is stopped.
     </tbody>
 </table>
 
-{% include packet-header.html name="Tile Array Update" id="14" %}
+{% include packet-header.html name="Tile Array Update" id="14" direction="server-to-client"%}
 
 Called when an array of tiles has its properties updated.
 
@@ -543,7 +543,7 @@ Called when an array of tiles has its properties updated.
     </tbody>
 </table>
 
-{% include packet-header.html name="Tile Update" id="15" %}
+{% include packet-header.html name="Tile Update" id="15" direction="server-to-client" %}
 
 This packet is called when a tile is updated.
 
@@ -561,7 +561,7 @@ This packet is called when a tile is updated.
     </tbody>
 </table>
 
-{% include packet-header.html name="Tile Liquid Update" id="16" %}
+{% include packet-header.html name="Tile Liquid Update" id="16" direction="server-to-client" %}
 
 This packet is sent when the liquid on a tile has changed position.
 
@@ -579,7 +579,7 @@ This packet is sent when the liquid on a tile has changed position.
     </tbody>
 </table>
 
-{% include packet-header.html name="Tile Damage Update" id="17" %}
+{% include packet-header.html name="Tile Damage Update" id="17" direction="server-to-client" %}
 
 This packet is sent when a tile is damaged.
 
@@ -648,7 +648,7 @@ This packet attempts to give an item to a player. If the player's inventory is f
     </tbody>
 </table>
 
-{% include packet-header.html name="Swap in Container Result" id="20" %}
+{% include packet-header.html name="Swap in Container Result" id="20" direction="server-to-client" %}
 
 This packet is sent whenever two items are swapped in an open container.
 
@@ -666,7 +666,7 @@ This packet is sent whenever two items are swapped in an open container.
     </tbody>
 </table>
 
-{% include packet-header.html name="Enviornment Update" id="21" direction="server-to-client" %}
+{% include packet-header.html name="Enviornment Update" id="21" direction="server-to-client" direction="server-to-client" %}
 
 This packet is sent on an environment update.
 
@@ -771,7 +771,7 @@ This packet updates an entire tile group's damage.
     </tbody>
 </table>
 
-{% include packet-header.html name="Request Drop" id="26" direction="server-to-client" %}
+{% include packet-header.html name="Request Drop" id="26" direction="client-to-server" %}
 
 This packet requests an item drop (from a player's inventory?)
 
@@ -1004,7 +1004,7 @@ This packet clears a container.
     </tbody>
 </table>
 
-{% include packet-header.html name="World Update" id="39" direction="server-to-client" %}
+{% include packet-header.html name="World Update" id="39" direction="client-to-server" %}
 
 This packet contains a world update
 
@@ -1022,7 +1022,7 @@ This packet contains a world update
     </tbody>
 </table>
 
-{% include packet-header.html name="Entity Create" id="40" direction="server-to-client" %}
+{% include packet-header.html name="Entity Create" id="40" direction="bidirectional" %}
 
 This packet creates an entity.
 
@@ -1040,7 +1040,7 @@ This packet creates an entity.
     </tbody>
 </table>
 
-{% include packet-header.html name="Entity Update" id="41" direction="server-to-client" %}
+{% include packet-header.html name="Entity Update" id="41" direction="bidirectional" %}
 
 This packet updates an entity's properties.
 
@@ -1058,7 +1058,7 @@ This packet updates an entity's properties.
     </tbody>
 </table>
 
-{% include packet-header.html name="Entity Destroy" id="42" direction="bidirectional" %}
+{% include packet-header.html name="Entity Destroy" id="42" direction="server-to-client" %}
 
 This packet destroys an entity.
 
