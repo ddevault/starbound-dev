@@ -26,8 +26,6 @@ yet be complete.
     "libraries" section. Make an "other" section if your stuff doesn't fit into the existing categories.
 -->
 
-### Projects
-
 <table class="table">
     <thead>
         <tr>
