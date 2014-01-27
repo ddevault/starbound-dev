@@ -40,6 +40,14 @@ yet be complete.
         </tr>
     </thead>
     <tbody>
+        <tr> <!-- StarNet -->
+            <td><a target="_blank" href="https://github.com/SirCmpwn/StarNet">SirCmpwn/StarNet</a></td>
+            <td>Starbound multiplayer network infrastructure.</td>
+            <td><span class="label label-success">Furious Koala</span></td>
+            <td><span class="label label-danger">Unstable</span></td>
+            <td>C#</td>
+            <td><a target="_blank" href="https://github.com/SirCmpwn/StarNet/blob/master/LICENSE">MIT</a></td>
+        </tr>
         <tr> <!-- StarryPy -->
             <td><a target="_blank" href="https://github.com/CarrotsAreMediocre/StarryPy">CarrotsAreMediocre/StarryPy</a></td>
             <td>Plugin-driven Starbound proxy server built using Twisted.</td>
