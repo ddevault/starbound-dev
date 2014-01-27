@@ -80,3 +80,7 @@ The first byte of a variant indicates its type. Depending on that byte, one of 8
         </tr>
     </tbody>
 </table>
+
+## Implementations
+
+* C# [(s)VLQ](https://gist.github.com/SirCmpwn/9c2133b99f529a2d7213) ([MIT license](https://github.com/SirCmpwn/StarNet/blob/master/LICENSE))
