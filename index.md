@@ -62,13 +62,21 @@ yet be complete.
             <td>Python</td>
             <td><a target="_blank" href="https://github.com/CarrotsAreMediocre/StarryPy/blob/master/LICENSE">WTFPL</a></td>
         </tr>
-         <tr> <!-- MultiBound -->
+        <tr> <!-- MultiBound -->
             <td><a target="_blank" href="https://github.com/ROFLCopter64bit/MultiBound">ROFLCopter64bit/MultiBound</a></td>
             <td>Full recode of a server.</td>
             <td><span class="label label-success">Furious Koala</span></td>
             <td><span class="label label-danger">Unstable</span></td>
             <td>VB.NET</td>
             <td><a target="_blank" href="https://github.com/ROFLCopter64bit/MultiBound/blob/master/LICENSE">GPL v2</a></td>
+        </tr>
+		<tr> <!-- starbound-research -->
+            <td><a target="_blank" href="https://github.com/McSimp/starbound-research">McSimp/starbound-research</a></td>
+            <td>Scripts for reading various starbound data files in 010 Editor</td>
+            <td><span class="label label-success">Furious Koala</span></td>
+            <td><span class="label label-danger">Unstable</span></td>
+            <td>010 Editor Binary Templates</td>
+            <td><a target="_blank" href="https://github.com/McSimp/starbound-research/blob/master/README.md">None</a></td>
         </tr>
     </tbody>
 </table>
