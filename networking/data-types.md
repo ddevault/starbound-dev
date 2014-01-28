@@ -18,7 +18,7 @@ Starbound uses several different data types to move information over the wire. T
 
 ## Implementations
 
-* C# [All data types](https://github.com/SirCmpwn/StarNet/blob/master/StarNet/StarboundStream.cs) ([MIT license](https://github.com/SirCmpwn/StarNet/blob/master/LICENSE))
+* C# [All data types](https://github.com/SirCmpwn/StarNet/blob/master/StarNet/Common/StarboundStream.cs) ([MIT license](https://github.com/SirCmpwn/StarNet/blob/master/LICENSE))
 
 ## VLQ
 
