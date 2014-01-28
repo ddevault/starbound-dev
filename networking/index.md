@@ -271,7 +271,7 @@ This packet is sent in the handshake process immediately after the [Protocol Ver
         <tr>
             <td>string</td>
             <td>Account</td>
-            <td>The player's account name. Currently unused.</td>
+            <td>The player's account name, from the connection dialog.</td>
         </tr>
     </tbody>
 </table>
