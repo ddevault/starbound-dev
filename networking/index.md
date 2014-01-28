@@ -45,8 +45,7 @@ Each packet is wrapped in this basic package:
     </tbody>
 </table>
 
-Though the server and client must be able to handle compressed packets, no packet *must* be compressed. Where this documentation
-makes a note that a packet is compressed, it refers to the behavior of the official software.
+Though the server and client must be able to handle compressed packets, no packet *must* be compressed. Packets are compressed in the official client and server when it finds that the compressed payload is smaller than the uncompress payload.
 
 ## Packets
 
@@ -218,7 +217,7 @@ This packet is sent from the server to update the current time.
     </tbody>
 </table>
 
-{% include packet-header.html name="Client Connect" id="6" direction="client-to-server" compressed="true" %}
+{% include packet-header.html name="Client Connect" id="6" direction="client-to-server" %}
 
 This packet is sent in the handshake process immediately after the [Protocol Version](#protocol-version). It contains all relevant data about the connecting player.
 
