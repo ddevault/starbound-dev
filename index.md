@@ -49,7 +49,7 @@ yet be complete.
         <tr> <!-- StarryboundServer -->
             <td><a target="_blank" href="https://github.com/AvilanceLtd/StarryboundServer/">AvilanceLtd/StarryboundServer</a></td>
             <td>Starrybound Proxy Wrapper for Starbound Servers.</td>
-            <td><span class="label label-danger">Furious Koala</span></td>
+            <td><span class="label label-success">Furious Koala</span></td>
             <td><span class="label label-danger">Unstable</span></td>
             <td>C#</td>
             <td><a target="_blank" href="https://github.com/AvilanceLtd/StarryboundServer/blob/master/LICENSE">GPLv3</a></td>
