@@ -440,6 +440,8 @@ This packet has yet to be fully understood.
 
 {% include packet-header.html name="World Start" id="12" direction="server-to-client" %}
 
+**Documentation for this packet is outdated.**
+
 This packet is sent to the client when a world thread has been started on the server.
 
 <table class="table table-bordered packet">
