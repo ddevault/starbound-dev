@@ -58,7 +58,7 @@ yet be complete.
             <td><a target="_blank" href="https://github.com/CarrotsAreMediocre/StarryPy">CarrotsAreMediocre/StarryPy</a></td>
             <td>Plugin-driven Starbound proxy server built using Twisted.</td>
             <td><span class="label label-success">Furious Koala</span></td>
-            <td><span class="label label-danger">Unstable</span></td>
+            <td><span class="label label-success">Stable</span></td>
             <td>Python</td>
             <td><a target="_blank" href="https://github.com/CarrotsAreMediocre/StarryPy/blob/master/LICENSE">WTFPL</a></td>
         </tr>
