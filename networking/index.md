@@ -65,7 +65,7 @@ This packet is the first packet sent. It contains the server version.
     <tbody>
         <tr><td rowspan="2">0</td></tr>
         <tr>
-            <td>VLQ</td>
+            <td>uint32</td>
             <td>Protocol version number</td>
             <td>The server's supported protocol version. Changes with each release.</td>
         </tr>
@@ -105,7 +105,7 @@ This packet tells the client whether their connection attempt is successful or i
     </tbody>
 </table>
 
-{% include packet-header.html name="Server Disconnect" id="2" direction="server-to-client" %}
+{% include packet-header.html name="Disconnect Response" id="2" direction="server-to-client" %}
 
 This packet is used to notify the client of a disconnect.
 
@@ -119,7 +119,12 @@ This packet is used to notify the client of a disconnect.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="1">2</td><td colspan=3 align='center'>TODO</td></tr>
+        <tr><td rowspan="2">2</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Unknown</td>
+            <td></td>
+        </tr>
     </tbody>
 </table>
 
@@ -213,7 +218,12 @@ This packet is sent from the server to update the current time.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="1">5</td><td colspan=3 align='center'>TODO</td></tr>
+        <tr><td rowspan="2">5</td></tr>
+        <tr>
+            <td>sVLQ</td>
+            <td>Time</td>
+            <td></td>
+        </tr>
     </tbody>
 </table>
 
@@ -289,7 +299,12 @@ This packet is sent when the client disconnects.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="1">7</td><td colspan=3 align='center'>TODO</td></tr>
+        <tr><td rowspan="2">7</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Unknown</td>
+            <td></td>
+        </tr>
     </tbody>
 </table>
 
@@ -456,12 +471,12 @@ This packet is sent to the client when a world thread has been started on the se
     <tbody>
         <tr><td rowspan="10">12</td></tr>
         <tr>
-            <td>uint8[]</td>
+            <td>Variant</td>
             <td>Planet</td>
-            <td>The world data. WRLDB format with headers stripped.</td>
+            <td>The world data.</td>
         </tr>
         <tr>
-            <td>uint8[]</td>
+            <td>Variant</td>
             <td>World structure</td>
             <td>The world structure. TODO.</td>
         </tr>
@@ -486,19 +501,19 @@ This packet is sent to the client when a world thread has been started on the se
             <td>The spawn coordinates for the planet. Currently locked in server-side.</td>
         </tr>
         <tr>
-            <td>An Update World Properties packet.<br>(A variant dictionary but without the leading variant type)</td>
+            <td>Variant</td>
             <td>World Properties</td>
             <td>A dictionary with multiple key value pairs about world properties. See <a href="#0x2F">Update World Properties</a>.</td>
         </tr>
         <tr>
-            <td>int32</td>
-            <td>Unknown</td>
-            <td>This field serves an unknown purpose. Only value of 1 has been observed.</td>
+            <td>uint32</td>
+            <td>Client ID</td>
+            <td>The client's ID.</td>
         </tr>
         <tr>
             <td>bool</td>
-            <td>Unknown</td>
-            <td>This field serves an unknown purpose. Only value of false has been observed.</td>
+            <td>Local</td>
+            <td>Determines whether the interpolation settings used are for a local connection.</td>
         </tr>
     </tbody>
 </table>
