@@ -1,8 +1,7 @@
 <h3>
     <span id="{{include.id}}"></span>
-    <span id="0x{{include.id}}"></span>
     <span id="{{include.name | downcase | replace: ' ', '-' }}"></span>
-    0x{{include.id}}: {{include.name}}
+    {{include.id}}: {{include.name}}
     {% if include.direction %}
         {% if include.direction == "client-to-server" %}
             {% include client-to-server.html %}
