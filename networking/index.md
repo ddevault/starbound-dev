@@ -423,7 +423,7 @@ This packet is sent from the client whenever a message is sent in the chat windo
             <td>The chat message being sent.</td>
         </tr>
         <tr>
-            <td>unit8</td>
+            <td>uint8</td>
             <td>Channel</td>
             <td>The current chat channel.</td>
         </tr>
@@ -454,8 +454,6 @@ This packet has yet to be fully understood.
 </table>
 
 {% include packet-header.html name="World Start" id="12" direction="server-to-client" %}
-
-**Documentation for this packet is outdated.**
 
 This packet is sent to the client when a world thread has been started on the server.
 
@@ -555,7 +553,32 @@ Called when an array of tiles has its properties updated.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="1">14</td><td colspan=3 align='center'>TODO</td></tr>
+        <tr><td rowspan="6">14</td></tr>
+        <tr>
+            <td>sVLQ</td>
+            <td>Tile X</td>
+            <td>The X coordinate within the server's tile array.</td>
+        </tr>
+        <tr>
+            <td>sVLQ</td>
+            <td>Tile Y</td>
+            <td>The Y coordinate within the server's tile array.</td>
+        </tr>
+        <tr>
+            <td>VLQ</td>
+            <td>Width</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>VLQ</td>
+            <td>Height</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>NetTile[Width,Height]</td>
+            <td>Tiles</td>
+            <td>The array of updated tiles.</td>
+        </tr>
     </tbody>
 </table>
 
@@ -573,7 +596,22 @@ This packet is called when a tile is updated.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="1">15</td><td colspan=3 align='center'>TODO</td></tr>
+        <tr><td rowspan="4">15</td></tr>
+        <tr>
+            <td>sVLQ</td>
+            <td>Tile X</td>
+            <td>The tile's X coordinate within the server's tile array.</td>
+        </tr>
+        <tr>
+            <td>sVLQ</td>
+            <td>Tile Y</td>
+            <td>The tile's Y coordinate within the server's tile array.</td>
+        </tr>
+        <tr>
+            <td>NetTile</td>
+            <td>Tile</td>
+            <td>The updated tile.</td>
+        </tr>
     </tbody>
 </table>
 
@@ -591,7 +629,27 @@ This packet is sent when the liquid on a tile has changed position.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="1">16</td><td colspan=3 align='center'>TODO</td></tr>
+        <tr><td rowspan="5">16</td></tr>
+        <tr>
+            <td>sVLQ</td>
+            <td>Tile X</td>
+            <td>The tile's X coordinate within the server's tile array.</td>
+        </tr>
+        <tr>
+            <td>sVLQ</td>
+            <td>Tile Y</td>
+            <td>The tile's Y coordinate within the server's tile array.</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Unknown</td>
+            <td>Possibly the liquid level.</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Unknown</td>
+            <td>Possibly the liquid type.</td>
+        </tr>
     </tbody>
 </table>
 
@@ -609,13 +667,53 @@ This packet is sent when a tile is damaged.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="1">17</td><td colspan=3 align='center'>TODO</td></tr>
+        <tr><td rowspan="9">17</td></tr>
+        <tr>
+            <td>int32</td>
+            <td>Tile X</td>
+            <td>The tile's X coordinate within the server's tile array.</td>
+        </tr>
+        <tr>
+            <td>int32</td>
+            <td>Tile Y</td>
+            <td>The tile's Y coordinate within the server's tile array.</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Unknown</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>float</td>
+            <td>Damage Percentage</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>float</td>
+            <td>Damage Effect Percentage</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>float</td>
+            <td>Source Position X</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>float</td>
+            <td>Source Position Y</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Damage Type</td>
+            <td></td>
+        </tr>
     </tbody>
 </table>
 
 {% include packet-header.html name="Tile Modification Failure" id="18" direction="server-to-client" %}
 
-This packet is sent when a packet cannot successfully be modified.
+This packet is sent when a tile list cannot successfully be modified.
 
 <table class="table table-bordered packet">
     <thead>

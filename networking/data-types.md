@@ -83,3 +83,99 @@ The first byte of a variant indicates its type. Depending on that byte, one of 8
         </tr>
     </tbody>
 </table>
+
+## NetTile
+
+<table class="table">
+    <thead>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>int16</td>
+            <td>Unknown</td>
+            <td></td>
+        </tr>
+        <tr class="danger">
+            <td>uint8</td>
+            <td>Unknown</td>
+            <td></td>
+        </tr>
+        <tr class="danger">
+            <td>uint8</td>
+            <td>Unknown</td>
+            <td></td>
+        </tr>
+        <tr class="danger">
+            <td>int16</td>
+            <td>Unknown</td>
+            <td></td>
+        </tr>
+        <tr class="danger">
+            <td>uint8</td>
+            <td>Unknown</td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td>int16</td>
+            <td>Unknown</td>
+            <td></td>
+        </tr>
+        <tr class="danger">
+            <td>uint8</td>
+            <td>Unknown</td>
+            <td></td>
+        </tr>
+        <tr class="danger">
+            <td>uint8</td>
+            <td>Unknown</td>
+            <td></td>
+        </tr>
+        <tr class="danger">
+            <td>int16</td>
+            <td>Unknown</td>
+            <td></td>
+        </tr>
+        <tr class="danger">
+            <td>uint8</td>
+            <td>Unknown</td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td>uint8</td>
+            <td>Unknown</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Unknown</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Unknown</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Unknown</td>
+            <td></td>
+        </tr>
+        <tr class="danger">
+            <td>uint8</td>
+            <td>Liquid Level</td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td>sVLQ</td>
+            <td>Gravity</td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
