@@ -86,7 +86,7 @@ The first byte of a variant indicates its type. Depending on that byte, one of 8
 
 ## NetTile
 
-The following table contains the structure of a NetTile. Red rows indicate that the green rows following are dependent on the red field's value being non-zero.
+The following table contains the structure of a NetTile. Several fields identified by superscripts determine whether other fields are used.
 
 <table class="table">
     <thead>
