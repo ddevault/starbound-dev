@@ -38,13 +38,29 @@ yet be complete.
         </tr>
     </thead>
     <tbody>
+        <tr> <!-- MultiBound -->
+            <td><a target="_blank" href="https://github.com/ROFLCopter64bit/MultiBound">ROFLCopter64bit/MultiBound</a></td>
+            <td>Full recode of a server.</td>
+            <td><span class="label label-success">Furious Koala</span></td>
+            <td><span class="label label-danger">Unstable</span></td>
+            <td>VB.NET</td>
+            <td><a target="_blank" href="https://github.com/ROFLCopter64bit/MultiBound/blob/master/LICENSE">GPL v2</a></td>
+        </tr>
         <tr> <!-- starbound-research -->
             <td><a target="_blank" href="https://github.com/McSimp/starbound-research">McSimp/starbound-research</a></td>
             <td>Scripts for reading various starbound data files in 010 Editor</td>
             <td><span class="label label-success">Furious Koala</span></td>
             <td><span class="label label-danger">Unstable</span></td>
             <td>010 Editor Binary Templates</td>
-            <td><a target="_blank" href="https://github.com/McSimp/starbound-research/blob/master/README.md">None</a></td>
+            <td><a target="_blank" href="https://github.com/McSimp/starbound-research/blob/master/LICENSE">MIT</a></td>
+        </tr>
+        <tr> <!-- StarDB -->
+            <td><a target="_blank" href="https://github.com/McSimp/StarDB">McSimp/StarDB</a></td>
+            <td>A Python library for manipulating Starbound database files.</td>
+            <td><span class="label label-success">Furious Koala</span></td>
+            <td><span class="label label-danger">Unstable</span></td>
+            <td>Python</td>
+            <td><a target="_blank" href="https://github.com/McSimp/StarDB/blob/master/LICENSE">MIT</a></td>
         </tr>
         <tr> <!-- StarNet -->
             <td><a target="_blank" href="https://github.com/SirCmpwn/StarNet">SirCmpwn/StarNet</a></td>
@@ -69,14 +85,6 @@ yet be complete.
             <td><span class="label label-success">Stable</span></td>
             <td>Python</td>
             <td><a target="_blank" href="https://github.com/CarrotsAreMediocre/StarryPy/blob/master/LICENSE">WTFPL</a></td>
-        </tr>
-        <tr> <!-- MultiBound -->
-            <td><a target="_blank" href="https://github.com/ROFLCopter64bit/MultiBound">ROFLCopter64bit/MultiBound</a></td>
-            <td>Full recode of a server.</td>
-            <td><span class="label label-success">Furious Koala</span></td>
-            <td><span class="label label-danger">Unstable</span></td>
-            <td>VB.NET</td>
-            <td><a target="_blank" href="https://github.com/ROFLCopter64bit/MultiBound/blob/master/LICENSE">GPL v2</a></td>
         </tr>
     </tbody>
 </table>
