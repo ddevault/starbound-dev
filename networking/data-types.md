@@ -178,3 +178,4 @@ The first byte of a variant indicates its type. Depending on that byte, one of 8
         </tr>
     </tbody>
 </table>
+
