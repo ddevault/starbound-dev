@@ -575,7 +575,7 @@ Called when an array of tiles has its properties updated.
             <td></td>
         </tr>
         <tr>
-            <td>NetTile[Width,Height]</td>
+            <td><a href="/networking/data-types.html">NetTile</a>[Width,Height]</td>
             <td>Tiles</td>
             <td>The array of updated tiles.</td>
         </tr>
@@ -608,7 +608,7 @@ This packet is called when a tile is updated.
             <td>The tile's Y coordinate within the server's tile array.</td>
         </tr>
         <tr>
-            <td>NetTile</td>
+            <td><a href="/networking/data-types.html">NetTile</a></td>
             <td>Tile</td>
             <td>The updated tile.</td>
         </tr>

@@ -86,6 +86,8 @@ The first byte of a variant indicates its type. Depending on that byte, one of 8
 
 ## NetTile
 
+The following table contains the structure of a NetTile. Red rows indicate that the green rows following are dependent on the red field's value being non-zero.
+
 <table class="table">
     <thead>
         <th>Type</th>
@@ -95,25 +97,25 @@ The first byte of a variant indicates its type. Depending on that byte, one of 8
     <tbody>
         <tr>
             <td>int16</td>
-            <td>Unknown</td>
+            <td>Unknown<sup>1</sup></td>
             <td></td>
         </tr>
-        <tr class="danger">
+        <tr>
             <td>uint8</td>
             <td>Unknown</td>
             <td></td>
         </tr>
-        <tr class="danger">
+        <tr>
             <td>uint8</td>
             <td>Unknown</td>
             <td></td>
         </tr>
-        <tr class="danger">
+        <tr>
             <td>int16</td>
-            <td>Unknown</td>
+            <td>Unknown<sup>2</sup></td>
             <td></td>
         </tr>
-        <tr class="danger">
+        <tr>
             <td>uint8</td>
             <td>Unknown</td>
             <td></td>
@@ -121,25 +123,25 @@ The first byte of a variant indicates its type. Depending on that byte, one of 8
 
         <tr>
             <td>int16</td>
-            <td>Unknown</td>
+            <td>Unknown<sup>3</sup></td>
             <td></td>
         </tr>
-        <tr class="danger">
+        <tr>
             <td>uint8</td>
             <td>Unknown</td>
             <td></td>
         </tr>
-        <tr class="danger">
+        <tr>
             <td>uint8</td>
             <td>Unknown</td>
             <td></td>
         </tr>
-        <tr class="danger">
+        <tr>
             <td>int16</td>
-            <td>Unknown</td>
+            <td>Unknown<sup>4</sup></td>
             <td></td>
         </tr>
-        <tr class="danger">
+        <tr>
             <td>uint8</td>
             <td>Unknown</td>
             <td></td>
@@ -162,10 +164,10 @@ The first byte of a variant indicates its type. Depending on that byte, one of 8
         </tr>
         <tr>
             <td>uint8</td>
-            <td>Unknown</td>
+            <td>Unknown<sup>5</sup></td>
             <td></td>
         </tr>
-        <tr class="danger">
+        <tr>
             <td>uint8</td>
             <td>Liquid Level</td>
             <td></td>
@@ -178,4 +180,14 @@ The first byte of a variant indicates its type. Depending on that byte, one of 8
         </tr>
     </tbody>
 </table>
+
+<sup>1</sup>: if the value is non-zero, the following three fields are used
+
+<sup>2</sup>: if the value is non-zero, the following field is used
+
+<sup>3</sup>: if the value is non-zero, the following three fields are used
+
+<sup>4</sup>: if the value is non-zero, the following field is used
+
+<sup>5</sup>: if the value is non-zero, the following field is used
 
