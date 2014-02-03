@@ -780,7 +780,7 @@ This packet is sent whenever two items are swapped in an open container.
     </tbody>
 </table>
 
-{% include packet-header.html name="Enviornment Update" id="21" direction="server-to-client" direction="server-to-client" %}
+{% include packet-header.html name="Environment Update" id="21" direction="server-to-client" direction="server-to-client" %}
 
 This packet is sent on an environment update.
 
