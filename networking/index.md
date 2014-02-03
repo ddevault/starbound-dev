@@ -814,12 +814,12 @@ This packet contains the results of an entity interaction.
     <tbody>
         <tr><td rowspan="4">22</td></tr>
         <tr>
-            <td>uint8</td>
+            <td>uint32</td>
             <td>Client ID</td>
             <td>The client attempting to interact.</td>
         </tr>
         <tr>
-            <td>int8</td>
+            <td>int32</td>
             <td>Enitity ID</td>
             <td>The ID of the entity that client is trying to interact with.</td>
         </tr>
@@ -887,7 +887,7 @@ This packet updates an entire tile group's damage.
 
 {% include packet-header.html name="Request Drop" id="26" direction="client-to-server" %}
 
-This packet requests an item drop (from a player's inventory?)
+This packet requests an item drop from the ground.
 
 <table class="table table-bordered packet">
     <thead>
@@ -899,7 +899,12 @@ This packet requests an item drop (from a player's inventory?)
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="1">26</td><td colspan=3 align='center'>TODO</td></tr>
+        <tr><td rowspan="2">26</td></tr>
+        <tr>
+            <td>sVLQ</td>
+            <td>Entity ID</td>
+            <td>The entity ID of the item drop.</td>
+        </tr>
     </tbody>
 </table>
 
@@ -988,7 +993,12 @@ This packet opens a container.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="1">31</td><td colspan=3 align='center'>TODO</td></tr>
+        <tr><td rowspan="2">31</td></tr>
+        <tr>
+            <td>sVLQ</td>
+            <td>Entity ID</td>
+            <td>The entity ID of the container.</td>
+        </tr>
     </tbody>
 </table>
 
@@ -1006,7 +1016,12 @@ This packet closes a container.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="1">32</td><td colspan=3 align='center'>TODO</td></tr>
+        <tr><td rowspan="2">32</td></tr>
+        <tr>
+            <td>sVLQ</td>
+            <td>Entity ID</td>
+            <td>The entity ID of the container.</td>
+        </tr>
     </tbody>
 </table>
 
@@ -1060,7 +1075,12 @@ This packet initiates crafting on an item in a container (Used in pixel compress
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="1">35</td><td colspan=3 align='center'>TODO</td></tr>
+        <tr><td rowspan="2">35</td></tr>
+        <tr>
+            <td>sVLQ</td>
+            <td>Entity ID</td>
+            <td>The entity ID of the container.</td>
+        </tr>
     </tbody>
 </table>
 
@@ -1078,7 +1098,12 @@ This packet stops crafting on an item in a container
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="1">36</td><td colspan=3 align='center'>TODO</td></tr>
+        <tr><td rowspan="2">36</td></tr>
+        <tr>
+            <td>sVLQ</td>
+            <td>Entity ID</td>
+            <td>The entity ID of the container.</td>
+        </tr>
     </tbody>
 </table>
 
@@ -1096,7 +1121,12 @@ This packet burns a container.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="1">37</td><td colspan=3 align='center'>TODO</td></tr>
+        <tr><td rowspan="2">37</td></tr>
+        <tr>
+            <td>sVLQ</td>
+            <td>Entity ID</td>
+            <td>The entity ID of the container.</td>
+        </tr>
     </tbody>
 </table>
 
@@ -1114,13 +1144,18 @@ This packet clears a container.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="1">38</td><td colspan=3 align='center'>TODO</td></tr>
+        <tr><td rowspan="2">38</td></tr>
+        <tr>
+            <td>sVLQ</td>
+            <td>Entity ID</td>
+            <td>The entity ID of the container.</td>
+        </tr>
     </tbody>
 </table>
 
-{% include packet-header.html name="World Update" id="39" direction="client-to-server" %}
+{% include packet-header.html name="World Client State Update" id="39" direction="client-to-server" %}
 
-This packet contains a world update
+This packet contains a world client state update
 
 <table class="table table-bordered packet">
     <thead>
@@ -1132,7 +1167,12 @@ This packet contains a world update
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="1">39</td><td colspan=3 align='center'>TODO</td></tr>
+        <tr><td rowspan="2">39</td></tr>
+        <tr>
+            <td>uint8[]</td>
+            <td>Delta</td>
+            <td>The world's state delta.</td>
+        </tr>
     </tbody>
 </table>
 
@@ -1150,7 +1190,22 @@ This packet creates an entity.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="1">40</td><td colspan=3 align='center'>TODO</td></tr>
+        <tr><td rowspan="4">40</td></tr>
+        <tr>
+            <td>uint8</td>
+            <td>Entity Type</td>
+            <td>The type of entity.</td>
+        </tr>
+        <tr>
+            <td>uint8[]</td>
+            <td>Store Data</td>
+            <td>The entity's store data.</td>
+        </tr>
+        <tr>
+            <td>sVLQ</td>
+            <td>Entity ID</td>
+            <td>The entity ID.</td>
+        </tr>
     </tbody>
 </table>
 
@@ -1168,7 +1223,17 @@ This packet updates an entity's properties.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="1">41</td><td colspan=3 align='center'>TODO</td></tr>
+        <tr><td rowspan="3">41</td></tr>
+        <tr>
+            <td>sVLQ</td>
+            <td>Entity ID</td>
+            <td>The ID of the entity.</td>
+        </tr>
+        <tr>
+            <td>uint8[]</td>
+            <td>Delta</td>
+            <td>The entity's state delta.</td>
+        </tr>
     </tbody>
 </table>
 
@@ -1186,8 +1251,17 @@ This packet destroys an entity.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="1">42</td><td colspan=3 align='center'>TODO</td></tr>
-
+        <tr><td rowspan="3">42</td></tr>
+        <tr>
+            <td>sVLQ</td>
+            <td>Entity ID</td>
+            <td>The ID of the entity being destroyed.</td>
+        </tr>
+        <tr>
+            <td>bool</td>
+            <td>Death</td>
+            <td>Determines whether this entity was destroyed via death.</td>
+        </tr>
     </tbody>
 </table>
 
@@ -1205,7 +1279,104 @@ This packet notifies the receiver of damage received.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="1">43</td><td colspan=3 align='center'>TODO</td></tr>
+        <tr><td rowspan="10">43</td></tr>
+        <tr>
+            <td>sVLQ</td>
+            <td>Causing Entity ID</td>
+            <td>The ID of the entity causing the damage.</td>
+        </tr>
+        <tr>
+            <td>sVLQ</td>
+            <td>Target Entity ID</td>
+            <td>The ID of the entity being targeted.</td>
+        </tr>
+        <tr>
+            <td>sVLQ</td>
+            <td>Position X*</td>
+            <td>The X position of the damage.</td>
+        </tr>
+        <tr>
+            <td>sVLQ</td>
+            <td>Position Y*</td>
+            <td>The Y position of the damage.</td>
+        </tr>
+        <tr>
+            <td>sVLQ</td>
+            <td>Damage*</td>
+            <td>The amount of damage.</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Damage Kind</td>
+            <td>The kind of damage.</td>
+        </tr>
+        <tr>
+            <td>string</td>
+            <td>Damage Source Kind</td>
+            <td>The kind of damage source.</td>
+        </tr>
+        <tr>
+            <td>string</td>
+            <td>Target Material Kind</td>
+            <td>The kind of material the target is made of.</td>
+        </tr>
+        <tr>
+            <td>uint8</td>
+            <td>Hit Result Kind</td>
+            <td>The kind of damage hit result.</td>
+        </tr>
+    </tbody>
+</table>
+
+*: These values are divided by 100 when read, and multiplied by 100 written.
+
+#### Damage Kinds
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Value</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>0</td>
+            <td>Normal</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Shield</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Energy</td>
+        </tr>
+    </tbody>
+</table>
+
+#### Hit Result Kinds
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Value</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>0</td>
+            <td>None</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Hit</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Kill</td>
+        </tr>
     </tbody>
 </table>
 
@@ -1223,7 +1394,27 @@ This packet requests a status effect from the server.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="1">44</td><td colspan=3 align='center'>TODO</td></tr>
+        <tr><td rowspan="5">44</td></tr>
+        <tr>
+            <td>sVLQ</td>
+            <td>Unknown</td>
+            <td>Possibly the entity ID</td>
+        </tr>
+        <tr>
+            <td>string</td>
+            <td>Status Effect Name</td>
+            <td>The name of the status effect.</td>
+        </tr>
+        <tr>
+            <td>Variant</td>
+            <td>Unknown</td>
+            <td>Possibly the parameters to the status effect.</td>
+        </tr>
+        <tr>
+            <td>float</td>
+            <td>Multiplier</td>
+            <td></td>
+        </tr>
     </tbody>
 </table>
 
@@ -1243,9 +1434,9 @@ This packet updates world properties.
     <tbody>
         <tr><td rowspan="4">45</td></tr>
         <tr>
-            <td>uint8</td>
+            <td>VLQ</td>
             <td>Number of pairs</td>
-            <td>(might be) The number of names/value pairs in this packet.</td>
+            <td>The number of names/value pairs in this packet.</td>
         </tr>
         <tr>
             <td>string</td>
@@ -1253,7 +1444,7 @@ This packet updates world properties.
             <td>The name of the property that is about to be set. Example: fuel.level</td>
         </tr>
         <tr>
-            <td>Variant Type 4 (sVLQ)</td>
+            <td>Variant</td>
             <td>Property value</td>
             <td>The new value of the before mentioned property. Example: 800 </td>
         </tr>
@@ -1274,7 +1465,12 @@ This packet is periodically sent to inform the other party that the other end is
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="1">46</td><td colspan=3 align='center'>TODO</td></tr>
+        <tr><td rowspan="2">46</td></tr>
+        <tr>
+            <td>VLQ</td>
+            <td>Current Step</td>
+            <td>The current heartbeat step.</td>
+        </tr>
     </tbody>
 </table>
 {% endcapture %}
