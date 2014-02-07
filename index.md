@@ -70,6 +70,14 @@ yet be complete.
             <td>Python</td>
             <td><a target="_blank" href="https://github.com/McSimp/StarDB/blob/master/LICENSE">MIT</a></td>
         </tr>
+        <tr> <!-- StarDB-for-Java -->
+            <td><a target="_blank" href="https://github.com/KrazyTheFox/StarDB-for-Java">KrazyTheFox/StarDB-for-Java</a></td>
+            <td>A port to Java of McSimp's Python library for manipulating Starbound database files.</td>
+            <td><span class="label label-success">Furious Koala</span></td>
+            <td><span class="label label-danger">Unstable</span></td>
+            <td>Java</td>
+            <td><a target="_blank" href="https://github.com/KrazyTheFox/StarDB-for-Java/blob/master/LICENSE">MIT</a></td>
+        </tr>
         <tr> <!-- StarNet -->
             <td><a target="_blank" href="https://github.com/SirCmpwn/StarNet">SirCmpwn/StarNet</a></td>
             <td>Starbound multiplayer network infrastructure.</td>
