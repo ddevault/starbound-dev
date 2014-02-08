@@ -72,9 +72,9 @@ yet be complete.
         </tr>
         <tr> <!-- StarDB-for-Java -->
             <td><a target="_blank" href="https://github.com/KrazyTheFox/StarDB-for-Java">KrazyTheFox/StarDB-for-Java</a></td>
-            <td>A Java port StarDB.</td>
+            <td>A Java port of StarDB.</td>
             <td><span class="label label-success">Furious Koala</span></td>
-            <td><span class="label label-danger">Unstable</span></td>
+            <td><span class="label label-danger">Stable</span></td>
             <td>Java</td>
             <td><a target="_blank" href="https://github.com/KrazyTheFox/StarDB-for-Java/blob/master/LICENSE">MIT</a></td>
         </tr>
