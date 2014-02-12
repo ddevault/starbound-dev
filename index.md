@@ -55,7 +55,7 @@ yet be complete.
             <td><a target="_blank" href="https://github.com/blixt/py-starbound/blob/master/LICENSE">MIT</a></td>
         </tr>
         <tr> <!-- starbounded -->
-            <td><a target="_blank" href="https://github.com/blixt/starbounded">StarboundEd</a></td>
+            <td><a target="_blank" href="https://github.com/blixt/starbounded">blixt/StarboundEd</a></td>
             <td>Web app for loading and display worlds</td>
             <td><span class="label label-success">Furious Koala</span></td>
             <td><span class="label label-danger">Unstable</span></td>
