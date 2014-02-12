@@ -54,6 +54,14 @@ yet be complete.
             <td>Python</td>
             <td><a target="_blank" href="https://github.com/blixt/py-starbound/blob/master/LICENSE">MIT</a></td>
         </tr>
+        <tr> <!-- starbounded -->
+            <td><a target="_blank" href="https://github.com/blixt/starbounded">StarboundEd</a></td>
+            <td>Web app for loading and display worlds</td>
+            <td><span class="label label-success">Furious Koala</span></td>
+            <td><span class="label label-danger">Unstable</span></td>
+            <td>Python</td>
+            <td><a target="_blank" href="https://github.com/blixt/py-starbound/blob/master/LICENSE">MIT</a></td>
+        </tr>
         <tr> <!-- starbound-research -->
             <td><a target="_blank" href="https://github.com/McSimp/starbound-research">McSimp/starbound-research</a></td>
             <td>Scripts for reading various starbound data files in 010 Editor</td>
