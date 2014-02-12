@@ -62,6 +62,7 @@ while (rounds > 0)
 
 return hash
 ```
+Please note that for `0 < rounds < 100` the client will drop its connection, for `rounds = 0` it will send an empty hash however.
 
 {% include connect-packet-header.html name="Connection Response" id="1" direction="server-to-client" %}
 Assuming all previous packets have been sent, the client will receive a connection response. 
