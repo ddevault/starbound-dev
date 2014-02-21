@@ -86,7 +86,7 @@ This packet tells the client whether their connection attempt is successful or i
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">1</td></tr>
+        <tr><td rowspan="18">1</td></tr>
         <tr>
             <td>bool</td>
             <td>Success</td>
@@ -101,6 +101,76 @@ This packet tells the client whether their connection attempt is successful or i
             <td>string</td>
             <td>Rejection reason</td>
             <td>A string signifying why the user was rejected. This will be present even if the connection was successful, but will simply have a length prefix of 0.</td>
+        </tr>
+        <tr>
+            <td>bool</td>
+            <td>Celestial Info Exists</td>
+            <td>Determines whether the following celestial information exists.</td>
+        </tr>
+        <tr>
+            <td>int32</td>
+            <td>Orbital Levels</td>
+            <td>The maximum number of orbital levels.</td>
+        </tr>
+        <tr>
+            <td>int32</td>
+            <td>Chunk Size?</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>int32</td>
+            <td>XY Coordinate Min</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>int32</td>
+            <td>XY Coordinate Max</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>int32</td>
+            <td>Z Coordinate Min</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>int32</td>
+            <td>Z Coordinate Max</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>VLQ</td>
+            <td>Number of Sectors</td>
+            <td>The number of sectors in the following list.</td>
+        </tr>
+        <tr>
+            <td>string</td>
+            <td>Sector Id</td>
+            <td>The sector id used to identify coordinates. Example: alpha</td>
+        </tr>
+        <tr>
+            <td>string</td>
+            <td>Sector Name</td>
+            <td>The sector name as it appears in the navigation pane? Example: Alpha Sector</td>
+        </tr>
+        <tr>
+            <td>uint64</td>
+            <td>Sector Seed</td>
+            <td>The sector seed used to generate the world.</td>
+        </tr>
+        <tr>
+            <td>string</td>
+            <td>Sector Prefix</td>
+            <td>The sector prefix as it appears in names. Example: Alpha</td>
+        </tr>
+        <tr>
+            <td>Variant</td>
+            <td>Parameters</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Variant</td>
+            <td>Sector Config</td>
+            <td>The sector config variant from celestial.config.</td>
         </tr>
     </tbody>
 </table>
@@ -227,7 +297,26 @@ This packet is sent from the server to update the current time.
     </tbody>
 </table>
 
-{% include packet-header.html name="Client Connect" id="6" direction="client-to-server" %}
+
+{% include packet-header.html name="Celestial Response" id="6" direction="server-to-client" %}
+
+This packet has yet to be fully understood.
+
+<table class="table table-bordered packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="1">6</td><td colspan=3 align='center'>TODO</td></tr>
+    </tbody>
+</table>
+
+{% include packet-header.html name="Client Connect" id="7" direction="client-to-server" %}
 
 This packet is sent in the handshake process immediately after the [Protocol Version](#protocol-version). It contains all relevant data about the connecting player.
 
@@ -285,7 +374,7 @@ This packet is sent in the handshake process immediately after the [Protocol Ver
     </tbody>
 </table>
 
-{% include packet-header.html name="Client Disconnect" id="7" direction="client-to-server" %}
+{% include packet-header.html name="Client Disconnect" id="8" direction="client-to-server" %}
 
 This packet is sent when the client disconnects.
 
@@ -308,7 +397,7 @@ This packet is sent when the client disconnects.
     </tbody>
 </table>
 
-{% include packet-header.html name="Handshake Response" id="8" direction="client-to-server" %}
+{% include packet-header.html name="Handshake Response" id="9" direction="client-to-server" %}
 
 This packet is the response to the [Handshake Challenge](#handshake-challenge).
 
@@ -336,7 +425,7 @@ This packet is the response to the [Handshake Challenge](#handshake-challenge).
     </tbody>
 </table>
 
-{% include packet-header.html name="Warp Command" id="9" direction="bidirectional" %}
+{% include packet-header.html name="Warp Command" id="10" direction="bidirectional" %}
 
 This packet is sent when the player warps/is warped to a planet or ship.
 
@@ -402,7 +491,7 @@ This packet is sent when the player warps/is warped to a planet or ship.
     </tbody>
 </table>
 
-{% include packet-header.html name="Chat Sent" id="10" direction="client-to-server" %}
+{% include packet-header.html name="Chat Sent" id="11" direction="client-to-server" %}
 
 This packet is sent from the client whenever a message is sent in the chat window.
 
@@ -430,7 +519,26 @@ This packet is sent from the client whenever a message is sent in the chat windo
     </tbody>
 </table>
 
-{% include packet-header.html name="Client Context Update" id="11" direction="bidirectional" %}
+
+{% include packet-header.html name="Celestial Request" id="12" direction="client-to-server" %}
+
+This packet has yet to be fully understood.
+
+<table class="table table-bordered packet">
+    <thead>
+        <tr>
+            <th>Packet ID</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td rowspan="1">23</td><td colspan=3 align='center'>TODO</td></tr>
+    </tbody>
+</table>
+
+{% include packet-header.html name="Client Context Update" id="13" direction="bidirectional" %}
 
 This packet has yet to be fully understood.
 
@@ -453,7 +561,7 @@ This packet has yet to be fully understood.
     </tbody>
 </table>
 
-{% include packet-header.html name="World Start" id="12" direction="server-to-client" %}
+{% include packet-header.html name="World Start" id="14" direction="server-to-client" %}
 
 This packet is sent to the client when a world thread has been started on the server.
 
@@ -516,7 +624,7 @@ This packet is sent to the client when a world thread has been started on the se
     </tbody>
 </table>
 
-{% include packet-header.html name="World Stop" id="13" direction="server-to-client" %}
+{% include packet-header.html name="World Stop" id="15" direction="server-to-client" %}
 
 Called when a world thread is stopped.
 
@@ -539,7 +647,7 @@ Called when a world thread is stopped.
     </tbody>
 </table>
 
-{% include packet-header.html name="Tile Array Update" id="14" direction="server-to-client"%}
+{% include packet-header.html name="Tile Array Update" id="16" direction="server-to-client"%}
 
 Called when an array of tiles has its properties updated.
 
@@ -582,7 +690,7 @@ Called when an array of tiles has its properties updated.
     </tbody>
 </table>
 
-{% include packet-header.html name="Tile Update" id="15" direction="server-to-client" %}
+{% include packet-header.html name="Tile Update" id="17" direction="server-to-client" %}
 
 This packet is called when a tile is updated.
 
@@ -615,7 +723,7 @@ This packet is called when a tile is updated.
     </tbody>
 </table>
 
-{% include packet-header.html name="Tile Liquid Update" id="16" direction="server-to-client" %}
+{% include packet-header.html name="Tile Liquid Update" id="18" direction="server-to-client" %}
 
 This packet is sent when the liquid on a tile has changed position.
 
@@ -653,7 +761,7 @@ This packet is sent when the liquid on a tile has changed position.
     </tbody>
 </table>
 
-{% include packet-header.html name="Tile Damage Update" id="17" direction="server-to-client" %}
+{% include packet-header.html name="Tile Damage Update" id="19" direction="server-to-client" %}
 
 This packet is sent when a tile is damaged.
 
@@ -711,7 +819,7 @@ This packet is sent when a tile is damaged.
     </tbody>
 </table>
 
-{% include packet-header.html name="Tile Modification Failure" id="18" direction="server-to-client" %}
+{% include packet-header.html name="Tile Modification Failure" id="20" direction="server-to-client" %}
 
 This packet is sent when a tile list cannot successfully be modified.
 
@@ -729,7 +837,7 @@ This packet is sent when a tile list cannot successfully be modified.
     </tbody>
 </table>
 
-{% include packet-header.html name="Give Item" id="19" direction="server-to-client" %}
+{% include packet-header.html name="Give Item" id="21" direction="server-to-client" %}
 
 This packet attempts to give an item to a player. If the player's inventory is full, it will drop on the ground next to them.
 
@@ -762,7 +870,7 @@ This packet attempts to give an item to a player. If the player's inventory is f
     </tbody>
 </table>
 
-{% include packet-header.html name="Swap in Container Result" id="20" direction="server-to-client" %}
+{% include packet-header.html name="Swap in Container Result" id="22" direction="server-to-client" %}
 
 This packet is sent whenever two items are swapped in an open container.
 
@@ -780,7 +888,7 @@ This packet is sent whenever two items are swapped in an open container.
     </tbody>
 </table>
 
-{% include packet-header.html name="Environment Update" id="21" direction="server-to-client" direction="server-to-client" %}
+{% include packet-header.html name="Environment Update" id="23" direction="server-to-client" direction="server-to-client" %}
 
 This packet is sent on an environment update.
 
@@ -798,7 +906,7 @@ This packet is sent on an environment update.
     </tbody>
 </table>
 
-{% include packet-header.html name="Entity Interact Result" id="22" direction="server-to-client" %}
+{% include packet-header.html name="Entity Interact Result" id="24" direction="server-to-client" %}
 
 This packet contains the results of an entity interaction.
 
@@ -831,7 +939,7 @@ This packet contains the results of an entity interaction.
     </tbody>
 </table>
 
-{% include packet-header.html name="Modify Tile List" id="23" direction="client-to-server" %}
+{% include packet-header.html name="Modify Tile List" id="25" direction="client-to-server" %}
 
 This packet contains a list of tiles and modifications to them.
 
@@ -849,7 +957,7 @@ This packet contains a list of tiles and modifications to them.
     </tbody>
 </table>
 
-{% include packet-header.html name="Damage Tile" id="24" direction="client-to-server" %}
+{% include packet-header.html name="Damage Tile" id="26" direction="client-to-server" %}
 
 This packet updates a tile's damage
 
@@ -867,7 +975,7 @@ This packet updates a tile's damage
     </tbody>
 </table>
 
-{% include packet-header.html name="Damage Tile Group" id="25" direction="client-to-server" %}
+{% include packet-header.html name="Damage Tile Group" id="27" direction="client-to-server" %}
 
 This packet updates an entire tile group's damage.
 
@@ -885,7 +993,7 @@ This packet updates an entire tile group's damage.
     </tbody>
 </table>
 
-{% include packet-header.html name="Request Drop" id="26" direction="client-to-server" %}
+{% include packet-header.html name="Request Drop" id="28" direction="client-to-server" %}
 
 This packet requests an item drop from the ground.
 
@@ -908,7 +1016,7 @@ This packet requests an item drop from the ground.
     </tbody>
 </table>
 
-{% include packet-header.html name="Spawn Entity" id="27" direction="client-to-server" %}
+{% include packet-header.html name="Spawn Entity" id="29" direction="client-to-server" %}
 
 This packet requests that the server spawn an entity.
 
@@ -925,7 +1033,7 @@ This packet requests that the server spawn an entity.
         <tr><td rowspan="1">27</td><td colspan=3 align='center'>TODO</td></tr>
 </table>
 
-{% include packet-header.html name="Entity Interact" id="28" direction="client-to-server" %}
+{% include packet-header.html name="Entity Interact" id="30" direction="client-to-server" %}
 
 This packet is sent when a client attempts to interact with an entity.
 
@@ -943,7 +1051,7 @@ This packet is sent when a client attempts to interact with an entity.
     </tbody>
 </table>
 
-{% include packet-header.html name="Connect Wire" id="29" %}
+{% include packet-header.html name="Connect Wire" id="31" %}
 
 This packet connects a wire.
 
@@ -961,7 +1069,7 @@ This packet connects a wire.
     </tbody>
 </table>
 
-{% include packet-header.html name="Disconnect All Wires" id="30" %}
+{% include packet-header.html name="Disconnect All Wires" id="32" %}
 
 This packet disconnects all wires.
 
@@ -979,7 +1087,7 @@ This packet disconnects all wires.
     </tbody>
 </table>
 
-{% include packet-header.html name="Open Container" id="31" direction="client-to-server" %}
+{% include packet-header.html name="Open Container" id="33" direction="client-to-server" %}
 
 This packet opens a container.
 
@@ -1002,7 +1110,7 @@ This packet opens a container.
     </tbody>
 </table>
 
-{% include packet-header.html name="Close Container" id="32" direction="client-to-server" %}
+{% include packet-header.html name="Close Container" id="34" direction="client-to-server" %}
 
 This packet closes a container.
 
@@ -1025,7 +1133,7 @@ This packet closes a container.
     </tbody>
 </table>
 
-{% include packet-header.html name="Swap in Container" id="33" direction="client-to-server" %}
+{% include packet-header.html name="Swap in Container" id="35" direction="client-to-server" %}
 
 This packet swaps an item in a container.
 
@@ -1043,7 +1151,7 @@ This packet swaps an item in a container.
     </tbody>
 </table>
 
-{% include packet-header.html name="Item Apply in Container" id="34" direction="client-to-server" %}
+{% include packet-header.html name="Item Apply in Container" id="36" direction="client-to-server" %}
 
 This packet applies an item to another item in a container.
 
@@ -1061,7 +1169,7 @@ This packet applies an item to another item in a container.
     </tbody>
 </table>
 
-{% include packet-header.html name="Start Crafting in Container" id="35" direction="client-to-server" %}
+{% include packet-header.html name="Start Crafting in Container" id="37" direction="client-to-server" %}
 
 This packet initiates crafting on an item in a container (Used in pixel compressors and the like?)
 
@@ -1084,7 +1192,7 @@ This packet initiates crafting on an item in a container (Used in pixel compress
     </tbody>
 </table>
 
-{% include packet-header.html name="Stop Crafting in Container" id="36" direction="client-to-server" %}
+{% include packet-header.html name="Stop Crafting in Container" id="38" direction="client-to-server" %}
 
 This packet stops crafting on an item in a container
 
@@ -1107,7 +1215,7 @@ This packet stops crafting on an item in a container
     </tbody>
 </table>
 
-{% include packet-header.html name="Burn Container" id="37" direction="client-to-server" %}
+{% include packet-header.html name="Burn Container" id="39" direction="client-to-server" %}
 
 This packet burns a container.
 
@@ -1130,7 +1238,7 @@ This packet burns a container.
     </tbody>
 </table>
 
-{% include packet-header.html name="Clear Container" id="38" direction="client-to-server" %}
+{% include packet-header.html name="Clear Container" id="40" direction="client-to-server" %}
 
 This packet clears a container.
 
@@ -1153,7 +1261,7 @@ This packet clears a container.
     </tbody>
 </table>
 
-{% include packet-header.html name="World Client State Update" id="39" direction="client-to-server" %}
+{% include packet-header.html name="World Client State Update" id="41" direction="client-to-server" %}
 
 This packet contains a world client state update
 
@@ -1176,7 +1284,7 @@ This packet contains a world client state update
     </tbody>
 </table>
 
-{% include packet-header.html name="Entity Create" id="40" direction="bidirectional" %}
+{% include packet-header.html name="Entity Create" id="42" direction="bidirectional" %}
 
 This packet creates an entity.
 
@@ -1209,7 +1317,7 @@ This packet creates an entity.
     </tbody>
 </table>
 
-{% include packet-header.html name="Entity Update" id="41" direction="bidirectional" %}
+{% include packet-header.html name="Entity Update" id="43" direction="bidirectional" %}
 
 This packet updates an entity's properties.
 
@@ -1237,7 +1345,7 @@ This packet updates an entity's properties.
     </tbody>
 </table>
 
-{% include packet-header.html name="Entity Destroy" id="42" direction="server-to-client" %}
+{% include packet-header.html name="Entity Destroy" id="44" direction="server-to-client" %}
 
 This packet destroys an entity.
 
@@ -1265,7 +1373,7 @@ This packet destroys an entity.
     </tbody>
 </table>
 
-{% include packet-header.html name="Damage Notification" id="43" direction="bidirectional" %}
+{% include packet-header.html name="Damage Notification" id="45" direction="bidirectional" %}
 
 This packet notifies the receiver of damage received.
 
@@ -1380,7 +1488,7 @@ This packet notifies the receiver of damage received.
     </tbody>
 </table>
 
-{% include packet-header.html name="Status Effect Request" id="44" direction="client-to-server" %}
+{% include packet-header.html name="Status Effect Request" id="46" direction="client-to-server" %}
 
 This packet requests a status effect from the server.
 
@@ -1418,7 +1526,7 @@ This packet requests a status effect from the server.
     </tbody>
 </table>
 
-{% include packet-header.html name="Update World Properties" id="45" direction="server-to-client" %}
+{% include packet-header.html name="Update World Properties" id="47" direction="server-to-client" %}
 
 This packet updates world properties.
 
@@ -1451,7 +1559,7 @@ This packet updates world properties.
     </tbody>
 </table>
 
-{% include packet-header.html name="Heartbeat" id="46" direction="bidirectional" %}
+{% include packet-header.html name="Heartbeat" id="48" direction="bidirectional" %}
 
 This packet is periodically sent to inform the other party that the other end is still connected.
 
