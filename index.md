@@ -41,7 +41,7 @@ yet be complete.
         <tr> <!-- MultiBound -->
             <td><a target="_blank" href="https://github.com/ROFLCopter64bit/MultiBound">ROFLCopter64bit/MultiBound</a></td>
             <td>Full recode of a server.</td>
-            <td><span class="label label-success">Furious Koala</span></td>
+            <td><span class="label label-danger">Furious Koala</span></td>
             <td><span class="label label-danger">Unstable</span></td>
             <td>VB.NET</td>
             <td><a target="_blank" href="https://github.com/ROFLCopter64bit/MultiBound/blob/master/LICENSE">GPL v2</a></td>
@@ -49,7 +49,7 @@ yet be complete.
         <tr> <!-- py-starbound -->
             <td><a target="_blank" href="https://github.com/blixt/py-starbound">blixt/py-starbound</a></td>
             <td>Parser for Starbound's file formats (.pak, .player, .world, …)</td>
-            <td><span class="label label-success">Furious Koala</span></td>
+            <td><span class="label label-success">Enraged Koala</span></td>
             <td><span class="label label-success">Stable</span></td>
             <td>Python</td>
             <td><a target="_blank" href="https://github.com/blixt/py-starbound/blob/master/LICENSE">MIT</a></td>
@@ -57,7 +57,7 @@ yet be complete.
         <tr> <!-- starbounded -->
             <td><a target="_blank" href="https://github.com/blixt/starbounded">blixt/StarboundEd</a></td>
             <td>Web app for loading and display worlds</td>
-            <td><span class="label label-success">Furious Koala</span></td>
+            <td><span class="label label-success">Enraged Koala</span></td>
             <td><span class="label label-danger">Unstable</span></td>
             <td>JavaScript</td>
             <td><a target="_blank" href="https://github.com/blixt/starbounded/blob/master/LICENSE">MIT</a></td>
@@ -65,7 +65,7 @@ yet be complete.
         <tr> <!-- starbound-research -->
             <td><a target="_blank" href="https://github.com/McSimp/starbound-research">McSimp/starbound-research</a></td>
             <td>Scripts for reading various starbound data files in 010 Editor</td>
-            <td><span class="label label-success">Furious Koala</span></td>
+            <td><span class="label label-danger">Furious Koala</span></td>
             <td><span class="label label-danger">Unstable</span></td>
             <td>010 Editor</td>
             <td><a target="_blank" href="https://github.com/McSimp/starbound-research/blob/master/LICENSE">MIT</a></td>
@@ -73,7 +73,7 @@ yet be complete.
         <tr> <!-- StarDB -->
             <td><a target="_blank" href="https://github.com/McSimp/StarDB">McSimp/StarDB</a></td>
             <td>A Python library for manipulating Starbound database files.</td>
-            <td><span class="label label-success">Furious Koala</span></td>
+            <td><span class="label label-danger">Furious Koala</span></td>
             <td><span class="label label-danger">Unstable</span></td>
             <td>Python</td>
             <td><a target="_blank" href="https://github.com/McSimp/StarDB/blob/master/LICENSE">MIT</a></td>
@@ -81,7 +81,7 @@ yet be complete.
         <tr> <!-- StarDB-for-Java -->
             <td><a target="_blank" href="https://github.com/KrazyTheFox/StarDB-for-Java">KrazyTheFox/StarDB-for-Java</a></td>
             <td>A Java port of StarDB.</td>
-            <td><span class="label label-success">Furious Koala</span></td>
+            <td><span class="label label-success">Enraged Koala</span></td>
             <td><span class="label label-success">Stable</span></td>
             <td>Java</td>
             <td><a target="_blank" href="https://github.com/KrazyTheFox/StarDB-for-Java/blob/master/LICENSE">MIT</a></td>
@@ -89,7 +89,7 @@ yet be complete.
         <tr> <!-- StarNet -->
             <td><a target="_blank" href="https://github.com/SirCmpwn/StarNet">SirCmpwn/StarNet</a></td>
             <td>Starbound multiplayer network infrastructure.</td>
-            <td><span class="label label-success">Furious Koala</span></td>
+            <td><span class="label label-danger">Furious Koala</span></td>
             <td><span class="label label-danger">Unstable</span></td>
             <td>C#</td>
             <td><a target="_blank" href="https://github.com/SirCmpwn/StarNet/blob/master/LICENSE">MIT</a></td>
@@ -97,7 +97,7 @@ yet be complete.
         <tr> <!-- StarryboundServer -->
             <td><a target="_blank" href="https://github.com/AvilanceLtd/StarryboundServer/">AvilanceLtd/StarryboundServer</a></td>
             <td>Starrybound Proxy Wrapper for Starbound Servers.</td>
-            <td><span class="label label-success">Furious Koala</span></td>
+            <td><span class="label label-success">Enraged Koala</span></td>
             <td><span class="label label-danger">Unstable</span></td>
             <td>C#</td>
             <td><a target="_blank" href="https://github.com/AvilanceLtd/StarryboundServer/blob/master/LICENSE">GPLv3</a></td>
@@ -105,7 +105,7 @@ yet be complete.
         <tr> <!-- StarryPy -->
             <td><a target="_blank" href="https://github.com/CarrotsAreMediocre/StarryPy">CarrotsAreMediocre/StarryPy</a></td>
             <td>Plugin-driven Starbound proxy server built using Twisted.</td>
-            <td><span class="label label-success">Furious Koala</span></td>
+            <td><span class="label label-success">Enraged Koala</span></td>
             <td><span class="label label-success">Stable</span></td>
             <td>Python</td>
             <td><a target="_blank" href="https://github.com/CarrotsAreMediocre/StarryPy/blob/master/LICENSE">WTFPL</a></td>
