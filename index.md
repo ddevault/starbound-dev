@@ -41,9 +41,9 @@ yet be complete.
         <tr> <!-- MultiBound -->
             <td><a target="_blank" href="https://github.com/ROFLCopter64bit/MultiBound">ROFLCopter64bit/MultiBound</a></td>
             <td>Full recode of a server.</td>
-            <td><span class="label label-danger">Furious Koala</span></td>
+            <td><span class="label label-success">Enraged Koala</span></td>
             <td><span class="label label-danger">Unstable</span></td>
-            <td>VB.NET</td>
+            <td>C#</td>
             <td><a target="_blank" href="https://github.com/ROFLCopter64bit/MultiBound/blob/master/LICENSE">GPL v2</a></td>
         </tr>
         <tr> <!-- py-starbound -->
