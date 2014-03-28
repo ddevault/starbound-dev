@@ -330,7 +330,7 @@ This packet is sent in the handshake process immediately after the [Protocol Ver
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="9">6</td></tr>
+        <tr><td rowspan="9">7</td></tr>
         <tr>
             <td>uint8[]</td>
             <td>Asset Digest</td>
@@ -388,7 +388,7 @@ This packet is sent when the client disconnects.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="2">7</td></tr>
+        <tr><td rowspan="2">8</td></tr>
         <tr>
             <td>uint8</td>
             <td>Unknown</td>
@@ -411,7 +411,7 @@ This packet is the response to the [Handshake Challenge](#handshake-challenge).
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="3">8</td></tr>
+        <tr><td rowspan="3">9</td></tr>
         <tr>
             <td>string</td>
             <td>Claim Response</td>
@@ -439,7 +439,7 @@ This packet is sent when the player warps/is warped to a planet or ship.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">9</td></tr>
+        <tr><td rowspan="4">10</td></tr>
         <tr>
             <td>uint32</td>
             <td>Warp type</td>
@@ -505,7 +505,7 @@ This packet is sent from the client whenever a message is sent in the chat windo
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="3">10</td></tr>
+        <tr><td rowspan="3">11</td></tr>
         <tr>
             <td>string</td>
             <td>Message</td>
@@ -534,7 +534,7 @@ This packet has yet to be fully understood.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="1">23</td><td colspan=3 align='center'>TODO</td></tr>
+        <tr><td rowspan="1">12</td><td colspan=3 align='center'>TODO</td></tr>
     </tbody>
 </table>
 
@@ -552,7 +552,7 @@ This packet has yet to be fully understood.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="2">11</td></tr>
+        <tr><td rowspan="2">13</td></tr>
         <tr>
             <td>uint8[]</td>
             <td>Client Context Data</td>
@@ -575,7 +575,7 @@ This packet is sent to the client when a world thread has been started on the se
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="10">12</td></tr>
+        <tr><td rowspan="10">14</td></tr>
         <tr>
             <td>Variant</td>
             <td>Planet</td>
@@ -638,7 +638,7 @@ Called when a world thread is stopped.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="2">13</td></tr>
+        <tr><td rowspan="2">15</td></tr>
         <tr>
             <td>string</td>
             <td>Status</td>
@@ -661,7 +661,7 @@ Called when an array of tiles has its properties updated.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="6">14</td></tr>
+        <tr><td rowspan="6">16</td></tr>
         <tr>
             <td>sVLQ</td>
             <td>Tile X</td>
@@ -704,7 +704,7 @@ This packet is called when a tile is updated.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">15</td></tr>
+        <tr><td rowspan="4">17</td></tr>
         <tr>
             <td>sVLQ</td>
             <td>Tile X</td>
@@ -737,7 +737,7 @@ This packet is sent when the liquid on a tile has changed position.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="5">16</td></tr>
+        <tr><td rowspan="5">18</td></tr>
         <tr>
             <td>sVLQ</td>
             <td>Tile X</td>
@@ -775,7 +775,7 @@ This packet is sent when a tile is damaged.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="9">17</td></tr>
+        <tr><td rowspan="9">19</td></tr>
         <tr>
             <td>int32</td>
             <td>Tile X</td>
@@ -833,7 +833,7 @@ This packet is sent when a tile list cannot successfully be modified.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="1">18</td><td colspan=3 align='center'>TODO</td></tr>
+        <tr><td rowspan="1">20</td><td colspan=3 align='center'>TODO</td></tr>
     </tbody>
 </table>
 
@@ -851,7 +851,7 @@ This packet attempts to give an item to a player. If the player's inventory is f
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">19</td></tr>
+        <tr><td rowspan="4">21</td></tr>
         <tr>
             <td>string</td>
             <td>Item name</td>
@@ -884,7 +884,7 @@ This packet is sent whenever two items are swapped in an open container.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="1">20</td><td colspan=3 align='center'>TODO</td></tr>
+        <tr><td rowspan="1">22</td><td colspan=3 align='center'>TODO</td></tr>
     </tbody>
 </table>
 
@@ -902,7 +902,7 @@ This packet is sent on an environment update.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="1">21</td><td colspan=3 align='center'>TODO</td></tr>
+        <tr><td rowspan="1">23</td><td colspan=3 align='center'>TODO</td></tr>
     </tbody>
 </table>
 
@@ -920,7 +920,7 @@ This packet contains the results of an entity interaction.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">22</td></tr>
+        <tr><td rowspan="4">24</td></tr>
         <tr>
             <td>uint32</td>
             <td>Client ID</td>
@@ -953,7 +953,7 @@ This packet contains a list of tiles and modifications to them.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="1">23</td><td colspan=3 align='center'>TODO</td></tr>
+        <tr><td rowspan="1">25</td><td colspan=3 align='center'>TODO</td></tr>
     </tbody>
 </table>
 
@@ -971,7 +971,7 @@ This packet updates a tile's damage
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="1">24</td><td colspan=3 align='center'>TODO</td></tr>
+        <tr><td rowspan="1">26</td><td colspan=3 align='center'>TODO</td></tr>
     </tbody>
 </table>
 
@@ -989,7 +989,7 @@ This packet updates an entire tile group's damage.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="1">25</td><td colspan=3 align='center'>TODO</td></tr>
+        <tr><td rowspan="1">27</td><td colspan=3 align='center'>TODO</td></tr>
     </tbody>
 </table>
 
@@ -1007,7 +1007,7 @@ This packet requests an item drop from the ground.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="2">26</td></tr>
+        <tr><td rowspan="2">28</td></tr>
         <tr>
             <td>sVLQ</td>
             <td>Entity ID</td>
@@ -1030,7 +1030,7 @@ This packet requests that the server spawn an entity.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="1">27</td><td colspan=3 align='center'>TODO</td></tr>
+        <tr><td rowspan="1">29</td><td colspan=3 align='center'>TODO</td></tr>
 </table>
 
 {% include packet-header.html name="Entity Interact" id="30" direction="client-to-server" %}
@@ -1047,7 +1047,7 @@ This packet is sent when a client attempts to interact with an entity.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="1">28</td><td colspan=3 align='center'>TODO</td></tr>
+        <tr><td rowspan="1">30</td><td colspan=3 align='center'>TODO</td></tr>
     </tbody>
 </table>
 
@@ -1065,7 +1065,7 @@ This packet connects a wire.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="1">29</td><td colspan=3 align='center'>TODO</td></tr>
+        <tr><td rowspan="1">31</td><td colspan=3 align='center'>TODO</td></tr>
     </tbody>
 </table>
 
@@ -1083,7 +1083,7 @@ This packet disconnects all wires.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="1">30</td><td colspan=3 align='center'>TODO</td></tr>
+        <tr><td rowspan="1">32</td><td colspan=3 align='center'>TODO</td></tr>
     </tbody>
 </table>
 
@@ -1101,7 +1101,7 @@ This packet opens a container.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="2">31</td></tr>
+        <tr><td rowspan="2">33</td></tr>
         <tr>
             <td>sVLQ</td>
             <td>Entity ID</td>
@@ -1124,7 +1124,7 @@ This packet closes a container.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="2">32</td></tr>
+        <tr><td rowspan="2">34</td></tr>
         <tr>
             <td>sVLQ</td>
             <td>Entity ID</td>
@@ -1147,7 +1147,7 @@ This packet swaps an item in a container.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="1">33</td><td colspan=3 align='center'>TODO</td></tr>
+        <tr><td rowspan="1">35</td><td colspan=3 align='center'>TODO</td></tr>
     </tbody>
 </table>
 
@@ -1165,7 +1165,7 @@ This packet applies an item to another item in a container.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="1">34</td><td colspan=3 align='center'>TODO</td></tr>
+        <tr><td rowspan="1">36</td><td colspan=3 align='center'>TODO</td></tr>
     </tbody>
 </table>
 
@@ -1183,7 +1183,7 @@ This packet initiates crafting on an item in a container (Used in pixel compress
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="2">35</td></tr>
+        <tr><td rowspan="2">37</td></tr>
         <tr>
             <td>sVLQ</td>
             <td>Entity ID</td>
@@ -1206,7 +1206,7 @@ This packet stops crafting on an item in a container
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="2">36</td></tr>
+        <tr><td rowspan="2">38</td></tr>
         <tr>
             <td>sVLQ</td>
             <td>Entity ID</td>
@@ -1229,7 +1229,7 @@ This packet burns a container.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="2">37</td></tr>
+        <tr><td rowspan="2">39</td></tr>
         <tr>
             <td>sVLQ</td>
             <td>Entity ID</td>
@@ -1252,7 +1252,7 @@ This packet clears a container.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="2">38</td></tr>
+        <tr><td rowspan="2">40</td></tr>
         <tr>
             <td>sVLQ</td>
             <td>Entity ID</td>
@@ -1275,7 +1275,7 @@ This packet contains a world client state update
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="2">39</td></tr>
+        <tr><td rowspan="2">41</td></tr>
         <tr>
             <td>uint8[]</td>
             <td>Delta</td>
@@ -1298,7 +1298,7 @@ This packet creates an entity.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">40</td></tr>
+        <tr><td rowspan="4">42</td></tr>
         <tr>
             <td>uint8</td>
             <td>Entity Type</td>
@@ -1331,7 +1331,7 @@ This packet updates an entity's properties.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="3">41</td></tr>
+        <tr><td rowspan="3">43</td></tr>
         <tr>
             <td>sVLQ</td>
             <td>Entity ID</td>
@@ -1359,7 +1359,7 @@ This packet destroys an entity.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="3">42</td></tr>
+        <tr><td rowspan="3">44</td></tr>
         <tr>
             <td>sVLQ</td>
             <td>Entity ID</td>
@@ -1387,7 +1387,7 @@ This packet notifies the receiver of damage received.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="10">43</td></tr>
+        <tr><td rowspan="10">45</td></tr>
         <tr>
             <td>sVLQ</td>
             <td>Causing Entity ID</td>
@@ -1502,7 +1502,7 @@ This packet requests a status effect from the server.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="5">44</td></tr>
+        <tr><td rowspan="5">46</td></tr>
         <tr>
             <td>sVLQ</td>
             <td>Unknown</td>
@@ -1540,7 +1540,7 @@ This packet updates world properties.
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="4">45</td></tr>
+        <tr><td rowspan="4">47</td></tr>
         <tr>
             <td>VLQ</td>
             <td>Number of pairs</td>
@@ -1573,7 +1573,7 @@ This packet is periodically sent to inform the other party that the other end is
         </tr>
     </thead>
     <tbody>
-        <tr><td rowspan="2">46</td></tr>
+        <tr><td rowspan="2">48</td></tr>
         <tr>
             <td>VLQ</td>
             <td>Current Step</td>
