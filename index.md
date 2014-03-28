@@ -110,5 +110,13 @@ yet be complete.
             <td>Python</td>
             <td><a target="_blank" href="https://github.com/CarrotsAreMediocre/StarryPy/blob/master/LICENSE">WTFPL</a></td>
         </tr>
+        <tr> <!-- SharpStar -->
+            <td><a target="_blank" href="https://github.com/Mitch528/SharpStar">Mitch528/SharpStar</a></td>
+            <td>Proxy server with support for C#, Python, Javascript, and Lua plugins</td>
+            <td><span class="label label-success">Enraged Koala</span></td>
+            <td><span class="label label-success">Stable</span></td>
+            <td>C#</td>
+            <td><a target="_blank" href="https://github.com/Mitch528/SharpStar/blob/master/LICENSE">GPLv3</a></td>
+        </tr>
     </tbody>
 </table>
