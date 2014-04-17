@@ -118,5 +118,13 @@ yet be complete.
             <td>C#</td>
             <td><a target="_blank" href="https://github.com/Mitch528/SharpStar/blob/master/LICENSE">GPLv3</a></td>
         </tr>
+        <tr> <!-- starcheat -->
+            <td><a target="_blank" href="https://github.com/wizzomafizzo/starcheat">wizzomafizzo/starcheat</a></td>
+            <td>Python modules for parsing/editing .player files and assets</td>
+            <td><span class="label label-success">Enraged Koala</span></td>
+            <td><span class="label label-success">Stable</span></td>
+            <td>Python</td>
+            <td><a target="_blank" href="https://github.com/wizzomafizzo/starcheat/blob/master/LICENSE">MIT</a></td>
+        </tr>
     </tbody>
 </table>
