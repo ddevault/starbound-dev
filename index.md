@@ -126,8 +126,8 @@ yet be complete.
             <td>Python</td>
             <td><a target="_blank" href="https://github.com/wizzomafizzo/starcheat/blob/master/LICENSE">MIT</a></td>
         </tr>
-                </tr>
-                <tr> <!-- starcheat -->
+        </tr>
+        <tr> <!-- StarNub -->
             <td><a target="_blank" href="https://github.com/StarNub/StarNub">StarNub/StarNub</a></td>
             <td>Proxy server with plugin framework & Starbound server managment.</td>
             <td><span class="label label-success">Enraged Koala</span></td>
