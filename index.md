@@ -129,7 +129,7 @@ yet be complete.
                 </tr>
                 <tr> <!-- starcheat -->
             <td><a target="_blank" href="https://github.com/StarNub/StarNub">StarNub/StarNub</a></td>
-            <td>Proxy server with plugin framework & Starbound server managment</td>
+            <td>Proxy server with plugin framework & Starbound server managment.</td>
             <td><span class="label label-success">Enraged Koala</span></td>
             <td><span class="label label-success">Stable</span></td>
             <td>Java</td>
