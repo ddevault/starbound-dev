@@ -135,6 +135,14 @@ yet be complete.
             <td>Java</td>
             <td><a target="_blank" href="https://github.com/StarNub/StarNub/blob/stable/LICENSE">MIT</a></td>
         </tr>
+         <tr> <!-- Star Sector -->
+            <td><a target="_blank" href="https://github.com/RyanPrintup/Star-Sector">RyanPrintup/Star-Sector</a></td>
+            <td>Server wrapper with admin management, user commands, and plugin API.</td>
+            <td><span class="label label-success">Enraged Koala</span></td>
+            <td><span class="label label-success">Unstable</span></td>
+            <td>Java</td>
+            <td><a target="_blank" href="https://github.com/RyanPrintup/Star-Sector/blob/master/LICENSE.md">MIT</a></td>
+        </tr>
 
     </tbody>
 </table>
