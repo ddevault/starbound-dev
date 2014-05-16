@@ -137,7 +137,7 @@ yet be complete.
         </tr>
          <tr> <!-- Star Sector -->
             <td><a target="_blank" href="https://github.com/RyanPrintup/Star-Sector">RyanPrintup/Star-Sector</a></td>
-            <td>Starbound server wrapper with admin management, user commands, and custom commands & plugins.</td>
+            <td>Server wrapper with admin management, user commands, and plugin API.</td>
             <td><span class="label label-success">Enraged Koala</span></td>
             <td><span class="label label-success">Unstable</span></td>
             <td>Java</td>
