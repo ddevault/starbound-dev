@@ -43,7 +43,7 @@ Example data for the handshake challenge packet:
 * Claim Message: '' 
 * Round Count: 5000
 
-{% include connect-packet-header.html name="Handshake Response" id="8" direction="client-to-server" %}
+{% include connect-packet-header.html name="Handshake Response" id="9" direction="client-to-server" %}
 The handshake response hash is generated using the SHA-256 algorithm, successively working on its own output. The format of the string to be hashed is the UTF-8 encoded string password+salt. 
 
 Pseudo-code follows for an example implementation.
