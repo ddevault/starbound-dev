@@ -43,6 +43,7 @@ yet be complete.
             <th>License</th>
         </tr>
     </thead>
+    <tbody>
 		<tr> <!-- MultiBound -->
             <td><a target="_blank" href="https://github.com/ROFLCopter64bit/MultiBound">ROFLCopter64bit/MultiBound</a></td>
             <td>Full recode of a server.</td>
@@ -91,7 +92,6 @@ yet be complete.
             <td>Java</td>
             <td><a target="_blank" href="https://github.com/RyanPrintup/Star-Sector/blob/master/LICENSE.md">MIT</a></td>
         </tr>
-    <tbody>
 	</tbody>
 </table>
 
@@ -107,6 +107,7 @@ yet be complete.
             <th>License</th>
         </tr>
     </thead>
+    <tbody>
 		<tr> <!-- py-starbound -->
             <td><a target="_blank" href="https://github.com/blixt/py-starbound">blixt/py-starbound</a></td>
             <td>Parser for Starbound's file formats (.pak, .player, .world, …)</td>
@@ -155,7 +156,6 @@ yet be complete.
             <td>Python</td>
             <td><a target="_blank" href="https://github.com/wizzomafizzo/starcheat/blob/master/LICENSE">MIT</a></td>
         </tr>
-    <tbody>
 	</tbody>
 </table>
 
