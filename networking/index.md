@@ -268,7 +268,7 @@ This packet is sent to a client with a chat message.
         </tr>
         <tr>
             <td>string</td>
-            <td>Name</td>
+            <td>Message</td>
             <td>The chat message.</td>
         </tr>
     </tbody>
