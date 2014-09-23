@@ -50,18 +50,22 @@ Pseudo-code follows for an example implementation.
 
 ```
 rounds = 5000
-account = "testing"
-challenge = "uAciRZkmwKUkek3krU+s2LTvPHE6v2P"
-hash = "test_password"
+salt = "uAciRZkmwKUkek3krU+s2LTvPHE6v2P"
+password = "swordfish"
 
-salt = account+challenge
+function handshake_response_hash(password, salt, rounds)
+    message = sha256(password)
 
-while (rounds > 0) 
-	hash = sha256(hash+salt)
-	rounds--
+    while rounds > 0:
+        message = sha256(message + salt)
+        rounds -= 1
 
-return hash
+    return base64_encode(message)
+end
+
+=> 'rZufCdBvMEGSNNloAzZ68h6gSe4KRfACKSYQnZ5638Q='
 ```
+Please note that for `0 < rounds < 100` the client will drop its connection, for `rounds = 0` it will send an empty hash however.
 
 {% include connect-packet-header.html name="Connection Response" id="1" direction="server-to-client" %}
 Assuming all previous packets have been sent, the client will receive a connection response. 
