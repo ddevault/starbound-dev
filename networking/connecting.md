@@ -29,10 +29,10 @@ This packet is sent by the server following a successful TCP handshake. The only
 
 After the client verifies the version, it sends a Client Connect packet.
 
-{% include connect-packet-header.html name="Client Connect" id="6" direction="client-to-server"%}
+{% include connect-packet-header.html name="Client Connect" id="7" direction="client-to-server"%}
 The client connect packet is by far the most complex packet in terms of the handshake process. It is far larger than any of the others and contains the player info and a full shipworld file. The structure of the file is plotted in the Data Structures page, and the format of the files themselves is covered in the [File Formats](/file_formats/) section.
 
-{% include connect-packet-header.html name="Handshake Challenge" id="03" direction="server-to-client" %}
+{% include connect-packet-header.html name="Handshake Challenge" id="3" direction="server-to-client" %}
 The handshake challenge provides a claim message (currently unused), salt, and round count for the player to hash a password against. The handshake response is the password hash using these parameters. Due to the nature of this packet and the handshake response it is not possible to emulate a client without implementing the two packets dynamically, at a bare minimum.
 
 The round count, in the current version, is set to 5000. Presumably this will be modifiable in the future, and indeed if you manually send the packets the client will respond with the correct hash. The salt is a randomly generated 32 character Base 64 string.
